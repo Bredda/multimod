@@ -1,0 +1,29 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/chat/completions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "gpt-4o-mini",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "What text is written in the image? Reply with the text only."
+          },
+          {
+            "type": "image_url",
+            "image_url": {
+              "url": "data:image/png;base64,<5796 chars, sha256:8385797b588b>"
+            }
+          }
+        ]
+      }
+    ],
+    "max_completion_tokens": 200
+  }
+}

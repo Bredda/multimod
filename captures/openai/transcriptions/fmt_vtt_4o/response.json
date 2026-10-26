@@ -1,0 +1,44 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:29 GMT",
+    "content-type": "application/json",
+    "content-length": "249",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "159",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-request-id": "req_88bc2e3517004973b9c64102f873a4f1",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=x95b7ZebCT9ekr9Tam3.jyZM1GbO9ELAflFGClXMQv4-1792744888.7666185-1.0.1.1-JY_fKxR59YzLuIO4oxYNzMVO6xDNAs7FZIcm5WI1jcyesCG.ZGoq0zpEDAU.CCkWbauTYARBimL8ZtW1uPWK4DGQrRUa20GuQsTFaYtPaHaoLTVrSNE2Mlsq4fuHvWNv; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:29 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "cf-ray": "a4ef7162c87813f4-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 453.5,
+    "total_ms": 453.7,
+    "chunks": 1,
+    "retries_429": 0
+  },
+  "bytes": 249,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "response_format 'vtt' is not compatible with model 'gpt-4o-transcribe-api-ev3'. Use 'json' or 'text' instead.",
+      "type": "invalid_request_error",
+      "param": "response_format",
+      "code": "unsupported_value"
+    }
+  }
+}

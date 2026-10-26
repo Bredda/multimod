@@ -1,0 +1,50 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:42:29 GMT",
+    "content-type": "application/json",
+    "content-length": "258",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef72dfbd08e74e-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "84",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-input-images": "50000",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-limit-tokens": "2000000",
+    "x-ratelimit-remaining-input-images": "49999",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-remaining-tokens": "1999214",
+    "x-ratelimit-reset-input-images": "1ms",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-ratelimit-reset-tokens": "23ms",
+    "x-request-id": "req_70644f7b8bc945e384501b064587b360",
+    "set-cookie": "__cf_bm=x_raPkG1Kg.3qWG4GMlaA8ACznvHzbtrxi5uU8mJTLE-1792744949.720109-1.0.1.1-LASjk9mwEOF4CJ_DQkmDcDMiwEiqAPPVf8HptyPSHGRvqchWhMMo2R4fuxbo58v18RvZD9dCSBOFfMHyGzmME4yD40Zwsq7kMEDyupYq..9E5vHJpZolkaM8sV8Ii8dQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:12:29 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 284.2,
+    "total_ms": 284.4,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 258,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "You uploaded an unsupported image. Please make sure your image has of one the following formats: ['png', 'jpeg', 'gif', 'webp'].",
+      "type": "invalid_request_error",
+      "param": null,
+      "code": "invalid_image_format"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/audio/speech",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "tts-1",
+    "input": "Hello! This is a test of the text to speech endpoint.",
+    "voice": "alloy"
+  }
+}

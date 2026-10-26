@@ -1,0 +1,25 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/audio/transcriptions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>"
+  },
+  "multipart": {
+    "fields": [
+      [
+        "model",
+        "gpt-4o-transcribe"
+      ]
+    ],
+    "files": [
+      {
+        "field": "file",
+        "filename": "audio",
+        "content_type": "application/octet-stream",
+        "bytes": 113664,
+        "sha256": "b121491dbc19",
+        "magic": "mp3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"model": "gpt-4o-mini-tts", "input": "Hello! This is a test of the text to speech endpoint.", "voice": {"id": "voice_does_not_exist"}}

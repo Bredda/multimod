@@ -1,0 +1,37 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/chat/completions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "gpt-4o-mini",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Remember this picture."
+          },
+          {
+            "type": "image_url",
+            "image_url": {
+              "url": "data:image/png;base64,<1048 chars, sha256:6fc44a484b55>"
+            }
+          }
+        ]
+      },
+      {
+        "role": "assistant",
+        "content": "Understood, I see a picture."
+      },
+      {
+        "role": "user",
+        "content": "What color was the shape in the picture?"
+      }
+    ],
+    "max_completion_tokens": 200
+  }
+}

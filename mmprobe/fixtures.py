@@ -51,6 +51,9 @@ class Fixtures:
     def data_url(self, name: str, mime: str | None = None) -> str:
         return f"data:{mime or MIME[ext_of(name)]};base64,{self.b64(name)}"
 
+    def ensure(self, fn, *args, **kw) -> Path:
+        return fn(self.dir, *args, **kw)
+
     def mime(self, name: str) -> str:
         return MIME.get(ext_of(name), "application/octet-stream")
 
@@ -145,6 +148,9 @@ def build_speech(cfg: Config, d: Path, log=print) -> list[str]:
     from .http import Req, execute
 
     model = cfg.models["tts"]
+    if model == "-":
+        log("  rôle tts désactivé (MM_MODEL_TTS=-) : parole non générée")
+        return []
     made: list[str] = []
 
     def tts(text: str, fmt: str, name: str):
@@ -172,3 +178,47 @@ def build_speech(cfg: Config, d: Path, log=print) -> list[str]:
     if (d / "speech_en.pcm").exists() and not (d / "speech_en_from_pcm.wav").exists():
         _write_wav(d / "speech_en_from_pcm.wav", (d / "speech_en.pcm").read_bytes()); made.append("speech_en_from_pcm.wav")
     return made
+
+
+# ------------------------------------------------ fixtures calibrées (générées à la demande par les cas Bedrock)
+def ensure_noise_png(d: Path, name: str, target_bytes: int) -> Path:
+    """PNG de bruit incompressible dont la taille ≈ target_bytes (compress_level=0)."""
+    p = d / name
+    if not p.exists():
+        import math
+        from PIL import Image
+        side = int(math.sqrt(target_bytes / 3))
+        rnd = random.Random(7)
+        Image.frombytes("RGB", (side, side), rnd.randbytes(side * side * 3)).save(p, compress_level=0)
+    return p
+
+
+def ensure_silence_wav(d: Path, name: str, nbytes: int, rate: int = 24000) -> Path:
+    """WAV mono s16 de silence, en-tête correct, `nbytes` ≈ taille du fichier."""
+    p = d / name
+    if not p.exists():
+        _write_wav(p, b"\x00\x00" * ((nbytes - 44) // 2), rate)
+    return p
+
+
+def _pcm_of_streaming_wav(path: Path) -> bytes:
+    b = path.read_bytes()
+    return b[44:] if b[:4] == b"RIFF" else b  # l'en-tête OpenAI (tailles 0xFFFFFFFF) fait mentir le module wave
+
+
+def ensure_speech_variants(d: Path) -> None:
+    """Variantes dérivées de speech_en.wav : en-tête corrigé, stéréo, 12 kHz (décimation naïve, suffisant pour une sonde)."""
+    src = d / "speech_en.wav"
+    if not src.exists():
+        raise Skip("fixture manquante: fixtures/speech_en.wav (lancer `fixtures`, nécessite /audio/speech)")
+    pcm = _pcm_of_streaming_wav(src)
+    if not (d / "speech_en_clean.wav").exists():
+        _write_wav(d / "speech_en_clean.wav", pcm, 24000)
+    if not (d / "speech_en_stereo.wav").exists():
+        samples = [pcm[i:i + 2] for i in range(0, len(pcm) - 1, 2)]
+        with wave.open(str(d / "speech_en_stereo.wav"), "wb") as w:
+            w.setnchannels(2); w.setsampwidth(2); w.setframerate(24000)
+            w.writeframes(b"".join(s + s for s in samples))
+    if not (d / "speech_en_12k.wav").exists():
+        samples = [pcm[i:i + 2] for i in range(0, len(pcm) - 1, 2)]
+        _write_wav(d / "speech_en_12k.wav", b"".join(samples[::2]), 12000)

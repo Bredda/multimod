@@ -1,0 +1,38 @@
+{
+  "status": 401,
+  "reason": "Unauthorized",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:40:44 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "496",
+    "connection": "keep-alive",
+    "vary": "Origin",
+    "x-request-id": "req_51e634cbbfc9445cbbde52ba50b8bf1d",
+    "x-openai-proxy-wasm": "v0.1",
+    "server": "cloudflare",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=k.lsmFkbz9FY7TLEz_nL7J_w5yDzMuW8E8MoWIIJ_MI-1792744844.4055543-1.0.1.1-iryK5GUJ6mrliOq15Zdf0Vi6eC98VeCEo_eaAhN.H169_1L8GGVKjg6XSX4sobU.7G0ybRh_Klp5lt1Z7gEZOojARclyn8P5vwS72rF9Zt8veRQjrmRmZ6F2xuYRjVSK; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:10:44 GMT, _cfuvid=i9wnjD5VTmJCi.tIZtZjyAiwlwzmqzem6fksmgj9SDQ-1792744844.4055543-1.0.1.1-7ZjZ0rNRkee6iP4xUWGZOsskQnjvi6ik0Xesvn9Yrws; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com",
+    "access-control-expose-headers": "CF-Ray",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "cf-ray": "a4ef704d8f50d0b4-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 200.7,
+    "total_ms": 201.2,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 496,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.",
+      "type": "invalid_request_error",
+      "param": null,
+      "code": null
+    }
+  }
+}

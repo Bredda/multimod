@@ -2,8 +2,9 @@
 
 _Généré par `python -m mmprobe catalog` — ne pas éditer à la main._
 
-218 cas. « Attente » = ce que la doc OpenAI laisse prévoir (`2xx`, `4xx`, `any` = indéterminé / à découvrir). Tags : `heavy` = gros payloads (opt-in `--heavy`), `probe` = paramètre récent/non documenté dans la spec OpenAPI publique, `neg` = cas négatif.
+317 cas. « Attente » = ce que la doc laisse prévoir (`2xx`, `4xx`, `any` = indéterminé / à découvrir). Tags : `heavy` = gros payloads (opt-in `--heavy`), `security` = SSRF (opt-in, ta gateway uniquement), `probe` = paramètre récent/non documenté dans la spec publique, `neg` = cas négatif. Un même id (`chat-image/multi_images`) dans les deux cibles = même scénario, comparable avec `report --compare`.
 
+# Cible HTTP — OpenAI / LiteLLM (HTTP brut, sans SDK) — 218 cas
 
 ## POST /audio/speech
 
@@ -242,3 +243,124 @@ _Généré par `python -m mmprobe catalog` — ne pas éditer à la main._
 | `multi_turn_audio_id_unknown` | 4xx | multi-turn, neg | assistant.audio.id inexistant |
 | `multi_turn_input_audio_then_text` | 2xx | multi-turn, audio-in | Tour 1 : audio utilisateur ; tour 2 : question texte de suivi (l'audio reste-t-il en contexte ?) |
 | `auth_invalid` | 4xx | neg, auth | Clé API invalide |
+
+# Cible Bedrock — boto3 / bedrock-runtime — 99 cas
+
+## Images — Converse / ConverseStream / InvokeModel
+
+| cas | attente | tags | ce que ça teste |
+|---|---|---|---|
+| `bytes_png` | 2xx | source, format | Image PNG en octets (format déclaré 'png') |
+| `bytes_jpg` | 2xx | source, format | Image JPG en octets (format déclaré 'jpeg') |
+| `bytes_webp` | 2xx | source, format | Image WEBP en octets (format déclaré 'webp') |
+| `bytes_gif` | 2xx | source, format | Image GIF en octets (format déclaré 'gif') |
+| `declared_png_actual_bmp` | 4xx | source, format, neg | Octets BMP déclarés 'png' (formats hors liste png/jpeg/gif/webp) |
+| `declared_png_actual_tiff` | 4xx | source, format, neg | Octets TIFF déclarés 'png' (formats hors liste png/jpeg/gif/webp) |
+| `declared_png_actual_svg` | 4xx | source, format, neg | Octets SVG déclarés 'png' (formats hors liste png/jpeg/gif/webp) |
+| `declared_jpeg_actual_png` | any | source, format, neg | PNG déclaré 'jpeg' : le format déclaré prime-t-il sur le contenu ? |
+| `declared_png_actual_jpeg` | any | source, format, neg | JPEG déclaré 'png' |
+| `format_invalid_value` | 4xx | source, format, neg | format='bmp' (hors enum ImageFormat) : rejet botocore ou serveur ? |
+| `animated_gif` | any | source, format | GIF animé : accepté ? quelles images sont vues ? |
+| `not_an_image_bytes` | 4xx | source, neg | Octets HTML déclarés 'png' |
+| `empty_bytes` | 4xx | source, neg | Image de 0 octet |
+| `corrupt_bytes` | 4xx | source, neg | PNG tronqué (octets de tête valides, reste corrompu) |
+| `s3_location_unreachable` | 4xx | source, neg | source s3Location vers un bucket inexistant (voie alternative aux octets pour les gros fichiers) |
+| `png_vision_nova` | 2xx | model-family | PNG sur le rôle 'vision_nova' (autre famille de modèles : comportements/limites différents ?) |
+| `png_vision_other` | 2xx | model-family | PNG sur le rôle 'vision_other' (autre famille de modèles : comportements/limites différents ?) |
+| `multi_images` | 2xx | compose | Deux images + question comparative |
+| `interleaved` | 2xx | compose | text, image, text, image : l'ordre est-il préservé ? |
+| `image_only` | any | compose | Une image, aucun bloc texte (OpenAI l'accepte) |
+| `system_prompt_plus_image` | 2xx | compose | system=[{text}] + user image |
+| `history_image_then_text` | 2xx | compose | Image au tour 1, question texte au tour 3 (l'image reste-t-elle en contexte ?) |
+| `ocr_text` | 2xx | quality | OCR : image « HELLO 42 » |
+| `image_in_assistant` | 4xx | neg, placement | Bloc image dans un message assistant (doc : images réservées au rôle user) |
+| `first_message_assistant` | 4xx | neg, placement | Premier message de rôle assistant (Converse impose user en premier) |
+| `image_in_tool_result` | any | placement, tools | Image dans un toolResult (OpenAI : refusé pour role=tool) |
+| `size_3_60mb` | 2xx | limits | Image de 3,60 Mo (sous 3,75 Mo) |
+| `size_3_85mb` | any | limits | Image de 3,85 Mo (entre 3,75 Mo décimal et 3,75 MiB = 3,93 Mo : quelle unité ?) |
+| `size_4_10mb` | 4xx | limits, neg | Image de 4,10 Mo (au-dessus de 3,75 MiB) |
+| `tiny_1x1` | any | limits | Image 1×1 px (certains modèles imposent un minimum) |
+| `large_6000x4000` | any | limits | 6000×4000 px (sous 8000 px) |
+| `huge_8200x8200` | 4xx | limits, neg | 8200×8200 px (> 8000 px) |
+| `images_20` | any | limits | 20 images dans un message (limite documentée) |
+| `images_21` | 4xx | limits, neg | 21 images (> limite documentée) |
+| `model_without_vision` | any | neg, model | Image envoyée à un modèle texte-seul : erreur explicite ? |
+| `too_large_22mb` | 4xx | neg, limits, heavy | Image ≈ 22 Mo (bien au-delà de 3,75 Mo ; limite de taille de requête Converse) |
+| `stream` | 2xx | stream | ConverseStream avec image : types d'événements, usage dans l'événement metadata |
+| `tool_call_with_image` | 2xx | compose, tools | toolConfig (toolChoice=any) déclenché depuis une image |
+| `structured_output_via_tool` | 2xx | compose, tools | Extraction structurée = outil forcé (équivalent de response_format json_schema d'OpenAI) |
+| `count_tokens_image` | any | quota | CountTokens (Converse) avec image : estimer le coût avant l'appel (quotas) |
+| `invoke_claude_native_base64` | 2xx | invoke | InvokeModel format natif Anthropic (source base64) |
+| `invoke_claude_native_url` | any | invoke, source | InvokeModel format natif Anthropic avec source {type:url} (l'API Anthropic directe le permet ; Bedrock ?) |
+| `invoke_nova_native` | 2xx | invoke | InvokeModel format natif Nova (messages-v1, image en base64) |
+| `auth_invalid` | 4xx | neg, auth | Identifiants AWS invalides |
+
+## Transcription — Converse + AudioBlock (pas d'endpoint dédié)
+
+| cas | attente | tags | ce que ça teste |
+|---|---|---|---|
+| `model_small` | 2xx |  | Transcription WAV (rôle audio_in, ex. Voxtral Small) |
+| `model_mini` | 2xx |  | Transcription WAV (rôle audio_in_mini, ex. Voxtral Mini) |
+| `input_mp3` | 2xx | input-format | Fichier d'entrée mp3 |
+| `input_wav` | 2xx | input-format | Fichier d'entrée wav — en-tête WAV correct |
+| `input_flac` | 2xx | input-format | Fichier d'entrée flac |
+| `input_ogg` | 2xx | input-format | Fichier d'entrée ogg — Ogg/Opus |
+| `input_opus` | any | input-format | Fichier d'entrée opus — déclaré 'opus' (octets Ogg/Opus) |
+| `input_aac` | any | input-format | Fichier d'entrée aac — AAC ADTS brut |
+| `input_pcm` | any | input-format | Fichier d'entrée pcm — PCM brut 24 kHz s16le mono, déclaré 'pcm' |
+| `input_wav_streaming_header` | any | input-format | Fichier d'entrée wav_streaming_header — WAV tel que renvoyé par OpenAI : tailles d'en-tête = 0xFFFFFFFF |
+| `input_wav_stereo` | any | input-format | Fichier d'entrée wav_stereo — stéréo (certains modèles : mono seulement) |
+| `input_wav_12khz` | any | input-format | Fichier d'entrée wav_12khz — échantillonnage 12 kHz |
+| `input_m4a` | any | input-format, user-fixture | Fichier d'entrée m4a (à fournir : fixtures/sample.m4a) |
+| `input_mp4` | any | input-format, user-fixture | Fichier d'entrée mp4 (à fournir : fixtures/sample.mp4) |
+| `input_webm` | any | input-format, user-fixture | Fichier d'entrée webm (à fournir : fixtures/sample.webm) |
+| `input_mpga` | any | input-format, user-fixture | Fichier d'entrée mpga (à fournir : fixtures/sample.mpga) |
+| `input_mpeg` | any | input-format, user-fixture | Fichier d'entrée mpeg (à fournir : fixtures/sample.mpeg) |
+| `input_fr` | 2xx |  | Audio français, sans indication de langue |
+| `input_tone_no_speech` | any |  | Sinus sans parole : texte vide, refus ou hallucination ? |
+| `input_silence` | any |  | Silence 3 s |
+| `size_1_5mb` | any | limits | WAV de silence ≈ 1,5 Mo : où se situe la limite de taille d'entrée ? |
+| `size_2_5mb` | any | limits | WAV de silence ≈ 2,5 Mo : où se situe la limite de taille d'entrée ? |
+| `size_10mb` | any | limits | WAV de silence ≈ 10 Mo : où se situe la limite de taille d'entrée ? |
+| `size_26mb` | 4xx | limits, neg, heavy | WAV de 26 Mo (équivalent du cas OpenAI too_large_26mb) |
+| `prompt_language_hint` | 2xx |  | Indication de langue dans le prompt (équivalent de `language`) |
+| `prompt_srt` | any | response_format | Demander des sous-titres SRT horodatés (équivalent de response_format=srt) |
+| `prompt_json` | any | response_format | Demander {"text": ...} en JSON (équivalent de response_format=json) |
+| `prompt_diarize` | any | response_format | Demander les locuteurs (équivalent diarized_json) |
+| `stream` | 2xx | stream | ConverseStream sur une transcription (équivalent stream=true) |
+| `input_empty` | 4xx | neg | AudioBlock de 0 octet |
+| `input_corrupt_mp3` | 4xx | neg | Octets aléatoires déclarés 'mp3' |
+| `input_text_file` | 4xx | neg | Fichier texte déclaré 'wav' |
+| `ext_mismatch` | any | neg, input-format | MP3 déclaré 'wav' : le format déclaré prime-t-il ? |
+| `format_invalid_value` | 4xx | neg, input-format | format='wmv' (hors enum AudioFormat) |
+| `model_without_audio` | 4xx | neg, model | AudioBlock envoyé à un modèle sans modalité SPEECH (rôle vision) |
+| `auth_invalid` | 4xx | neg, auth | Identifiants AWS invalides |
+
+## Audio en entrée — Converse AudioBlock
+
+| cas | attente | tags | ce que ça teste |
+|---|---|---|---|
+| `in_wav_text_out` | 2xx | audio-in | AudioBlock wav + consigne texte |
+| `in_mp3_text_out` | 2xx | audio-in | AudioBlock mp3 |
+| `in_audio_only` | any | audio-in | AudioBlock sans bloc texte |
+| `in_french` | 2xx | audio-in | Audio français |
+| `in_two_audios` | any | audio-in, compose | Deux AudioBlock dans le même message |
+| `in_text_interleaved` | 2xx | audio-in, compose | text, audio, text |
+| `in_stream_text_out` | 2xx | audio-in, stream | ConverseStream avec audio en entrée |
+| `in_history_audio_then_text` | 2xx | multi-turn, audio-in | Audio au tour 1, question texte au tour 3 (l'audio reste-t-il en contexte ?) |
+| `in_format_mismatch` | any | audio-in, neg, format | MP3 déclaré 'wav' |
+| `in_data_empty` | 4xx | audio-in, neg | AudioBlock de 0 octet |
+| `in_data_not_audio` | 4xx | audio-in, neg | Fichier texte déclaré 'wav' |
+| `in_audio_in_assistant` | 4xx | audio-in, neg, placement | AudioBlock dans un message assistant |
+| `in_audio_on_text_model` | 4xx | audio-in, neg, model | AudioBlock envoyé à un modèle texte-seul |
+| `in_audio_on_vision_model` | 4xx | audio-in, neg, model | AudioBlock envoyé à un modèle vision (sans SPEECH) |
+| `in_tool_call` | any | audio-in, tools | AudioBlock + toolConfig (toolChoice=any) |
+| `auth_invalid` | 4xx | neg, auth | Identifiants AWS invalides |
+| `nova_sonic_converse` | 4xx | audio-out, neg, model | Nova Sonic via Converse (sortie audio) : refus attendu, Sonic = flux bidirectionnel uniquement |
+
+## Synthèse vocale / audio en sortie — ce qui existe sur bedrock-runtime
+
+| cas | attente | tags | ce que ça teste |
+|---|---|---|---|
+| `nova_sonic_converse` | 4xx | neg, model | Synthèse vocale via Nova Sonic + Converse : refus attendu |
+| `nova_sonic_invoke_model` | 4xx | neg, model | Nova Sonic via InvokeModel (non streaming) : refus attendu |

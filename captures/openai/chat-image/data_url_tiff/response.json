@@ -1,0 +1,50 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:42:10 GMT",
+    "content-type": "application/json",
+    "content-length": "258",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef72673c9dd104-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "18",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-input-images": "50000",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-limit-tokens": "2000000",
+    "x-ratelimit-remaining-input-images": "49999",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-remaining-tokens": "1999214",
+    "x-ratelimit-reset-input-images": "1ms",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-ratelimit-reset-tokens": "23ms",
+    "x-request-id": "req_fd9832eff5dc4f9486be1c64ef79f0c6",
+    "set-cookie": "__cf_bm=Uzu5dDEjeFgbeRopWwWndnKkUhoBd.Z03AP6fGv06oY-1792744930.4318595-1.0.1.1-vy2F_fAVRUL44EQZi_SX_DHuvG5FnbsuTeawe_9FqWOJ4UQW4KWSsLs97gQRTgM0Ma9FDKLkuz9vPm89IzoqBoLgTH4Vfruv9Da_epecaiwUMvUPNhYe.a0irOEZLZC7; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:12:10 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 564.9,
+    "total_ms": 566.3,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 258,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "You uploaded an unsupported image. Please make sure your image has of one the following formats: ['png', 'jpeg', 'gif', 'webp'].",
+      "type": "invalid_request_error",
+      "param": null,
+      "code": "invalid_image_format"
+    }
+  }
+}

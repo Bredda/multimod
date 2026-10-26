@@ -1,0 +1,64 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/chat/completions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "gpt-4o-mini",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "List the shapes and their colors."
+          },
+          {
+            "type": "image_url",
+            "image_url": {
+              "url": "data:image/png;base64,<2944 chars, sha256:5fe61d71146d>"
+            }
+          }
+        ]
+      }
+    ],
+    "max_completion_tokens": 200,
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "shapes",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "shapes"
+          ],
+          "properties": {
+            "shapes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "shape",
+                  "color"
+                ],
+                "properties": {
+                  "shape": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

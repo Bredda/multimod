@@ -1,0 +1,135 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:36 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "873",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "via": "envoy-router-76c5c665b8-slzbf",
+    "x-ratelimit-limit-requests": "2500",
+    "x-ratelimit-remaining-requests": "2499",
+    "x-ratelimit-reset-requests": "24ms",
+    "x-request-id": "req_a1e9f7941644434fb0e753d1d3d4a351",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=4bXmzQMeoMrWnvaxoJcJxz44qoAkj9HZ3bFFGlNHlZs-1792744895.551043-1.0.1.1-5KNS4zCf1_H6_Xd2h38nxE797OgUFNyZcajRTu0O0mlF3.xwnsz8WrgP_AmLArz2xYYb.fmAiX8.31cL7KQu1iw9MC2U2v0lAt_ywt9PCcxdfJz3AeCzSUaOLxcMUKp9; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:36 GMT",
+    "x-content-type-options": "nosniff",
+    "content-encoding": "gzip",
+    "cf-ray": "a4ef718d2b7b0638-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 1065.9,
+    "total_ms": 1066.7,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 1290,
+  "kind": "json",
+  "body": {
+    "task": "transcribe",
+    "language": "english",
+    "duration": 7.099999904632568,
+    "text": "Hello, my name is Laurent. Today is a sunny Friday in Paris. What is 2 plus 2?",
+    "words": [
+      {
+        "word": "Hello",
+        "start": 0.0,
+        "end": 0.5799999833106995
+      },
+      {
+        "word": "my",
+        "start": 0.7599999904632568,
+        "end": 1.2000000476837158
+      },
+      {
+        "word": "name",
+        "start": 1.2000000476837158,
+        "end": 1.4600000381469727
+      },
+      {
+        "word": "is",
+        "start": 1.4600000381469727,
+        "end": 1.7999999523162842
+      },
+      {
+        "word": "Laurent",
+        "start": 1.7999999523162842,
+        "end": 2.0999999046325684
+      },
+      {
+        "word": "Today",
+        "start": 3.059999942779541,
+        "end": 3.059999942779541
+      },
+      {
+        "word": "is",
+        "start": 3.059999942779541,
+        "end": 3.359999895095825
+      },
+      {
+        "word": "a",
+        "start": 3.359999895095825,
+        "end": 3.5799999237060547
+      },
+      {
+        "word": "sunny",
+        "start": 3.5799999237060547,
+        "end": 3.740000009536743
+      },
+      {
+        "word": "Friday",
+        "start": 3.740000009536743,
+        "end": 4.079999923706055
+      },
+      {
+        "word": "in",
+        "start": 4.079999923706055,
+        "end": 4.5
+      },
+      {
+        "word": "Paris",
+        "start": 4.5,
+        "end": 4.880000114440918
+      },
+      {
+        "word": "What",
+        "start": 5.599999904632568,
+        "end": 5.739999771118164
+      },
+      {
+        "word": "is",
+        "start": 5.739999771118164,
+        "end": 6.019999980926514
+      },
+      {
+        "word": "2",
+        "start": 6.019999980926514,
+        "end": 6.320000171661377
+      },
+      {
+        "word": "plus",
+        "start": 6.320000171661377,
+        "end": 6.699999809265137
+      },
+      {
+        "word": "2",
+        "start": 6.699999809265137,
+        "end": 6.920000076293945
+      }
+    ],
+    "usage": {
+      "type": "duration",
+      "seconds": 8
+    }
+  }
+}

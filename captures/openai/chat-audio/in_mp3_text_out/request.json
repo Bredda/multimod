@@ -1,0 +1,33 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/chat/completions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "gpt-audio",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Answer the question asked in the audio message, and tell me the speaker's name. Be brief."
+          },
+          {
+            "type": "input_audio",
+            "input_audio": {
+              "data": "<base64 151552 chars, sha256:be00c1ae8890>",
+              "format": "mp3"
+            }
+          }
+        ]
+      }
+    ],
+    "max_completion_tokens": 300,
+    "modalities": [
+      "text"
+    ]
+  }
+}

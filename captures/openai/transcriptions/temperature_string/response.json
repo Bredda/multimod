@@ -1,0 +1,44 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:49 GMT",
+    "content-type": "application/json",
+    "content-length": "248",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "7",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "2500",
+    "x-ratelimit-remaining-requests": "2499",
+    "x-ratelimit-reset-requests": "24ms",
+    "x-request-id": "req_7d1951612fec489ebe7b056f2d983fbe",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=fK4_6kUREbF4GFjg1CIOzIDeP0bQmN.Zq7jXBQ5skic-1792744908.8306437-1.0.1.1-AM84qLgrRxL0.1Vl5i.jBfzMTdnBxODlwSKI6.ys9PYJWW9LkmHQU6mRv7f.uv5V40RaBuiBfKxm0gbFae_QM6yfmhKFmAOxHU50e5gIxGf9X_CZdDmNpAC6ZAv1xWnL; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:49 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "cf-ray": "a4ef71e02cc33c8d-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 334.6,
+    "total_ms": 334.8,
+    "chunks": 1,
+    "retries_429": 0
+  },
+  "bytes": 248,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "[{'type': 'float_parsing', 'loc': ('body', 'temperature'), 'msg': 'Input should be a valid number, unable to parse string as a number'}]",
+      "type": "invalid_request_error",
+      "param": null,
+      "code": null
+    }
+  }
+}

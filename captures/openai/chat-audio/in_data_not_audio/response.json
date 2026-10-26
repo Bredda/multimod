@@ -1,0 +1,47 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:43:42 GMT",
+    "content-type": "application/json",
+    "content-length": "186",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef74a4bd8e2a4b-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "31",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199975",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "7ms",
+    "x-request-id": "req_257a92cf9a7d4a4d955b9c28cee43873",
+    "set-cookie": "__cf_bm=S9_E.qEXaafM0TBEff5xcnnHAcebpCSApnaWUauAKgQ-1792745022.1934469-1.0.1.1-qKHXkbZb5zdAao53pqGu9RJdlZw6hBxvcjRmrDSIsGKlP3IoSwk_6ezYYjm7d6fOd5oSMR8U.ghmt6fcSUCCJcREPrbam_4PgIe.c5tfr5BcXaxopKBivnp60Jugafc_; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:13:42 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 233.7,
+    "total_ms": 234.0,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 186,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "This model does not support the format you provided.",
+      "type": "invalid_request_error",
+      "param": "messages",
+      "code": "unsupported_format"
+    }
+  }
+}

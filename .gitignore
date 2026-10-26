@@ -1,7 +1,24 @@
+# --- archives locales (le .zip du workspace contient le .env !)
+*.zip
+.zip
+
+# --- environnement local
 .venv/
 __pycache__/
+*.pyc
+
+# --- SECRETS : ne jamais committer (les exemples sont autorisés)
 .env
 .env.*
 !.env.example
-captures/
-fixtures/
+!.env.example.*
+
+# --- Transfert du workspace par git (poste perso -> poste pro) : captures/ et fixtures/ SONT versionnés, sauf :
+# fixtures régénérables localement, volumineuses (cf. docs/HANDOFF.md §7)
+fixtures/silence_*mb.wav
+fixtures/noise_*
+# payloads base64 des cas "heavy" (rejouables depuis les fixtures ci-dessus)
+captures/*/*/too_large_*/request.raw.json
+# captures factices de tests hors-ligne
+captures/*selftest*/
+captures/*dry*/

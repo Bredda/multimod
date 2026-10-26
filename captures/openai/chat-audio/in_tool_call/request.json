@@ -1,0 +1,58 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/chat/completions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "gpt-audio",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Use the add tool to answer the question in the audio."
+          },
+          {
+            "type": "input_audio",
+            "input_audio": {
+              "data": "<base64 403260 chars, sha256:a1d3f2001a45>",
+              "format": "wav"
+            }
+          }
+        ]
+      }
+    ],
+    "max_completion_tokens": 200,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "add",
+          "description": "Add two integers",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer"
+              },
+              "b": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        }
+      }
+    ],
+    "tool_choice": "required",
+    "modalities": [
+      "text"
+    ]
+  }
+}

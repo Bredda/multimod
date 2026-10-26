@@ -1,0 +1,38 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:56 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "167",
+    "connection": "keep-alive",
+    "vary": "Origin",
+    "x-request-id": "req_83e66bab3c96479e842a74b52395d59d",
+    "x-openai-proxy-wasm": "v0.1",
+    "server": "cloudflare",
+    "cf-cache-status": "DYNAMIC",
+    "access-control-expose-headers": "CF-Ray",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "set-cookie": "__cf_bm=vAvCvvV6j2E4rxZs2DSqENnT218YmUfVRNb2GStnTK4-1792744916.4647934-1.0.1.1-yI5KbcGwLEXVaD7W63tCmg8LHNhPp0QKxIZYAamr.hGZqjMmbwpJ0TTZI0vLMAJGSe7i0ke_KVbN9qeCd4Ovc2NbfmbzEBkrpshn6NrVaLo2KuTpRRWCISMjICZjgqbk; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:56 GMT",
+    "cf-ray": "a4ef720fed2d7531-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 230.9,
+    "total_ms": 231.1,
+    "chunks": 1,
+    "retries_429": 0
+  },
+  "bytes": 167,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "you must provide a model parameter",
+      "type": "invalid_request_error",
+      "param": null,
+      "code": null
+    }
+  }
+}

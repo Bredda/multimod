@@ -1,0 +1,29 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/chat/completions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "gpt-4o-mini",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Describe this image in one short sentence, naming each shape and its color."
+          },
+          {
+            "type": "image_url",
+            "image_url": {
+              "url": "data:;base64,<2944 chars, sha256:5fe61d71146d>"
+            }
+          }
+        ]
+      }
+    ],
+    "max_completion_tokens": 200
+  }
+}

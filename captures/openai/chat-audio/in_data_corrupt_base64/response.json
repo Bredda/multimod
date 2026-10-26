@@ -1,0 +1,47 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:43:42 GMT",
+    "content-type": "application/json",
+    "content-length": "298",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef74a2be92f6dd-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "31",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199975",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "7ms",
+    "x-request-id": "req_43f729db563c439eaf3650aa1eb5e6c5",
+    "set-cookie": "__cf_bm=5vtnfxx6YnERO8qG7PMvtZkgTpGOPEfPRUsg5CArWRM-1792745021.874974-1.0.1.1-ujh.jLseVsnv4QO8xsx8617Eic7IR3uZ80HY45aZD2egPG0MLsOTx9liuh9._2A09fmmITAGtmR7uC5vFPRgRBkyg9xKnbCSltgIdkl01oI5KNKjda49QzXXBSUpeH6S; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:13:42 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 297.0,
+    "total_ms": 297.2,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 298,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "Invalid input audio data: 'messages[0].content[1].input_audio.data'. Expected base64-encoded data but got an invalid base64-encoded value.",
+      "type": "invalid_request_error",
+      "param": "messages[0].content[1].input_audio.data",
+      "code": "invalid_value"
+    }
+  }
+}

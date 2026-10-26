@@ -1,0 +1,39 @@
+{
+  "status": 404,
+  "reason": "Not Found",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:40:40 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "vary": "Origin",
+    "x-request-id": "req_c0ab520786f44f7a8515b6e88cd256f8",
+    "x-openai-proxy-wasm": "v0.1",
+    "server": "cloudflare",
+    "cf-cache-status": "DYNAMIC",
+    "access-control-expose-headers": "CF-Ray",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "set-cookie": "__cf_bm=QkptizTsPYduV4LoZYC6QXrl8hUz1KFh0Zv5zlxUXUk-1792744840.7762768-1.0.1.1-9Rupzo48OQkqxvx3HOhJW9kcmIoRDeQgDFKIrRCZkdJ3295y4HLTX3Hb8UZC8GWeymJIPYeJ2UtEciQqyW32VtthVjsLnwpJ1U3Z0P7KsWRTL7wMv0IqylK_9VEywHB0; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:10:40 GMT",
+    "content-encoding": "gzip",
+    "cf-ray": "a4ef7036dd2f6f3a-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 232.3,
+    "total_ms": 261.9,
+    "chunks": 1,
+    "retries_429": 0
+  },
+  "bytes": 224,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "The model `tts-does-not-exist` does not exist or you do not have access to it.",
+      "type": "invalid_request_error",
+      "param": null,
+      "code": "model_not_found"
+    }
+  }
+}

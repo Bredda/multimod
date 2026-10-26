@@ -210,6 +210,8 @@ def curl_script(ex: Exchange, dirpath: Path) -> str:
 def save(ex: Exchange, d: Path) -> dict:
     """Écrit tous les artefacts d'un échange dans `d`. Retourne un résumé court pour l'index."""
     d.mkdir(parents=True, exist_ok=True)
+    if ex.kind == "boto":
+        return save_boto(ex, d)
     (d / "request.json").write_text(json.dumps(request_dump(ex), indent=2, ensure_ascii=False))
     if ex.req.json is not None:
         (d / "request.raw.json").write_text(json.dumps(ex.req.json, ensure_ascii=False))
@@ -281,3 +283,122 @@ def save(ex: Exchange, d: Path) -> dict:
     (d / "response.json").write_text(json.dumps(resp, indent=2, ensure_ascii=False))
     return {"status": ex.status, "kind": resp.get("kind"), "content_type": ct, "ttfb_ms": ex.ttfb_ms,
             "total_ms": ex.total_ms, "bytes": len(body), "extracted": extra or None, "transport_error": ex.error}
+
+
+# ====================================================================== boto3 (Bedrock)
+def jsonable(obj: Any) -> Any:
+    """Rend une structure boto3 sérialisable : bytes -> descripteur, datetime -> str, gros blobs raccourcis."""
+    import datetime
+
+    if isinstance(obj, (bytes, bytearray)):
+        b = bytes(obj)
+        magic = sniff_audio(b[:16])
+        if b[:8] == b"\x89PNG\r\n\x1a\n": magic = "png"
+        elif b[:3] == b"\xff\xd8\xff": magic = "jpeg"
+        elif b[:6] in (b"GIF87a", b"GIF89a"): magic = "gif"
+        elif b[:4] == b"RIFF" and b[8:12] == b"WEBP": magic = "webp"
+        return f"<bytes {len(b)}, sha256:{sha(b)}, magic={magic}>"
+    if isinstance(obj, dict):
+        return {k: jsonable(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [jsonable(v) for v in obj]
+    if isinstance(obj, (datetime.datetime, datetime.date)):
+        return obj.isoformat()
+    if isinstance(obj, str):
+        return shrink(obj)
+    if hasattr(obj, "read"):
+        return "<stream>"
+    return obj
+
+
+def to_wire(obj: Any) -> Any:
+    """Pour request.raw.json : les bytes sont encodés {"__bytes_b64__": ...} (rejouable via replay.py)."""
+    if isinstance(obj, (bytes, bytearray)):
+        return {"__bytes_b64__": base64.b64encode(bytes(obj)).decode()}
+    if isinstance(obj, dict):
+        return {k: to_wire(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [to_wire(v) for v in obj]
+    return obj
+
+
+REPLAY_PY = '''#!/usr/bin/env python3
+"""Rejoue cet appel boto3. Identifiants/région : environnement AWS habituel (ou AWS_PROFILE / AWS_REGION)."""
+import base64, json, pathlib, sys
+import boto3
+
+def dec(o):
+    if isinstance(o, dict):
+        if set(o) == {"__bytes_b64__"}:
+            return base64.b64decode(o["__bytes_b64__"])
+        return {k: dec(v) for k, v in o.items()}
+    return [dec(v) for v in o] if isinstance(o, list) else o
+
+req = json.loads((pathlib.Path(__file__).parent / "request.raw.json").read_text())
+client = boto3.client(req["service"], region_name=req.get("region"))
+resp = getattr(client, req["operation"])(**dec(req["params"]))
+for k in ("stream", "body"):
+    if k in resp and hasattr(resp[k], "read"):
+        resp[k] = json.loads(resp[k].read())
+    elif k in resp and k == "stream":
+        resp[k] = list(resp[k])
+print(json.dumps(resp, default=str, indent=2)[:20000])
+'''
+
+
+def stream_summary_boto(events: list[dict]) -> dict:
+    text, stop, usage, types, tool = "", None, None, {}, None
+    for e in events:
+        for k, v in e.items():
+            types[k] = types.get(k, 0) + 1
+            if k == "contentBlockDelta":
+                dl = v.get("delta", {})
+                text += dl.get("text", "")
+                if "toolUse" in dl:
+                    tool = tool or "toolUse"
+            elif k == "contentBlockStart" and "toolUse" in v.get("start", {}):
+                tool = v["start"]["toolUse"].get("name")
+            elif k == "messageStop":
+                stop = v.get("stopReason")
+            elif k == "metadata":
+                usage = v.get("usage")
+    return {"events": len(events), "event_types": types, "stop_reason": stop, "usage": usage, "text": text or None, "tool_use": tool}
+
+
+def save_boto(ex: Exchange, d: Path) -> dict:
+    call = ex.req
+    params = call.final_params()
+    req_dump = {"service": call.service, "region": ex.url.split(":", 1)[1].split("/")[0], "operation": call.operation,
+                "bad_credentials": call.bad_credentials or None, "params": jsonable(params)}
+    if call.body is not None:
+        req_dump["params"]["body"] = jsonable(call.body)  # JSON lisible plutôt que bytes opaques
+    (d / "request.json").write_text(json.dumps(req_dump, indent=2, ensure_ascii=False, default=str))
+    (d / "request.raw.json").write_text(json.dumps({"service": call.service, "region": req_dump["region"], "operation": call.operation,
+                                                    "params": to_wire(params)}, ensure_ascii=False))
+    (d / "replay.py").write_text(REPLAY_PY)
+    if ex.dry_run:
+        return {"status": None, "dry_run": True, "client_side_error": ex.error if ex.client_side else None}
+
+    resp: dict[str, Any] = {"status": ex.status, "reason": ex.reason, "operation": call.operation, "headers": ex.resp_headers,
+                            "timing": {"ttfb_ms": ex.ttfb_ms, "total_ms": ex.total_ms, "events": ex.chunks, "retries_throttling": ex.retries}}
+    if ex.client_side:
+        resp["kind"] = "client-side-error"
+    elif ex.events is not None:
+        resp["kind"] = "boto-stream"
+        resp["stream_summary"] = stream_summary_boto(ex.events)
+        resp["events"] = jsonable(ex.events)
+    elif ex.err_code:
+        resp["kind"] = "boto-error"
+    elif ex.status is None:
+        resp["kind"] = "transport-error"
+    else:
+        resp["kind"] = "boto-json"
+    if ex.error:
+        resp["error"] = ex.error
+    if ex.err_code:
+        resp["error_code"] = ex.err_code
+    if ex.data is not None:
+        resp["data"] = jsonable(ex.data)
+    (d / "response.json").write_text(json.dumps(resp, indent=2, ensure_ascii=False, default=str))
+    return {"status": ex.status, "kind": resp["kind"], "error_code": ex.err_code, "ttfb_ms": ex.ttfb_ms, "total_ms": ex.total_ms,
+            "transport_error": ex.error if resp["kind"] in ("transport-error", "client-side-error") else None}

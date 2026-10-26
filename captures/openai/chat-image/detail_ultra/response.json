@@ -1,0 +1,50 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:42:17 GMT",
+    "content-type": "application/json",
+    "content-length": "237",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef72934991ef43-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "10",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-input-images": "50000",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-limit-tokens": "2000000",
+    "x-ratelimit-remaining-input-images": "49999",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-remaining-tokens": "1999214",
+    "x-ratelimit-reset-input-images": "1ms",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-ratelimit-reset-tokens": "23ms",
+    "x-request-id": "req_3976a6a7b21344ceb20c2f2f21fb30b2",
+    "set-cookie": "__cf_bm=ipsgva70SBr.Emk_63QqxE6XiXY6UJhdi5KSAm5z_cY-1792744937.4827087-1.0.1.1-aKvLc0HPFtAX6_F43bzb0pWt7kpzKJ5h2Mg_chaBF1szjTfbX449lFc1P.ckk7.LeqsB1oiQx2qCFG.UvBisjSjFnHymCkmxDYROIFexkFquxngsFtlsuTXU2VA8K0MT; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:12:17 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 1269.9,
+    "total_ms": 1270.2,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 237,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "Invalid chat format. Expected 'detail' field in image_url dict to be one of ['low', 'auto', 'high', 'original'] if specified.",
+      "type": "invalid_request_error",
+      "param": null,
+      "code": null
+    }
+  }
+}

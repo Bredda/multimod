@@ -13,6 +13,7 @@ from . import capture
 from .cases import REGISTRY, Case
 from .config import Config
 from .fixtures import Fixtures, Skip
+from .bedrock import BCall, execute_bedrock
 from .http import Exchange, Req, execute
 from .report import summarize
 
@@ -32,27 +33,32 @@ class Ctx:
         self.steps: list[dict[str, Any]] = []
 
     def model(self, key: str) -> str:
-        return self.cfg.models[key]
+        m = self.cfg.models[key]
+        if m == "-":  # rôle désactivé explicitement (MM_MODEL_<ROLE>=-) : la cible n'expose pas ce type de modèle
+            raise Skip(f"rôle de modèle '{key}' désactivé (MM_MODEL_{key.upper()}=-)")
+        return m
 
     def skip(self, why: str):
         raise Skip(why)
 
-    def call(self, req: Req, step: str | None = None, expect: str | None = None) -> Exchange:
+    def call(self, req: Req | BCall, step: str | None = None, expect: str | None = None) -> Exchange:
         expect = expect or self.case.expect
-        ex = execute(self.cfg, req, dry_run=self.dry_run)
+        ex = execute_bedrock(self.cfg, req, dry_run=self.dry_run) if isinstance(req, BCall) else execute(self.cfg, req, dry_run=self.dry_run)
         d = self.dir / step if step else self.dir
         meta = capture.save(ex, d)
         summary = None if self.dry_run else summarize(self.case.endpoint, ex)
         self.steps.append({
             "step": step, "dir": str(d.relative_to(self.cfg.out_dir)), "expect": expect,
-            "match": None if self.dry_run else status_ok(expect, ex.status), "summary": summary, **meta,
+            "match": None if self.dry_run else status_ok(expect, ex.status), "client_side": ex.client_side or None, "summary": summary, **meta,
         })
         return ex
 
 
-def select(cases: list[Case], only: list[str], tags: list[str], skip_tags: list[str]) -> list[Case]:
+def select(cases: list[Case], only: list[str], tags: list[str], skip_tags: list[str], provider: str | None = None) -> list[Case]:
     out = []
     for c in cases:
+        if provider and c.target != provider:
+            continue
         if only and not any(fnmatch.fnmatch(c.id, p) or p in c.id for p in only):
             continue
         if tags and not set(tags) & set(c.tags):
@@ -94,7 +100,7 @@ def _line(i: int, n: int, e: dict) -> str:
     parts = []
     for s in e["steps"]:
         mark = {True: "ok", False: "!!", None: "--"}[s.get("match")]
-        parts.append(f"{(s['step'] + ':') if s['step'] else ''}{s.get('status')} [{mark}]")
+        parts.append(f"{(s['step'] + ':') if s['step'] else ''}{s.get('status')} [{mark}]" + (f" ⚠ BOTOCORE: {s['client_side_error'][:120]}" if s.get("client_side_error") else ""))
     return f"{head} {' '.join(parts) if parts else e['outcome']}"
 
 
@@ -107,8 +113,19 @@ def write_index(cfg: Config, results: list[dict], merge: bool = True) -> Path:
         existing = {e["case"]: e for e in json.loads(p.read_text()).get("results", [])}
     for r in results:
         existing[r["case"]] = r
+    import platform
+    from importlib import metadata
+
+    def ver(pkg):
+        try:
+            return metadata.version(pkg)
+        except Exception:
+            return None
     doc = {
-        "label": cfg.label, "base_url": cfg.base_url, "models": cfg.models,
+        "label": cfg.label, "provider": cfg.provider,
+        "client": {"python": platform.python_version(), "httpx": ver("httpx"), "boto3": ver("boto3"), "botocore": ver("botocore")},
+        "base_url": cfg.base_url if cfg.provider == "http" else f"bedrock-runtime:{cfg.aws_region or 'default'}",
+        "models": cfg.models if cfg.provider == "http" else cfg.bedrock_models,
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "results": sorted(existing.values(), key=lambda e: e.get("order", 10**6)),
     }

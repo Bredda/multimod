@@ -1,0 +1,41 @@
+{
+  "status": 401,
+  "reason": "Unauthorized",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:44:19 GMT",
+    "content-type": "text/plain",
+    "content-length": "264",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef758ec9b00288-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "access-control-expose-headers": "CF-Ray, CF-Ray",
+    "x-content-type-options": "nosniff",
+    "x-error-json": "ewogICJlcnJvciI6IHsKICAgICJtZXNzYWdlIjogIkluY29ycmVjdCBBUEkga2V5IHByb3ZpZGVkOiBzay1pbnZhbCoqKioqKnJvYmUuIFlvdSBjYW4gZmluZCB5b3VyIEFQSSBrZXkgYXQgaHR0cHM6Ly9wbGF0Zm9ybS5vcGVuYWkuY29tL2FjY291bnQvYXBpLWtleXMuIiwKICAgICJ0eXBlIjogImludmFsaWRfcmVxdWVzdF9lcnJvciIsCiAgICAiY29kZSI6ICJpbnZhbGlkX2FwaV9rZXkiLAogICAgInBhcmFtIjogbnVsbAogIH0sCiAgInN0YXR1cyI6IDQwMQp9",
+    "x-openai-authorization-error": "401",
+    "x-openai-ide-error-code": "invalid_api_key",
+    "x-openai-internal-caller": "unknown_through_ide",
+    "x-request-id": "req_2f6db7b13db643c3b490ad55bd0e6636",
+    "set-cookie": "__cf_bm=TDRWVTajISU366DSgu8x48gnV4ZlDuE0AwOsWT3kAYA-1792745059.6499052-1.0.1.1-dREi1dvyYnS54lF8ZCHQRPkmhwZTnhfgzYaI3oA.o60fEX.ImDT1q6JiiWEYt9fEHR2z.DkdtIo9dY0YI1w6LhlGsuwTKibU0pV7TaXGzBL9Qeb3jLQKISXcEy0i.Q1V; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:14:19 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 224.0,
+    "total_ms": 224.2,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 264,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "Incorrect API key provided: sk-inval******robe. You can find your API key at https://platform.openai.com/account/api-keys.",
+      "type": "invalid_request_error",
+      "code": "invalid_api_key",
+      "param": null
+    },
+    "status": 401
+  }
+}

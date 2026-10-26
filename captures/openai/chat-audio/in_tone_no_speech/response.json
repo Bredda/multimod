@@ -1,0 +1,78 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:43:33 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef746af80ac262-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "685",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199993",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "2ms",
+    "x-request-id": "req_7a2f574f6f2b4d4c83c2b01adec0c241",
+    "set-cookie": "__cf_bm=JBpEq5O0ZvOgFsbZrSYwWL7oX5AL_G0Hr1.EwJHCSfo-1792745012.957034-1.0.1.1-OB6exfqk6whmosu9X7Zvt9u0psQNhKpv5XjrZOfAW75TiQQH5H0F6Ns5vqDcutfLl988CitrIS1OaXyYc5eExhVhMopNpSGnBTdyOaCSQyJvsgPfZqPXo15qZPdcuiYG; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:13:33 GMT",
+    "content-encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 883.5,
+    "total_ms": 890.4,
+    "chunks": 1,
+    "retries_429": 0
+  },
+  "bytes": 999,
+  "kind": "json",
+  "body": {
+    "id": "chatcmpl-Ec5A5tHpOaW4EbpoUsvzypn20iGVA",
+    "object": "chat.completion",
+    "created": 1792745013,
+    "model": "gpt-audio-2025-08-28",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "It sounds like there's a tone or a beep playing in the audio. If you need more detail or have another query about the sound, feel free to ask.",
+          "refusal": null,
+          "annotations": []
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 36,
+      "completion_tokens": 32,
+      "total_tokens": 68,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 20,
+        "text_tokens": 16,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0,
+        "text_tokens": 32
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_f92aa719df"
+  }
+}

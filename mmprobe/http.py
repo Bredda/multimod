@@ -37,7 +37,7 @@ class Req:
 
 @dataclass
 class Exchange:
-    req: Req
+    req: Any                      # Req (HTTP) ou BCall (boto3)
     url: str
     sent_headers: dict[str, str]
     status: int | None = None
@@ -51,12 +51,20 @@ class Exchange:
     retries: int = 0
     error: str | None = None
     dry_run: bool = False
+    # --- champs spécifiques boto3 (kind == "boto")
+    kind: str = "http"
+    data: Any = None              # réponse désérialisée (ou e.response pour une ClientError)
+    events: list | None = None    # événements d'un flux (converse_stream, invoke_model_with_response_stream)
+    err_code: str | None = None   # Error.Code AWS (ValidationException, ThrottlingException, ...)
+    client_side: bool = False     # rejeté par botocore AVANT tout appel réseau (ParamValidationError)
 
     @property
     def content_type(self) -> str:
         return self.resp_headers.get("content-type", "").split(";")[0].strip().lower()
 
     def json(self) -> Any:
+        if self.kind == "boto":
+            return self.data
         try:
             return json.loads(self.body)
         except Exception:
@@ -122,7 +130,7 @@ def execute(cfg: Config, req: Req, *, dry_run: bool = False) -> Exchange:
         t0 = time.perf_counter()
         chunks: list[bytes] = []
         try:
-            with httpx.Client(timeout=cfg.timeout, verify=cfg.verify_tls, follow_redirects=False) as client:
+            with httpx.Client(timeout=cfg.timeout, verify=(cfg.ca_bundle or cfg.verify_tls), follow_redirects=False) as client:
                 with client.stream(req.method, url, headers=headers, **kwargs) as r:
                     ex.ttfb_ms = round((time.perf_counter() - t0) * 1000, 1)
                     ex.status = r.status_code

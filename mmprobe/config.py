@@ -21,6 +21,10 @@ DEFAULT_MODELS = {
 
 DEFAULT_IMAGE_URL = "https://www.python.org/static/community_logos/python-logo.png"
 
+# Rôles de modèles Bedrock : AUCUN défaut volontairement (ids / inference profiles dépendent de la région et du compte).
+# Renseigner MM_BEDROCK_MODEL_<ROLE> ; `bedrock-models` liste ce qui est disponible.
+BEDROCK_ROLES = ("vision", "vision_nova", "vision_other", "audio_in", "audio_in_mini", "text_only", "sonic")
+
 ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -44,9 +48,14 @@ class Config:
     extra_headers: dict[str, str] = field(default_factory=dict)
     timeout: float = 180.0
     verify_tls: bool = True
+    ca_bundle: str | None = None      # chemin d'un bundle CA (proxy d'inspection TLS) ; boto3 utilise AWS_CA_BUNDLE
     max_tokens_param: str = "max_completion_tokens"
     image_url: str = DEFAULT_IMAGE_URL
     models: dict[str, str] = field(default_factory=lambda: dict(DEFAULT_MODELS))
+    provider: str = "http"            # http (OpenAI, LiteLLM : HTTP brut) | bedrock (boto3, bedrock-runtime)
+    aws_region: str | None = None
+    aws_profile: str | None = None
+    bedrock_models: dict[str, str] = field(default_factory=dict)
     fixtures_dir: Path = ROOT / "fixtures"
     captures_dir: Path = ROOT / "captures"
 
@@ -55,7 +64,8 @@ class Config:
         return self.captures_dir / self.label
 
 
-def load_config(env_file: str | None = None, label: str | None = None, base_url: str | None = None) -> Config:
+def load_config(env_file: str | None = None, label: str | None = None, base_url: str | None = None,
+                provider: str | None = None) -> Config:
     # le fichier fournit les valeurs, l'environnement du shell a priorité
     file_env: dict[str, str] = {}
     if env_file:
@@ -69,7 +79,12 @@ def load_config(env_file: str | None = None, label: str | None = None, base_url:
 
     url = base_url or env.get("MM_BASE_URL") or "https://api.openai.com/v1"
     key = env.get("MM_API_KEY") or env.get("OPENAI_API_KEY") or ""
-    lab = label or env.get("MM_LABEL") or (urlparse(url).hostname or "target").replace(".", "-")
+    prov = (provider or env.get("MM_PROVIDER") or "http").lower()
+    if prov not in ("http", "bedrock"):
+        raise SystemExit(f"MM_PROVIDER inconnu: {prov} (http | bedrock)")
+    region = env.get("MM_AWS_REGION") or env.get("AWS_REGION") or env.get("AWS_DEFAULT_REGION")
+    default_label = f"bedrock-{region or 'default'}" if prov == "bedrock" else (urlparse(url).hostname or "target").replace(".", "-")
+    lab = label or env.get("MM_LABEL") or default_label
 
     models = dict(DEFAULT_MODELS)
     for k in models:
@@ -84,7 +99,12 @@ def load_config(env_file: str | None = None, label: str | None = None, base_url:
         extra_headers=json.loads(env.get("MM_EXTRA_HEADERS") or "{}"),
         timeout=float(env.get("MM_TIMEOUT") or 180),
         verify_tls=(env.get("MM_VERIFY_TLS", "true").lower() not in ("0", "false", "no")),
+        ca_bundle=env.get("MM_CA_BUNDLE") or None,
         max_tokens_param=env.get("MM_MAX_TOKENS_PARAM") or "max_completion_tokens",
         image_url=env.get("MM_IMAGE_URL") or DEFAULT_IMAGE_URL,
         models=models,
+        provider=prov,
+        aws_region=region,
+        aws_profile=env.get("MM_AWS_PROFILE") or env.get("AWS_PROFILE"),
+        bedrock_models={r: env[f"MM_BEDROCK_MODEL_{r.upper()}"] for r in BEDROCK_ROLES if env.get(f"MM_BEDROCK_MODEL_{r.upper()}")},
     )

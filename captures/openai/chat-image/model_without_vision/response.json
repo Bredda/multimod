@@ -1,0 +1,44 @@
+{
+  "status": 500,
+  "reason": "Internal Server Error",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:43:27 GMT",
+    "content-type": "application/json",
+    "content-length": "369",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef74410d8eb82b-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-processing-ms": "1018",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-limit-tokens": "2000000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-remaining-tokens": "1999214",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-ratelimit-reset-tokens": "23ms",
+    "x-request-id": "req_4feb4a1d958546f5b9709d74ae686591",
+    "set-cookie": "__cf_bm=KX3ZOIwbthqtYP4p8gF97Nyd.5Am2NeM9q5sQho7.FU-1792745006.2474704-1.0.1.1-ToL4dpiXtP9TPEBGrymASiBkywPNiVQyfuDI_vVH2mMAG8Z8uKCh8prgyG3OQA7oTs4a2.YvuAZ2Vn5r0.WDRbggxG9.lkKx993ZbQyX_KoXbJpW5xnDyHr2607rxft5; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:13:27 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 1129.4,
+    "total_ms": 1129.7,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 369,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "The server had an error processing your request. Sorry about that! You can retry your request, or contact us through our help center at help.openai.com if you keep seeing this error. (Please include the request ID req_4feb4a1d958546f5b9709d74ae686591 in your email.)",
+      "type": "server_error",
+      "param": null,
+      "code": null
+    }
+  }
+}

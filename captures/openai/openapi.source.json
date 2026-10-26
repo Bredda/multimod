@@ -1,0 +1,11 @@
+{
+  "file": "openapi.yaml",
+  "title": "OpenAI API (spec OpenAPI officielle)",
+  "version": "2.3.0",
+  "repo": "https://github.com/openai/openai-openapi",
+  "branch": "manual_spec",
+  "url": "https://raw.githubusercontent.com/openai/openai-openapi/manual_spec/openapi.yaml",
+  "downloaded_at": "2026-10-23",
+  "sha256": "6a6c681b182002de4ad335fa80214158f2d8f383a418f865c87876c3ed67cad9",
+  "bytes": 1376003
+}

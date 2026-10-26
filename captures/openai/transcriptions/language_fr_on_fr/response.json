@@ -1,0 +1,50 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:42 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "488",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-request-id": "req_94062efde65e4ad1b43d30c2bee847e3",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=iR22QJ2Boy9XC9m8gcAcZ8tyRtQLxv31HoYfctPiawc-1792744902.184635-1.0.1.1-ZkeN9zA.j9t5n7EyeRidPC_rqElbRmft5TEinPZwzRI76MrJp_SeUXAKSlfgWHJlEvoRtElHZKGNXNaRRDqIJKiAh_WJAXd8vK.reFOkoUgtcBjbsNTB726OivehJmX3; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:42 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "content-encoding": "gzip",
+    "cf-ray": "a4ef71b6ac2c0352-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 695.0,
+    "total_ms": 695.2,
+    "chunks": 1,
+    "retries_429": 0
+  },
+  "bytes": 244,
+  "kind": "json",
+  "body": {
+    "text": "Bonjour, je m'appelle Laurent. Aujourd'hui il fait beau à Paris. Combien font deux plus deux?",
+    "usage": {
+      "type": "tokens",
+      "total_tokens": 95,
+      "input_tokens": 71,
+      "input_token_details": {
+        "text_tokens": 0,
+        "audio_tokens": 71
+      },
+      "output_tokens": 24
+    }
+  }
+}

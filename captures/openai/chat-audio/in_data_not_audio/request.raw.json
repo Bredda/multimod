@@ -1,0 +1,1 @@
+{"model": "gpt-audio", "messages": [{"role": "user", "content": [{"type": "text", "text": "Answer the question asked in the audio message, and tell me the speaker's name. Be brief."}, {"type": "input_audio", "input_audio": {"data": "bm90IGF1ZGlv", "format": "wav"}}]}], "max_completion_tokens": 300, "modalities": ["text"]}

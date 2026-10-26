@@ -1,0 +1,78 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:43:35 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef74713c7c790f-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "897",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199986",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "4ms",
+    "x-request-id": "req_81303ed066cd4521ae3300303467c1fd",
+    "set-cookie": "__cf_bm=7FJsVwH33kOUtQ43E3utipgN2IaDhxXRoN.nuZMBzFk-1792745013.96064-1.0.1.1-MLV1C7d2ZKenM62rV8tZK.yGVT_sVP6OZaVVV_2yFJl9aZa0Ncx4wWUHJg8s9WxFIQp916tRmCg.9W0iAWI1ONOgTChvm8maDboYlQu11JsqWEhC29xs8s_SV.nU4yW_; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:13:35 GMT",
+    "content-encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 1311.1,
+    "total_ms": 1311.5,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 1067,
+  "kind": "json",
+  "body": {
+    "id": "chatcmpl-Ec5A6Wx9h7IXZ5F1GPbnAG4ONtt42",
+    "object": "chat.completion",
+    "created": 1792745014,
+    "model": "gpt-audio-2025-08-28",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "It sounds like the two audio clips are identical in content. They both have the same introduction, mention the same day and weather, and ask the same question. Based on what you provided, the contents match.",
+          "refusal": null,
+          "annotations": []
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "completion_tokens": 42,
+      "total_tokens": 200,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 134,
+        "text_tokens": 24,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0,
+        "text_tokens": 42
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_10c132697f"
+  }
+}

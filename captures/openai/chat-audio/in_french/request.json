@@ -1,0 +1,33 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/chat/completions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "gpt-audio",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Réponds à la question posée dans l'audio, en une phrase."
+          },
+          {
+            "type": "input_audio",
+            "input_audio": {
+              "data": "<base64 537660 chars, sha256:c1cb68437c20>",
+              "format": "wav"
+            }
+          }
+        ]
+      }
+    ],
+    "max_completion_tokens": 300,
+    "modalities": [
+      "text"
+    ]
+  }
+}

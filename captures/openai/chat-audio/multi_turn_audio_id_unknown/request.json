@@ -1,0 +1,46 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/chat/completions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "gpt-audio",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hi"
+          }
+        ]
+      },
+      {
+        "role": "assistant",
+        "audio": {
+          "id": "audio_does_not_exist"
+        }
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Again please."
+          }
+        ]
+      }
+    ],
+    "max_completion_tokens": 200,
+    "modalities": [
+      "text",
+      "audio"
+    ],
+    "audio": {
+      "voice": "alloy",
+      "format": "wav"
+    }
+  }
+}

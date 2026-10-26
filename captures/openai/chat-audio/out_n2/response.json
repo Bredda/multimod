@@ -1,0 +1,47 @@
+{
+  "status": 500,
+  "reason": "Internal Server Error",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:44:11 GMT",
+    "content-type": "application/json",
+    "content-length": "211",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef75544fa0248e-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "1321",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199994",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "1ms",
+    "x-request-id": "req_0ef040cb668441b4b00c41c3149269c8",
+    "set-cookie": "__cf_bm=CKXEbQG_zK_8OlgRtK77TZueTHyZRCb75clW8hNtukM-1792745050.2822645-1.0.1.1-K7Ih7BP9ugc0Y4bNTkGZSPeLd32lLHEVWxkHkTpm.fv4bUL7APJK8XElN5ZFFchTN03bOyGbjnhiKGskwYuterYXpwsc3eeGu_ctfq8Yp8TwEVzVYo8wB6kC0dLfW8xx; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:14:11 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 1472.1,
+    "total_ms": 1472.3,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 211,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "The model produced invalid content. Consider modifying your prompt if you are seeing this error persistently.",
+      "type": "model_error",
+      "param": null,
+      "code": null
+    }
+  }
+}

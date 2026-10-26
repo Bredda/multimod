@@ -23,8 +23,36 @@ def _err(body: Any, raw: bytes) -> str:
     return raw[:200].decode("utf-8", "replace")
 
 
+def _converse_text(out: dict) -> tuple[str, list[str]]:
+    parts = (out.get("message") or {}).get("content") or []
+    return "".join(p.get("text", "") for p in parts if isinstance(p, dict)), [p["toolUse"].get("name", "?") for p in parts if isinstance(p, dict) and "toolUse" in p]
+
+
+def summarize_boto(endpoint: str, ex) -> str:
+    if ex.client_side:
+        return _clip(f"CLIENT-SIDE (botocore, avant envoi) {ex.error}", 240)
+    if ex.err_code or (ex.status is None):
+        return _clip(f"ERR {ex.error}", 260)
+    if ex.events is not None:
+        s = capture.stream_summary_boto(ex.events)
+        u = s["usage"] or {}
+        return _clip(f"STREAM events={s['events']} stop={s['stop_reason']} tok={u.get('inputTokens')}/{u.get('outputTokens')} tool={s['tool_use']} text={s['text']!r}", 240)
+    d = ex.data or {}
+    if ex.req.operation == "converse":
+        text, tools = _converse_text(d.get("output") or {})
+        u = d.get("usage") or {}
+        return _clip(f"stop={d.get('stopReason')} tok={u.get('inputTokens')}/{u.get('outputTokens')} lat={ (d.get('metrics') or {}).get('latencyMs')}ms tools={tools or None} text={text!r}", 260)
+    if ex.req.operation == "count_tokens":
+        return _clip(f"inputTokens={d.get('inputTokens')}")
+    if ex.req.operation == "invoke_model":
+        return _clip(f"invoke body={json.dumps(d.get('body'), ensure_ascii=False)[:200]}", 260)
+    return _clip(json.dumps({k: v for k, v in d.items() if k != "ResponseMetadata"}, default=str, ensure_ascii=False), 260)
+
+
 def summarize(endpoint: str, ex) -> str:
     """Une ligne qui dit l'essentiel de la réponse (utilisée dans l'index et les rapports)."""
+    if ex.kind == "boto":
+        return summarize_boto(endpoint, ex)
     if ex.error and ex.status is None:
         return _clip(f"TRANSPORT {ex.error}")
     body = ex.json()
@@ -122,7 +150,7 @@ def write_report(out_dir: Path) -> Path:
             name = r["case"] + (f" › {s['step']}" if s.get("step") else "")
             lines.append(f"| `{name}` | {s.get('status')} | {s['expect']} | {mark} | {s.get('summary') or ''} |")
     out = [f"# Rapport — `{idx['label']}`", "",
-           f"- cible : `{idx['base_url']}`  ·  généré : {idx['generated_at']}",
+           f"- cible : `{idx['base_url']}`{' (boto3, bedrock-runtime)' if idx.get('provider') == 'bedrock' else ''}  ·  généré : {idx['generated_at']}",
            f"- modèles : " + ", ".join(f"{k}=`{v}`" for k, v in idx["models"].items()),
            *_spec_lines(out_dir),
            f"- échanges : {totals['steps']} · conformes à l'attente : {totals['match']} · **écarts : {totals['mismatch']}** · "
@@ -132,6 +160,9 @@ def write_report(out_dir: Path) -> Path:
            "c'est une information (doc imprécise, ou la cible diffère).", ""]
     names = {"speech": "POST /audio/speech", "transcriptions": "POST /audio/transcriptions",
              "chat-image": "POST /chat/completions — image_url", "chat-audio": "POST /chat/completions — input_audio / audio out"}
+    if idx.get("provider") == "bedrock":
+        names = {"speech": "Bedrock — synthèse vocale / audio en sortie (existe-t-il ?)", "transcriptions": "Bedrock — transcription (Converse + AudioBlock)",
+                 "chat-image": "Bedrock — images (Converse / ConverseStream / InvokeModel)", "chat-audio": "Bedrock — audio en entrée (Converse AudioBlock)"}
     for ep, lines in rows_by_ep.items():
         out += [f"## {names.get(ep, ep)}", "", "| cas | HTTP | attente | | résumé |", "|---|---|---|---|---|", *lines, ""]
     p = out_dir / "REPORT.md"
@@ -180,19 +211,30 @@ def write_compare(base: Path, labels: list[str]) -> Path:
 
 
 def write_catalog(cases, path: Path) -> Path:
-    names = {"speech": "POST /audio/speech", "transcriptions": "POST /audio/transcriptions",
-             "chat-image": "POST /chat/completions — content part `image_url`",
-             "chat-audio": "POST /chat/completions — content part `input_audio` & sortie audio"}
+    names = {"http": {"speech": "POST /audio/speech", "transcriptions": "POST /audio/transcriptions",
+                      "chat-image": "POST /chat/completions — content part `image_url`",
+                      "chat-audio": "POST /chat/completions — content part `input_audio` & sortie audio"},
+             "bedrock": {"speech": "Synthèse vocale / audio en sortie — ce qui existe sur bedrock-runtime",
+                         "transcriptions": "Transcription — Converse + AudioBlock (pas d'endpoint dédié)",
+                         "chat-image": "Images — Converse / ConverseStream / InvokeModel",
+                         "chat-audio": "Audio en entrée — Converse AudioBlock"}}
+    titles = {"http": "Cible HTTP — OpenAI / LiteLLM (HTTP brut, sans SDK)", "bedrock": "Cible Bedrock — boto3 / bedrock-runtime"}
     out = ["# Catalogue des cas de test", "",
            "_Généré par `python -m mmprobe catalog` — ne pas éditer à la main._", "",
-           f"{len(cases)} cas. « Attente » = ce que la doc OpenAI laisse prévoir (`2xx`, `4xx`, `any` = indéterminé / à découvrir). "
-           "Tags : `heavy` = gros payloads (opt-in `--heavy`), `probe` = paramètre récent/non documenté dans la spec OpenAPI publique, `neg` = cas négatif.", ""]
-    cur = None
-    for c in cases:
-        if c.endpoint != cur:
-            cur = c.endpoint
-            out += ["", f"## {names.get(cur, cur)}", "", "| cas | attente | tags | ce que ça teste |", "|---|---|---|---|"]
-        note = f" — {c.notes}" if c.notes else ""
-        out.append(f"| `{c.name}` | {c.expect} | {', '.join(c.tags)} | {c.title.replace('|', '/')}{note.replace('|', '/')} |")
+           f"{len(cases)} cas. « Attente » = ce que la doc laisse prévoir (`2xx`, `4xx`, `any` = indéterminé / à découvrir). "
+           "Tags : `heavy` = gros payloads (opt-in `--heavy`), `security` = SSRF (opt-in, ta gateway uniquement), `probe` = paramètre récent/non documenté dans la spec publique, `neg` = cas négatif. "
+           "Un même id (`chat-image/multi_images`) dans les deux cibles = même scénario, comparable avec `report --compare`."]
+    for target in ("http", "bedrock"):
+        sub = [c for c in cases if c.target == target]
+        if not sub:
+            continue
+        out += ["", f"# {titles[target]} — {len(sub)} cas"]
+        cur = None
+        for c in sub:
+            if c.endpoint != cur:
+                cur = c.endpoint
+                out += ["", f"## {names[target].get(cur, cur)}", "", "| cas | attente | tags | ce que ça teste |", "|---|---|---|---|"]
+            note = f" — {c.notes}" if c.notes else ""
+            out.append(f"| `{c.name}` | {c.expect} | {', '.join(c.tags)} | {c.title.replace('|', '/')}{note.replace('|', '/')} |")
     path.write_text("\n".join(out) + "\n")
     return path

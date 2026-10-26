@@ -1,0 +1,6360 @@
+{
+  "label": "openai",
+  "base_url": "https://api.openai.com/v1",
+  "models": {
+    "tts": "gpt-4o-mini-tts",
+    "tts_legacy": "tts-1",
+    "stt": "gpt-4o-transcribe",
+    "stt_mini": "gpt-4o-mini-transcribe",
+    "stt_whisper": "whisper-1",
+    "stt_diarize": "gpt-4o-transcribe-diarize",
+    "vision": "gpt-4o-mini",
+    "text_only": "gpt-3.5-turbo",
+    "audio_chat": "gpt-audio"
+  },
+  "generated_at": "2026-10-23T10:47:08+0200",
+  "results": [
+    {
+      "case": "speech/default",
+      "order": 0,
+      "title": "Appel minimal (model, input, voice) : format par défaut attendu = mp3",
+      "expect": "2xx",
+      "tags": [],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/default",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 75264B chunks=50 ttfb=700.6ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 700.6,
+          "total_ms": 3820.9,
+          "bytes": 75264,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 75264,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.82
+    },
+    {
+      "case": "speech/legacy_tts1",
+      "order": 1,
+      "title": "Modèle historique tts-1",
+      "expect": "2xx",
+      "tags": [],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/legacy_tts1",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 51072B chunks=57 ttfb=899.7ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 899.7,
+          "total_ms": 1176.9,
+          "bytes": 51072,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 51072,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.18
+    },
+    {
+      "case": "speech/format_mp3",
+      "order": 2,
+      "title": "response_format=mp3 : content-type, conteneur réel et taille du binaire renvoyé",
+      "expect": "2xx",
+      "tags": [
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/format_mp3",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 64896B chunks=45 ttfb=853.4ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 853.4,
+          "total_ms": 3183.6,
+          "bytes": 64896,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 64896,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.19
+    },
+    {
+      "case": "speech/format_opus",
+      "order": 3,
+      "title": "response_format=opus : content-type, conteneur réel et taille du binaire renvoyé",
+      "expect": "2xx",
+      "tags": [
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/format_opus",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/opus detected=ogg 38891B chunks=31 ttfb=798.3ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/opus",
+          "ttfb_ms": 798.3,
+          "total_ms": 941.1,
+          "bytes": 38891,
+          "extracted": {
+            "audio_file": "response.audio.ogg",
+            "audio_bytes": 38891,
+            "audio_detected": "ogg"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.94
+    },
+    {
+      "case": "speech/format_aac",
+      "order": 4,
+      "title": "response_format=aac : content-type, conteneur réel et taille du binaire renvoyé",
+      "expect": "2xx",
+      "tags": [
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/format_aac",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/aac detected=aac 34164B chunks=35 ttfb=2676.1ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/aac",
+          "ttfb_ms": 2676.1,
+          "total_ms": 10529.7,
+          "bytes": 34164,
+          "extracted": {
+            "audio_file": "response.audio.aac",
+            "audio_bytes": 34164,
+            "audio_detected": "aac"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 14.05
+    },
+    {
+      "case": "speech/format_flac",
+      "order": 5,
+      "title": "response_format=flac : content-type, conteneur réel et taille du binaire renvoyé",
+      "expect": "2xx",
+      "tags": [
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/format_flac",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/flac detected=flac 112439B chunks=60 ttfb=599.0ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/flac",
+          "ttfb_ms": 599.0,
+          "total_ms": 4211.9,
+          "bytes": 112439,
+          "extracted": {
+            "audio_file": "response.audio.flac",
+            "audio_bytes": 112439,
+            "audio_detected": "flac"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 4.21
+    },
+    {
+      "case": "speech/format_wav",
+      "order": 6,
+      "title": "response_format=wav : content-type, conteneur réel et taille du binaire renvoyé",
+      "expect": "2xx",
+      "tags": [
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/format_wav",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/wav detected=wav 184844B chunks=76 ttfb=1258.3ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/wav",
+          "ttfb_ms": 1258.3,
+          "total_ms": 5519.8,
+          "bytes": 184844,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 184844,
+            "audio_detected": "wav"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 5.52
+    },
+    {
+      "case": "speech/format_pcm",
+      "order": 7,
+      "title": "response_format=pcm : content-type, conteneur réel et taille du binaire renvoyé",
+      "expect": "2xx",
+      "tags": [
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/format_pcm",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/pcm detected=unknown/raw 194400B chunks=77 ttfb=512.6ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/pcm",
+          "ttfb_ms": 512.6,
+          "total_ms": 1102.8,
+          "bytes": 194400,
+          "extracted": {
+            "audio_file": "response.audio.bin",
+            "audio_bytes": 194400,
+            "audio_detected": "unknown/raw"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.11
+    },
+    {
+      "case": "speech/voice_alloy",
+      "order": 8,
+      "title": "Voix intégrée `alloy`",
+      "expect": "2xx",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_alloy",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 66432B chunks=50 ttfb=610.0ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 610.0,
+          "total_ms": 1011.2,
+          "bytes": 66432,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 66432,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.01
+    },
+    {
+      "case": "speech/voice_ash",
+      "order": 9,
+      "title": "Voix intégrée `ash`",
+      "expect": "2xx",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_ash",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 76032B chunks=57 ttfb=838.4ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 838.4,
+          "total_ms": 5607.8,
+          "bytes": 76032,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 76032,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 5.61
+    },
+    {
+      "case": "speech/voice_ballad",
+      "order": 10,
+      "title": "Voix intégrée `ballad`",
+      "expect": "any",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_ballad",
+          "expect": "any",
+          "match": null,
+          "summary": "audio ct=audio/mpeg detected=mp3 69888B chunks=52 ttfb=636.3ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 636.3,
+          "total_ms": 963.6,
+          "bytes": 69888,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 69888,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.97
+    },
+    {
+      "case": "speech/voice_coral",
+      "order": 11,
+      "title": "Voix intégrée `coral`",
+      "expect": "2xx",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_coral",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 79488B chunks=51 ttfb=639.8ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 639.8,
+          "total_ms": 1037.9,
+          "bytes": 79488,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 79488,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.04
+    },
+    {
+      "case": "speech/voice_echo",
+      "order": 12,
+      "title": "Voix intégrée `echo`",
+      "expect": "2xx",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_echo",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 67200B chunks=46 ttfb=787.9ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 787.9,
+          "total_ms": 3284.4,
+          "bytes": 67200,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 67200,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.29
+    },
+    {
+      "case": "speech/voice_fable",
+      "order": 13,
+      "title": "Voix intégrée `fable`",
+      "expect": "2xx",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_fable",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 81024B chunks=55 ttfb=662.2ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 662.2,
+          "total_ms": 1075.7,
+          "bytes": 81024,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 81024,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.08
+    },
+    {
+      "case": "speech/voice_onyx",
+      "order": 14,
+      "title": "Voix intégrée `onyx`",
+      "expect": "2xx",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_onyx",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 64896B chunks=48 ttfb=782.2ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 782.2,
+          "total_ms": 3298.0,
+          "bytes": 64896,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 64896,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.3
+    },
+    {
+      "case": "speech/voice_nova",
+      "order": 15,
+      "title": "Voix intégrée `nova`",
+      "expect": "2xx",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_nova",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 69120B chunks=63 ttfb=578.0ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 578.0,
+          "total_ms": 3685.8,
+          "bytes": 69120,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 69120,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 6.57
+    },
+    {
+      "case": "speech/voice_sage",
+      "order": 16,
+      "title": "Voix intégrée `sage`",
+      "expect": "2xx",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_sage",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 70656B chunks=48 ttfb=829.5ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 829.5,
+          "total_ms": 4920.1,
+          "bytes": 70656,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 70656,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 4.92
+    },
+    {
+      "case": "speech/voice_shimmer",
+      "order": 17,
+      "title": "Voix intégrée `shimmer`",
+      "expect": "2xx",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_shimmer",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 56064B chunks=46 ttfb=855.1ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 855.1,
+          "total_ms": 3698.9,
+          "bytes": 56064,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 56064,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.7
+    },
+    {
+      "case": "speech/voice_verse",
+      "order": 18,
+      "title": "Voix intégrée `verse`",
+      "expect": "any",
+      "tags": [
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_verse",
+          "expect": "any",
+          "match": null,
+          "summary": "audio ct=audio/mpeg detected=mp3 72192B chunks=52 ttfb=847.8ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 847.8,
+          "total_ms": 1071.3,
+          "bytes": 72192,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 72192,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.07
+    },
+    {
+      "case": "speech/voice_custom_object",
+      "order": 19,
+      "title": "Voix custom sous forme d'objet {\"id\": ...} (voix personnalisées OpenAI)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "probe"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_custom_object",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/voice_id: No voice found with id 'voice_does_not_exist'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 268.7,
+          "total_ms": 269.0,
+          "bytes": 164,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.27
+    },
+    {
+      "case": "speech/voice_unknown",
+      "order": 20,
+      "title": "Voix inconnue",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/voice_unknown",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/voice: Invalid value: 'bogus'. Supported values are: 'alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer', 'coral', 'verse', 'ballad', 'ash', 'sage', 'marin', and 'cedar'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 232.2,
+          "total_ms": 232.4,
+          "bytes": 289,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.23
+    },
+    {
+      "case": "speech/speed_min",
+      "order": 21,
+      "title": "speed=0.25 (borne basse)",
+      "expect": "2xx",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/speed_min",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 260352B chunks=100 ttfb=729.2ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 729.2,
+          "total_ms": 3280.9,
+          "bytes": 260352,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 260352,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.28
+    },
+    {
+      "case": "speech/speed_max",
+      "order": 22,
+      "title": "speed=4.0 (borne haute)",
+      "expect": "2xx",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/speed_max",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 18048B chunks=21 ttfb=3167.3ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 3167.3,
+          "total_ms": 3254.4,
+          "bytes": 18048,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 18048,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.26
+    },
+    {
+      "case": "speech/speed_too_low",
+      "order": 23,
+      "title": "speed=0.1 (< min)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/speed_too_low",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/decimal_below_min_value/speed: Invalid 'speed': decimal below minimum value. Expected a value >= 0.25, but got 0.1 instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 237.0,
+          "total_ms": 237.5,
+          "bytes": 228,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.24
+    },
+    {
+      "case": "speech/speed_too_high",
+      "order": 24,
+      "title": "speed=5 (> max)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/speed_too_high",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/decimal_above_max_value/speed: Invalid 'speed': decimal above maximum value. Expected a value <= 4.0, but got 5 instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 193.2,
+          "total_ms": 193.5,
+          "bytes": 225,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.2
+    },
+    {
+      "case": "speech/speed_string",
+      "order": 25,
+      "title": "speed=\"fast\" (mauvais type)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/speed_string",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_type/speed: Invalid type for 'speed': expected a decimal, but got a string instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 227.6,
+          "total_ms": 227.9,
+          "bytes": 196,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.23
+    },
+    {
+      "case": "speech/instructions",
+      "order": 26,
+      "title": "instructions sur gpt-4o-mini-tts",
+      "expect": "2xx",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/instructions",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 64128B chunks=56 ttfb=597.6ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 597.6,
+          "total_ms": 1067.5,
+          "bytes": 64128,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 64128,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.07
+    },
+    {
+      "case": "speech/instructions_tts1",
+      "order": 27,
+      "title": "instructions sur tts-1 (doc : sans effet) — ignoré ou rejeté ?",
+      "expect": "any",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/instructions_tts1",
+          "expect": "any",
+          "match": null,
+          "summary": "audio ct=audio/mpeg detected=mp3 51840B chunks=44 ttfb=1366.2ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 1366.2,
+          "total_ms": 1613.5,
+          "bytes": 51840,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 51840,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.61
+    },
+    {
+      "case": "speech/stream_format_sse",
+      "order": 28,
+      "title": "stream_format=sse : événements speech.audio.delta/done au lieu d'un binaire",
+      "expect": "2xx",
+      "tags": [
+        "stream",
+        "probe"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/stream_format_sse",
+          "expect": "2xx",
+          "match": true,
+          "summary": "SSE events=107 types={'speech.audio.delta': 105, 'speech.audio.done': 1} usage={'input_tokens': 13, 'output_t…",
+          "status": 200,
+          "kind": "sse",
+          "content_type": "text/event-stream",
+          "ttfb_ms": 884.1,
+          "total_ms": 5235.0,
+          "bytes": 93947,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 66432,
+            "audio_transcript": null
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 5.24
+    },
+    {
+      "case": "speech/stream_format_audio",
+      "order": 29,
+      "title": "stream_format=audio (défaut explicite)",
+      "expect": "2xx",
+      "tags": [
+        "stream",
+        "probe"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/stream_format_audio",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 61056B chunks=49 ttfb=734.3ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 734.3,
+          "total_ms": 952.6,
+          "bytes": 61056,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 61056,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.95
+    },
+    {
+      "case": "speech/stream_format_invalid",
+      "order": 30,
+      "title": "stream_format invalide",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "stream",
+        "probe"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/stream_format_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/stream_format: Invalid value: 'ndjson'. Supported values are: 'audio' and 'sse'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 186.4,
+          "total_ms": 186.6,
+          "bytes": 199,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.19
+    },
+    {
+      "case": "speech/stream_format_sse_tts1",
+      "order": 31,
+      "title": "stream_format=sse sur tts-1 (non supporté d'après la doc)",
+      "expect": "any",
+      "tags": [
+        "stream",
+        "probe"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/stream_format_sse_tts1",
+          "expect": "any",
+          "match": null,
+          "summary": "audio ct=audio/mpeg detected=mp3 51456B chunks=46 ttfb=1358.1ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 1358.1,
+          "total_ms": 1505.2,
+          "bytes": 51456,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 51456,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.51
+    },
+    {
+      "case": "speech/input_french",
+      "order": 32,
+      "title": "Texte français accentué",
+      "expect": "2xx",
+      "tags": [],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/input_french",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 70656B chunks=49 ttfb=905.9ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 905.9,
+          "total_ms": 4264.5,
+          "bytes": 70656,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 70656,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 7.79
+    },
+    {
+      "case": "speech/input_unicode_emoji",
+      "order": 33,
+      "title": "Unicode + emoji + caractères non latins",
+      "expect": "any",
+      "tags": [],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/input_unicode_emoji",
+          "expect": "any",
+          "match": null,
+          "summary": "audio ct=audio/mpeg detected=mp3 57600B chunks=45 ttfb=1001.0ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 1001.0,
+          "total_ms": 4302.7,
+          "bytes": 57600,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 57600,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 4.3
+    },
+    {
+      "case": "speech/input_4096",
+      "order": 34,
+      "title": "input = 4096 caractères exactement (limite)",
+      "expect": "2xx",
+      "tags": [
+        "long"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/input_4096",
+          "expect": "2xx",
+          "match": true,
+          "summary": "audio ct=audio/mpeg detected=mp3 10147200B chunks=10280 ttfb=653.5ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 653.5,
+          "total_ms": 261279.2,
+          "bytes": 10147200,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 10147200,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 285.87
+    },
+    {
+      "case": "speech/input_4097",
+      "order": 35,
+      "title": "input = 4097 caractères (> limite)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "long"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/input_4097",
+          "expect": "4xx",
+          "match": false,
+          "summary": "audio ct=audio/mpeg detected=mp3 2141568B chunks=1351 ttfb=782.9ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 782.9,
+          "total_ms": 69105.5,
+          "bytes": 2141568,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 2141568,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 75.18
+    },
+    {
+      "case": "speech/input_empty",
+      "order": 36,
+      "title": "input vide",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/input_empty",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/empty_string/input: Invalid 'input': empty string. Expected a string with minimum length 1, but got an empty string instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 241.0,
+          "total_ms": 241.2,
+          "bytes": 229,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.24
+    },
+    {
+      "case": "speech/input_whitespace",
+      "order": 37,
+      "title": "input = espaces seulement",
+      "expect": "any",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/input_whitespace",
+          "expect": "any",
+          "match": null,
+          "summary": "audio ct=audio/mpeg detected=mp3 5760B chunks=8 ttfb=834.4ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 834.4,
+          "total_ms": 1477.1,
+          "bytes": 5760,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 5760,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.48
+    },
+    {
+      "case": "speech/input_not_string",
+      "order": 38,
+      "title": "input = liste de chaînes",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/input_not_string",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_type/input: Invalid type for 'input': expected a string, but got an array instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 254.1,
+          "total_ms": 254.4,
+          "bytes": 195,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.26
+    },
+    {
+      "case": "speech/missing_model",
+      "order": 39,
+      "title": "model absent",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/missing_model",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: you must provide a model parameter",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 179.6,
+          "total_ms": 179.8,
+          "bytes": 167,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.18
+    },
+    {
+      "case": "speech/missing_voice",
+      "order": 40,
+      "title": "voice absent",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/missing_voice",
+          "expect": "4xx",
+          "match": false,
+          "summary": "audio ct=audio/mpeg detected=mp3 56832B chunks=44 ttfb=1404.1ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 1404.1,
+          "total_ms": 4605.6,
+          "bytes": 56832,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 56832,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 4.61
+    },
+    {
+      "case": "speech/missing_input",
+      "order": 41,
+      "title": "input absent",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/missing_input",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/missing_required_parameter/input: Missing required parameter: 'input'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 243.8,
+          "total_ms": 244.0,
+          "bytes": 175,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.25
+    },
+    {
+      "case": "speech/model_unknown",
+      "order": 42,
+      "title": "model inexistant",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/model_unknown",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/model_not_found: The model `tts-does-not-exist` does not exist or you do not have access to it.",
+          "status": 404,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 232.3,
+          "total_ms": 261.9,
+          "bytes": 224,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.26
+    },
+    {
+      "case": "speech/model_wrong_type",
+      "order": 43,
+      "title": "model d'un autre type (chat) sur /audio/speech",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/model_wrong_type",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR <html> ⏎   <head> ⏎     <title>Request Header Fields Too Large</title> ⏎   </head> ⏎   <body> ⏎     <h1><p>Request Header Fields Too Large</p></h1> ⏎     Error parsing headers: &#x27;limit request headers fields&",
+          "status": 431,
+          "kind": "text",
+          "content_type": "text/html",
+          "ttfb_ms": 458.6,
+          "total_ms": 459.0,
+          "bytes": 224,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.46
+    },
+    {
+      "case": "speech/format_invalid",
+      "order": 44,
+      "title": "response_format=ogg (hors liste)",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/format_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/response_format: Invalid value: 'ogg'. Supported values are: 'mp3', 'aac', 'opus', 'flac', 'pcm', and 'wav'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 371.6,
+          "total_ms": 371.9,
+          "bytes": 227,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.37
+    },
+    {
+      "case": "speech/format_uppercase",
+      "order": 45,
+      "title": "response_format=MP3 (casse)",
+      "expect": "any",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/format_uppercase",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/invalid_value/response_format: Invalid value: 'MP3'. Supported values are: 'mp3', 'aac', 'opus', 'flac', 'pcm', and 'wav'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 201.8,
+          "total_ms": 202.0,
+          "bytes": 227,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.2
+    },
+    {
+      "case": "speech/unknown_param",
+      "order": 46,
+      "title": "paramètre inconnu `foo` : le schéma est additionalProperties=false — rejet ou ignoré ?",
+      "expect": "any",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/unknown_param",
+          "expect": "any",
+          "match": null,
+          "summary": "audio ct=audio/mpeg detected=mp3 62592B chunks=44 ttfb=1068.8ms",
+          "status": 200,
+          "kind": "binary",
+          "content_type": "audio/mpeg",
+          "ttfb_ms": 1068.8,
+          "total_ms": 1156.4,
+          "bytes": 62592,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 62592,
+            "audio_detected": "mp3"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.16
+    },
+    {
+      "case": "speech/content_type_urlencoded",
+      "order": 47,
+      "title": "Corps application/x-www-form-urlencoded au lieu de JSON",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "transport"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/content_type_urlencoded",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: you must provide a model parameter",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 176.7,
+          "total_ms": 176.9,
+          "bytes": 167,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.18
+    },
+    {
+      "case": "speech/content_type_multipart",
+      "order": 48,
+      "title": "Corps multipart/form-data au lieu de JSON",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "transport"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/content_type_multipart",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: [{'type': 'dict_type', 'loc': ('body',), 'msg': 'Input should be a valid dictionary'}]",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 224.7,
+          "total_ms": 224.9,
+          "bytes": 198,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.23
+    },
+    {
+      "case": "speech/malformed_json",
+      "order": 49,
+      "title": "JSON invalide",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "transport"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/malformed_json",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: We could not parse the JSON body of your request. (HINT: This likely means you aren't using your HTTP library correctly. The OpenAI API expects a JSON payload, but what was sent was not valid …",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 210.1,
+          "total_ms": 210.3,
+          "bytes": 443,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.21
+    },
+    {
+      "case": "speech/auth_invalid",
+      "order": 50,
+      "title": "Clé API invalide",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "auth"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/auth_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_api_key: Incorrect API key provided: sk-inval******robe. You can find your API key at https://platform.openai.com/account/api-keys.",
+          "status": 401,
+          "kind": "json",
+          "content_type": "text/plain",
+          "ttfb_ms": 195.9,
+          "total_ms": 196.1,
+          "bytes": 264,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.2
+    },
+    {
+      "case": "speech/auth_missing",
+      "order": 51,
+      "title": "Pas de header Authorization",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "auth"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "speech/auth_missing",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank usernam…",
+          "status": 401,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 200.7,
+          "total_ms": 201.2,
+          "bytes": 496,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.2
+    },
+    {
+      "case": "transcriptions/model_whisper",
+      "order": 52,
+      "title": "whisper-1, format json par défaut",
+      "expect": "2xx",
+      "tags": [],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/model_whisper",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is 2 plus…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 929.4,
+          "total_ms": 929.8,
+          "bytes": 129,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.93
+    },
+    {
+      "case": "transcriptions/model_4o_transcribe",
+      "order": 53,
+      "title": "gpt-4o-transcribe, format json par défaut",
+      "expect": "2xx",
+      "tags": [],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/model_4o_transcribe",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 849.7,
+          "total_ms": 850.0,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.85
+    },
+    {
+      "case": "transcriptions/model_4o_mini_transcribe",
+      "order": 54,
+      "title": "gpt-4o-mini-transcribe",
+      "expect": "2xx",
+      "tags": [],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/model_4o_mini_transcribe",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is 2 plus…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 746.5,
+          "total_ms": 746.8,
+          "bytes": 228,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.75
+    },
+    {
+      "case": "transcriptions/input_mp3",
+      "order": 55,
+      "title": "Fichier d'entrée mp3",
+      "expect": "2xx",
+      "tags": [
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/input_mp3",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 746.2,
+          "total_ms": 746.6,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.75
+    },
+    {
+      "case": "transcriptions/input_wav",
+      "order": 56,
+      "title": "Fichier d'entrée wav",
+      "expect": "2xx",
+      "tags": [
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/input_wav",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 684.4,
+          "total_ms": 684.7,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.69
+    },
+    {
+      "case": "transcriptions/input_flac",
+      "order": 57,
+      "title": "Fichier d'entrée flac",
+      "expect": "2xx",
+      "tags": [
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/input_flac",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 818.9,
+          "total_ms": 819.2,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.82
+    },
+    {
+      "case": "transcriptions/input_ogg",
+      "order": 58,
+      "title": "Fichier d'entrée ogg",
+      "expect": "2xx",
+      "tags": [
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/input_ogg",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 777.7,
+          "total_ms": 778.0,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.78
+    },
+    {
+      "case": "transcriptions/input_opus",
+      "order": 59,
+      "title": "Fichier d'entrée opus",
+      "expect": "any",
+      "tags": [
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/input_opus",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/unsupported_value/file: Unsupported file format opus",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 261.5,
+          "total_ms": 261.7,
+          "bytes": 157,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.26
+    },
+    {
+      "case": "transcriptions/input_aac",
+      "order": 60,
+      "title": "Fichier d'entrée aac",
+      "expect": "any",
+      "tags": [
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/input_aac",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/unsupported_value/file: Unsupported file format aac",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 295.2,
+          "total_ms": 295.5,
+          "bytes": 156,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.3
+    },
+    {
+      "case": "transcriptions/input_wav_from_pcm",
+      "order": 61,
+      "title": "Fichier d'entrée wav_from_pcm",
+      "expect": "2xx",
+      "tags": [
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/input_wav_from_pcm",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 751.4,
+          "total_ms": 751.8,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.75
+    },
+    {
+      "case": "transcriptions/input_m4a",
+      "order": 62,
+      "title": "Fichier d'entrée m4a (à fournir : fixtures/sample.m4a)",
+      "expect": "2xx",
+      "tags": [
+        "input-format",
+        "user-fixture"
+      ],
+      "outcome": "skipped",
+      "reason": "fixture manquante: fixtures/sample.m4a (lancer `fixtures`, ou fournir le fichier)",
+      "steps": [],
+      "elapsed_s": 0.0
+    },
+    {
+      "case": "transcriptions/input_mp4",
+      "order": 63,
+      "title": "Fichier d'entrée mp4 (à fournir : fixtures/sample.mp4)",
+      "expect": "2xx",
+      "tags": [
+        "input-format",
+        "user-fixture"
+      ],
+      "outcome": "skipped",
+      "reason": "fixture manquante: fixtures/sample.mp4 (lancer `fixtures`, ou fournir le fichier)",
+      "steps": [],
+      "elapsed_s": 0.0
+    },
+    {
+      "case": "transcriptions/input_webm",
+      "order": 64,
+      "title": "Fichier d'entrée webm (à fournir : fixtures/sample.webm)",
+      "expect": "2xx",
+      "tags": [
+        "input-format",
+        "user-fixture"
+      ],
+      "outcome": "skipped",
+      "reason": "fixture manquante: fixtures/sample.webm (lancer `fixtures`, ou fournir le fichier)",
+      "steps": [],
+      "elapsed_s": 0.0
+    },
+    {
+      "case": "transcriptions/input_mpga",
+      "order": 65,
+      "title": "Fichier d'entrée mpga (à fournir : fixtures/sample.mpga)",
+      "expect": "2xx",
+      "tags": [
+        "input-format",
+        "user-fixture"
+      ],
+      "outcome": "skipped",
+      "reason": "fixture manquante: fixtures/sample.mpga (lancer `fixtures`, ou fournir le fichier)",
+      "steps": [],
+      "elapsed_s": 0.0
+    },
+    {
+      "case": "transcriptions/input_mpeg",
+      "order": 66,
+      "title": "Fichier d'entrée mpeg (à fournir : fixtures/sample.mpeg)",
+      "expect": "2xx",
+      "tags": [
+        "input-format",
+        "user-fixture"
+      ],
+      "outcome": "skipped",
+      "reason": "fixture manquante: fixtures/sample.mpeg (lancer `fixtures`, ou fournir le fichier)",
+      "steps": [],
+      "elapsed_s": 0.0
+    },
+    {
+      "case": "transcriptions/input_fr",
+      "order": 67,
+      "title": "Audio français sans `language` (détection auto)",
+      "expect": "2xx",
+      "tags": [],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/input_fr",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text=\"Bonjour, je m'appelle Laurent. Aujourd'hui, il fait beau à Paris. Combien f…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 783.3,
+          "total_ms": 783.5,
+          "bytes": 245,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.79
+    },
+    {
+      "case": "transcriptions/input_tone_no_speech",
+      "order": 68,
+      "title": "Son sans parole (sinus 440 Hz) : texte vide ou hallucination ?",
+      "expect": "any",
+      "tags": [],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/input_tone_no_speech",
+          "expect": "any",
+          "match": null,
+          "summary": "json keys=['text', 'usage'] text='পাপ্পু'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 419.0,
+          "total_ms": 419.3,
+          "bytes": 167,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.42
+    },
+    {
+      "case": "transcriptions/input_silence",
+      "order": 69,
+      "title": "Silence 3 s",
+      "expect": "any",
+      "tags": [],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/input_silence",
+          "expect": "any",
+          "match": null,
+          "summary": "json keys=['text', 'usage'] text='هیچوقت'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 513.4,
+          "total_ms": 513.6,
+          "bytes": 161,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.52
+    },
+    {
+      "case": "transcriptions/fmt_json_whisper",
+      "order": 70,
+      "title": "response_format=json sur whisper-1",
+      "expect": "2xx",
+      "tags": [
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_json_whisper",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is 2 plus…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1058.3,
+          "total_ms": 1058.7,
+          "bytes": 129,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.06
+    },
+    {
+      "case": "transcriptions/fmt_text_whisper",
+      "order": 71,
+      "title": "response_format=text sur whisper-1",
+      "expect": "2xx",
+      "tags": [
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_text_whisper",
+          "expect": "2xx",
+          "match": true,
+          "summary": "text/plain: Hello, my name is Laurent. Today is a sunny Friday in Paris. What is 2 plus 2? ⏎ ",
+          "status": 200,
+          "kind": "text",
+          "content_type": "text/plain",
+          "ttfb_ms": 1279.3,
+          "total_ms": 1279.6,
+          "bytes": 79,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.28
+    },
+    {
+      "case": "transcriptions/fmt_srt_whisper",
+      "order": 72,
+      "title": "response_format=srt sur whisper-1",
+      "expect": "2xx",
+      "tags": [
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_srt_whisper",
+          "expect": "2xx",
+          "match": true,
+          "summary": "text/plain: 1 ⏎ 00:00:00,000 --> 00:00:06,960 ⏎ Hello, my name is Laurent. Today is a sunny Friday in Pari",
+          "status": 200,
+          "kind": "text",
+          "content_type": "text/plain",
+          "ttfb_ms": 1350.0,
+          "total_ms": 1358.3,
+          "bytes": 113,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.36
+    },
+    {
+      "case": "transcriptions/fmt_vtt_whisper",
+      "order": 73,
+      "title": "response_format=vtt sur whisper-1",
+      "expect": "2xx",
+      "tags": [
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_vtt_whisper",
+          "expect": "2xx",
+          "match": true,
+          "summary": "text/plain: WEBVTT ⏎  ⏎ 00:00:00.000 --> 00:00:06.960 ⏎ Hello, my name is Laurent. Today is a sunny Friday i",
+          "status": 200,
+          "kind": "text",
+          "content_type": "text/plain",
+          "ttfb_ms": 923.0,
+          "total_ms": 923.3,
+          "bytes": 118,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.92
+    },
+    {
+      "case": "transcriptions/fmt_verbose_json_whisper",
+      "order": 74,
+      "title": "response_format=verbose_json sur whisper-1",
+      "expect": "2xx",
+      "tags": [
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_verbose_json_whisper",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['duration', 'language', 'segments', 'task', 'text', 'usage'] lang=english dur=7.099999904632568 se…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 766.4,
+          "total_ms": 766.7,
+          "bytes": 598,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.77
+    },
+    {
+      "case": "transcriptions/fmt_json_4o",
+      "order": 75,
+      "title": "response_format=json sur gpt-4o-transcribe (doc : json seulement)",
+      "expect": "2xx",
+      "tags": [
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_json_4o",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 767.9,
+          "total_ms": 768.2,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.77
+    },
+    {
+      "case": "transcriptions/fmt_text_4o",
+      "order": 76,
+      "title": "response_format=text sur gpt-4o-transcribe (doc : json seulement)",
+      "expect": "any",
+      "tags": [
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_text_4o",
+          "expect": "any",
+          "match": null,
+          "summary": "text/plain: Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two plus two? ⏎ ",
+          "status": 200,
+          "kind": "text",
+          "content_type": "text/plain",
+          "ttfb_ms": 737.5,
+          "total_ms": 737.8,
+          "bytes": 83,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.74
+    },
+    {
+      "case": "transcriptions/fmt_srt_4o",
+      "order": 77,
+      "title": "response_format=srt sur gpt-4o-transcribe (doc : json seulement)",
+      "expect": "4xx",
+      "tags": [
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_srt_4o",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/unsupported_value/response_format: response_format 'srt' is not compatible with model 'gpt-4o-transcribe-api-ev3'. Use 'json' or 'text' instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 436.9,
+          "total_ms": 437.0,
+          "bytes": 249,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.44
+    },
+    {
+      "case": "transcriptions/fmt_vtt_4o",
+      "order": 78,
+      "title": "response_format=vtt sur gpt-4o-transcribe (doc : json seulement)",
+      "expect": "4xx",
+      "tags": [
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_vtt_4o",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/unsupported_value/response_format: response_format 'vtt' is not compatible with model 'gpt-4o-transcribe-api-ev3'. Use 'json' or 'text' instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 453.5,
+          "total_ms": 453.7,
+          "bytes": 249,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.46
+    },
+    {
+      "case": "transcriptions/fmt_verbose_json_4o",
+      "order": 79,
+      "title": "response_format=verbose_json sur gpt-4o-transcribe (doc : json seulement)",
+      "expect": "4xx",
+      "tags": [
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_verbose_json_4o",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/unsupported_value/response_format: response_format 'verbose_json' is not compatible with model 'gpt-4o-transcribe-api-ev3'. Use 'json' or 'text' instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 473.9,
+          "total_ms": 474.1,
+          "bytes": 258,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.48
+    },
+    {
+      "case": "transcriptions/fmt_diarized_json",
+      "order": 80,
+      "title": "diarized_json sur le modèle diarize (segments par locuteur)",
+      "expect": "any",
+      "tags": [
+        "response_format",
+        "probe"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_diarized_json",
+          "expect": "any",
+          "match": null,
+          "summary": "json keys=['duration', 'segments', 'task', 'text', 'usage'] lang=None dur=7.104 segs=4 words=0 text='Hello, m…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 3603.1,
+          "total_ms": 3603.5,
+          "bytes": 833,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.61
+    },
+    {
+      "case": "transcriptions/fmt_invalid",
+      "order": 81,
+      "title": "response_format invalide",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "response_format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/fmt_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/response_format: Invalid response format: yaml. Valid values are: json, text, vtt, srt, verbose_json.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 309.5,
+          "total_ms": 309.7,
+          "bytes": 220,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.31
+    },
+    {
+      "case": "transcriptions/ts_segment",
+      "order": 82,
+      "title": "verbose_json + timestamp_granularities[]=segment",
+      "expect": "2xx",
+      "tags": [
+        "timestamps"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/ts_segment",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['duration', 'language', 'segments', 'task', 'text', 'usage'] lang=english dur=7.099999904632568 se…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1384.9,
+          "total_ms": 1385.2,
+          "bytes": 598,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.39
+    },
+    {
+      "case": "transcriptions/ts_word",
+      "order": 83,
+      "title": "verbose_json + timestamp_granularities[]=word",
+      "expect": "2xx",
+      "tags": [
+        "timestamps"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/ts_word",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['duration', 'language', 'task', 'text', 'usage', 'words'] lang=english dur=7.099999904632568 segs=…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1065.9,
+          "total_ms": 1066.7,
+          "bytes": 1290,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.07
+    },
+    {
+      "case": "transcriptions/ts_word_and_segment",
+      "order": 84,
+      "title": "verbose_json + word ET segment (clé répétée)",
+      "expect": "2xx",
+      "tags": [
+        "timestamps"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/ts_word_and_segment",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['duration', 'language', 'segments', 'task', 'text', 'usage', 'words'] lang=english dur=7.099999904…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1496.7,
+          "total_ms": 1497.0,
+          "bytes": 1689,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.5
+    },
+    {
+      "case": "transcriptions/ts_without_verbose",
+      "order": 85,
+      "title": "timestamp_granularities sans verbose_json (doc : requis) — rejet ou ignoré ?",
+      "expect": "any",
+      "tags": [
+        "timestamps",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/ts_without_verbose",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/timestamp_granularities_format/timestamp_granularities: Timestamp granularities are only supported with response_format=verbose_json",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 473.7,
+          "total_ms": 474.1,
+          "bytes": 245,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.48
+    },
+    {
+      "case": "transcriptions/ts_invalid",
+      "order": 86,
+      "title": "timestamp_granularities[]=sentence",
+      "expect": "4xx",
+      "tags": [
+        "timestamps",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/ts_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: [{'type': 'enum', 'loc': ('body', 'timestamp_granularities[]', 0), 'msg': \"Input should be 'segment' or 'word'\", 'ctx': {'expected': \"'segment' or 'word'\"}}]",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1764.8,
+          "total_ms": 1765.0,
+          "bytes": 281,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.77
+    },
+    {
+      "case": "transcriptions/ts_4o",
+      "order": 87,
+      "title": "timestamp_granularities sur gpt-4o-transcribe",
+      "expect": "any",
+      "tags": [
+        "timestamps"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/ts_4o",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/unsupported_value/response_format: response_format 'verbose_json' is not compatible with model 'gpt-4o-transcribe-api-ev3'. Use 'json' or 'text' instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 392.0,
+          "total_ms": 392.2,
+          "bytes": 258,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.39
+    },
+    {
+      "case": "transcriptions/language_en",
+      "order": 88,
+      "title": "language=en",
+      "expect": "2xx",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/language_en",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 859.8,
+          "total_ms": 860.1,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.86
+    },
+    {
+      "case": "transcriptions/language_fr_on_fr",
+      "order": 89,
+      "title": "language=fr sur audio français",
+      "expect": "2xx",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/language_fr_on_fr",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text=\"Bonjour, je m'appelle Laurent. Aujourd'hui il fait beau à Paris. Combien fo…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 695.0,
+          "total_ms": 695.2,
+          "bytes": 244,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.7
+    },
+    {
+      "case": "transcriptions/language_wrong",
+      "order": 90,
+      "title": "language=fr forcé sur audio anglais : traduit, transcrit en français phonétique, erreur ?",
+      "expect": "any",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/language_wrong",
+          "expect": "any",
+          "match": null,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 812.9,
+          "total_ms": 813.2,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.81
+    },
+    {
+      "case": "transcriptions/language_invalid",
+      "order": 91,
+      "title": "language=english (pas un code ISO-639-1)",
+      "expect": "any",
+      "tags": [
+        "params",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/language_invalid",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/invalid_value/language: Language code 'english' is not recognized. Try adding the language name to your prompt.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 437.7,
+          "total_ms": 438.0,
+          "bytes": 216,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.44
+    },
+    {
+      "case": "transcriptions/prompt",
+      "order": 92,
+      "title": "prompt de guidage (vocabulaire)",
+      "expect": "2xx",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/prompt",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 797.2,
+          "total_ms": 797.5,
+          "bytes": 233,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.8
+    },
+    {
+      "case": "transcriptions/temperature_0_5",
+      "order": 93,
+      "title": "temperature=0.5",
+      "expect": "2xx",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/temperature_0_5",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is 2 plus…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1406.0,
+          "total_ms": 1406.3,
+          "bytes": 129,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 5.89
+    },
+    {
+      "case": "transcriptions/temperature_out_of_range",
+      "order": 94,
+      "title": "temperature=2 (> 1)",
+      "expect": "4xx",
+      "tags": [
+        "params",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/temperature_out_of_range",
+          "expect": "4xx",
+          "match": false,
+          "summary": "json keys=['text', 'usage'] text='Helloight ruditud ka mag vai Joo desse Rob П theoretical    If             …",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1904.8,
+          "total_ms": 1905.1,
+          "bytes": 139,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.91
+    },
+    {
+      "case": "transcriptions/temperature_string",
+      "order": 95,
+      "title": "temperature=hot",
+      "expect": "4xx",
+      "tags": [
+        "params",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/temperature_string",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: [{'type': 'float_parsing', 'loc': ('body', 'temperature'), 'msg': 'Input should be a valid number, unable to parse string as a number'}]",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 334.6,
+          "total_ms": 334.8,
+          "bytes": 248,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.34
+    },
+    {
+      "case": "transcriptions/logprobs_4o",
+      "order": 96,
+      "title": "include[]=logprobs (json, gpt-4o-transcribe)",
+      "expect": "2xx",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/logprobs_4o",
+          "expect": "2xx",
+          "match": true,
+          "summary": "json keys=['logprobs', 'text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. Wh…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 701.7,
+          "total_ms": 702.0,
+          "bytes": 1743,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.7
+    },
+    {
+      "case": "transcriptions/logprobs_whisper",
+      "order": 97,
+      "title": "include[]=logprobs sur whisper-1 (non supporté)",
+      "expect": "any",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/logprobs_whisper",
+          "expect": "any",
+          "match": null,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is 2 plus…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 709.5,
+          "total_ms": 709.8,
+          "bytes": 129,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.71
+    },
+    {
+      "case": "transcriptions/logprobs_text_format",
+      "order": 98,
+      "title": "include[]=logprobs avec response_format=text (doc : json seulement)",
+      "expect": "any",
+      "tags": [
+        "params"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/logprobs_text_format",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/unsupported_value/include: include=logprobs is only supported for response_format 'json'",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 461.1,
+          "total_ms": 461.3,
+          "bytes": 193,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.46
+    },
+    {
+      "case": "transcriptions/include_invalid",
+      "order": 99,
+      "title": "include[]=foo",
+      "expect": "4xx",
+      "tags": [
+        "params",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/include_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: [{'type': 'enum', 'loc': ('body', 'include[]', 0), 'msg': \"Input should be 'logprobs'\", 'ctx': {'expected': \"'logprobs'\"}}]",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 289.9,
+          "total_ms": 290.1,
+          "bytes": 239,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.29
+    },
+    {
+      "case": "transcriptions/chunking_auto",
+      "order": 100,
+      "title": "chunking_strategy=auto",
+      "expect": "any",
+      "tags": [
+        "params",
+        "probe"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/chunking_auto",
+          "expect": "any",
+          "match": null,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 894.3,
+          "total_ms": 894.6,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.9
+    },
+    {
+      "case": "transcriptions/chunking_server_vad",
+      "order": 101,
+      "title": "chunking_strategy JSON {type: server_vad}",
+      "expect": "any",
+      "tags": [
+        "params",
+        "probe"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/chunking_server_vad",
+          "expect": "any",
+          "match": null,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 819.8,
+          "total_ms": 820.1,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.82
+    },
+    {
+      "case": "transcriptions/stream_4o",
+      "order": 102,
+      "title": "stream=true sur gpt-4o-transcribe : flux SSE transcript.text.delta/done",
+      "expect": "2xx",
+      "tags": [
+        "stream"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/stream_4o",
+          "expect": "2xx",
+          "match": true,
+          "summary": "SSE events=23 types={'transcript.text.delta': 21, 'transcript.text.done': 1} text='Hello, my name is Laurent.…",
+          "status": 200,
+          "kind": "sse",
+          "content_type": "text/event-stream",
+          "ttfb_ms": 552.9,
+          "total_ms": 710.8,
+          "bytes": 1483,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.71
+    },
+    {
+      "case": "transcriptions/stream_whisper",
+      "order": 103,
+      "title": "stream=true sur whisper-1 (doc : ignoré) — réponse JSON classique ?",
+      "expect": "any",
+      "tags": [
+        "stream"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/stream_whisper",
+          "expect": "any",
+          "match": null,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is 2 plus…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 952.0,
+          "total_ms": 952.3,
+          "bytes": 129,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.95
+    },
+    {
+      "case": "transcriptions/stream_text_format",
+      "order": 104,
+      "title": "stream=true avec response_format=text",
+      "expect": "any",
+      "tags": [
+        "stream"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/stream_text_format",
+          "expect": "any",
+          "match": null,
+          "summary": "SSE events=23 types={'transcript.text.delta': 21, 'transcript.text.done': 1} text='Hello, my name is Laurent.…",
+          "status": 200,
+          "kind": "sse",
+          "content_type": "text/event-stream",
+          "ttfb_ms": 766.0,
+          "total_ms": 940.3,
+          "bytes": 1483,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.94
+    },
+    {
+      "case": "transcriptions/missing_file",
+      "order": 105,
+      "title": "Pas de partie `file`",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/missing_file",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: [{'type': 'missing', 'loc': ('body', 'file'), 'msg': 'Field required', 'input': None}]",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 210.5,
+          "total_ms": 210.7,
+          "bytes": 198,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.21
+    },
+    {
+      "case": "transcriptions/missing_model",
+      "order": 106,
+      "title": "Pas de champ `model`",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/missing_model",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: you must provide a model parameter",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 230.9,
+          "total_ms": 231.1,
+          "bytes": 167,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.23
+    },
+    {
+      "case": "transcriptions/file_as_text_field",
+      "order": 107,
+      "title": "`file` envoyé comme champ texte (pas une partie fichier)",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/file_as_text_field",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: [{'type': 'value_error', 'loc': ('body', 'file'), 'msg': \"Value error, Expected UploadFile, received: <class 'str'>\", 'ctx': {'error': ValueError(\"Expected UploadFile, received: <class 'str'>\"…",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 225.4,
+          "total_ms": 225.6,
+          "bytes": 312,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.23
+    },
+    {
+      "case": "transcriptions/unsupported_ext_txt",
+      "order": 108,
+      "title": "Fichier texte nommé notes.txt",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/unsupported_ext_txt",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/unsupported_value/file: Unsupported file format txt",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 203.2,
+          "total_ms": 203.4,
+          "bytes": 156,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.21
+    },
+    {
+      "case": "transcriptions/empty_file",
+      "order": 109,
+      "title": "Fichier vide (0 octet)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/empty_file",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/unsupported_format/messages: This model does not support the format you provided.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 206.2,
+          "total_ms": 206.4,
+          "bytes": 186,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.21
+    },
+    {
+      "case": "transcriptions/corrupt_mp3",
+      "order": 110,
+      "title": "Octets aléatoires nommés .mp3",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/corrupt_mp3",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/file: Audio file might be corrupted or unsupported",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 313.9,
+          "total_ms": 314.1,
+          "bytes": 169,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.32
+    },
+    {
+      "case": "transcriptions/ext_mismatch",
+      "order": 111,
+      "title": "Contenu mp3 déclaré .wav : l'extension prime-t-elle sur le contenu ?",
+      "expect": "any",
+      "tags": [
+        "neg",
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/ext_mismatch",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/unsupported_format/messages: This model does not support the format you provided.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 282.4,
+          "total_ms": 282.6,
+          "bytes": 186,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.28
+    },
+    {
+      "case": "transcriptions/no_extension",
+      "order": 112,
+      "title": "Nom de fichier sans extension",
+      "expect": "any",
+      "tags": [
+        "neg",
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/no_extension",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/unsupported_value/file: Unsupported file format",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 280.0,
+          "total_ms": 280.2,
+          "bytes": 152,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.28
+    },
+    {
+      "case": "transcriptions/content_type_octet_stream",
+      "order": 113,
+      "title": "Partie fichier en application/octet-stream avec nom .mp3",
+      "expect": "any",
+      "tags": [
+        "input-format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/content_type_octet_stream",
+          "expect": "any",
+          "match": null,
+          "summary": "json keys=['text', 'usage'] text='Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two pl…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 739.9,
+          "total_ms": 740.1,
+          "bytes": 232,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.74
+    },
+    {
+      "case": "transcriptions/model_unknown",
+      "order": 114,
+      "title": "Modèle inexistant",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/model_unknown",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/model_not_found: The model `stt-does-not-exist` does not exist or you do not have access to it.",
+          "status": 404,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 633.7,
+          "total_ms": 634.0,
+          "bytes": 224,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.64
+    },
+    {
+      "case": "transcriptions/model_wrong_type",
+      "order": 115,
+      "title": "Modèle TTS sur /audio/transcriptions",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/model_wrong_type",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: Invalid URL (POST /v1/audio/transcriptions)",
+          "status": 404,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 853.9,
+          "total_ms": 854.2,
+          "bytes": 163,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.86
+    },
+    {
+      "case": "transcriptions/json_body",
+      "order": 116,
+      "title": "Corps JSON au lieu de multipart (le fichier ne peut pas y être)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "transport"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/json_body",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: [{'type': 'missing', 'loc': ('body', 'file'), 'msg': 'Field required', 'input': None}]",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 193.3,
+          "total_ms": 193.6,
+          "bytes": 198,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.19
+    },
+    {
+      "case": "transcriptions/auth_invalid",
+      "order": 117,
+      "title": "Clé API invalide",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "auth"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/auth_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_api_key: Incorrect API key provided: sk-inval******robe. You can find your API key at https://platform.openai.com/account/api-keys.",
+          "status": 401,
+          "kind": "json",
+          "content_type": "text/plain",
+          "ttfb_ms": 234.7,
+          "total_ms": 235.0,
+          "bytes": 264,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.24
+    },
+    {
+      "case": "transcriptions/too_large_26mb",
+      "order": 118,
+      "title": "Fichier > 25 Mo (limite documentée) : code attendu 413 ou 400",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "heavy"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "transcriptions/too_large_26mb",
+          "expect": "4xx",
+          "match": false,
+          "summary": "json keys=['text', 'usage'] text='Открытое небо.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 14817.4,
+          "total_ms": 14817.7,
+          "bytes": 181,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 18.65
+    },
+    {
+      "case": "chat-image/url_https",
+      "order": 119,
+      "title": "Image par URL https publique (le fetch est fait côté provider)",
+      "expect": "2xx",
+      "tags": [
+        "source",
+        "network"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/url_https",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8522/26 content='The image features two intertwined snake shapes, one in blue and the other in yellow, alongside the word \"python\" in gray.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 845.7,
+          "total_ms": 849.7,
+          "bytes": 935,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.85
+    },
+    {
+      "case": "chat-image/data_url_png",
+      "order": 120,
+      "title": "Data URL base64 PNG — scène : carré rouge, cercle bleu, triangle vert sur fond gris clair",
+      "expect": "2xx",
+      "tags": [
+        "source"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/data_url_png",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8522/16 content='The image features a red square, a blue circle, and a green triangle.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 816.1,
+          "total_ms": 816.5,
+          "bytes": 880,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.82
+    },
+    {
+      "case": "chat-image/data_url_jpg",
+      "order": 121,
+      "title": "Data URL JPG (même scène)",
+      "expect": "2xx",
+      "tags": [
+        "source",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/data_url_jpg",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8522/21 content='The image features a red square, a blue circle, and a green triangle arranged from left to right.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1271.5,
+          "total_ms": 1280.1,
+          "bytes": 908,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.28
+    },
+    {
+      "case": "chat-image/data_url_webp",
+      "order": 122,
+      "title": "Data URL WEBP (même scène)",
+      "expect": "2xx",
+      "tags": [
+        "source",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/data_url_webp",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8522/16 content='The image features a red square, a blue circle, and a green triangle.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 724.8,
+          "total_ms": 732.8,
+          "bytes": 880,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.73
+    },
+    {
+      "case": "chat-image/data_url_gif",
+      "order": 123,
+      "title": "Data URL GIF (même scène)",
+      "expect": "2xx",
+      "tags": [
+        "source",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/data_url_gif",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8522/16 content='The image features a red square, a blue circle, and a green triangle.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 816.8,
+          "total_ms": 821.1,
+          "bytes": 883,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.82
+    },
+    {
+      "case": "chat-image/data_url_bmp",
+      "order": 124,
+      "title": "Data URL BMP (hors liste png/jpeg/webp/gif)",
+      "expect": "4xx",
+      "tags": [
+        "source",
+        "format",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/data_url_bmp",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_image_format: You uploaded an unsupported image. Please make sure your image has of one the following formats: ['png', 'jpeg', 'gif', 'webp'].",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 654.9,
+          "total_ms": 655.2,
+          "bytes": 258,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.66
+    },
+    {
+      "case": "chat-image/data_url_tiff",
+      "order": 125,
+      "title": "Data URL TIFF (hors liste png/jpeg/webp/gif)",
+      "expect": "4xx",
+      "tags": [
+        "source",
+        "format",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/data_url_tiff",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_image_format: You uploaded an unsupported image. Please make sure your image has of one the following formats: ['png', 'jpeg', 'gif', 'webp'].",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 564.9,
+          "total_ms": 566.3,
+          "bytes": 258,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.58
+    },
+    {
+      "case": "chat-image/data_url_svg",
+      "order": 126,
+      "title": "Data URL SVG (non supporté)",
+      "expect": "4xx",
+      "tags": [
+        "source",
+        "format",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/data_url_svg",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_image_format: You uploaded an unsupported image. Please make sure your image has of one the following formats: ['png', 'jpeg', 'gif', 'webp'].",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 230.5,
+          "total_ms": 230.7,
+          "bytes": 258,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.23
+    },
+    {
+      "case": "chat-image/data_url_animated_gif",
+      "order": 127,
+      "title": "GIF animé (doc : seuls les GIF non animés)",
+      "expect": "any",
+      "tags": [
+        "source",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/data_url_animated_gif",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=8522/8 content='The image features a single red square.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 759.4,
+          "total_ms": 766.0,
+          "bytes": 849,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.77
+    },
+    {
+      "case": "chat-image/data_url_wrong_mime",
+      "order": 128,
+      "title": "PNG déclaré image/jpeg dans le data URL : le MIME déclaré prime-t-il sur le contenu ?",
+      "expect": "any",
+      "tags": [
+        "source",
+        "format",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/data_url_wrong_mime",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=8522/16 content='The image features a red square, a blue circle, and a green triangle.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1013.0,
+          "total_ms": 1022.9,
+          "bytes": 883,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.02
+    },
+    {
+      "case": "chat-image/data_url_no_mime",
+      "order": 129,
+      "title": "data:;base64,... sans type MIME",
+      "expect": "any",
+      "tags": [
+        "source",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/data_url_no_mime",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/invalid_image_format: Invalid MIME type. Only image types are supported.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 212.4,
+          "total_ms": 212.7,
+          "bytes": 180,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.21
+    },
+    {
+      "case": "chat-image/raw_base64_no_prefix",
+      "order": 130,
+      "title": "Base64 brut sans préfixe `data:` (le champ doc dit « URL or base64 »)",
+      "expect": "any",
+      "tags": [
+        "source",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/raw_base64_no_prefix",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/invalid_image_url: Failed to download file. File URL is invalid.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 242.8,
+          "total_ms": 243.0,
+          "bytes": 172,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.24
+    },
+    {
+      "case": "chat-image/detail_low",
+      "order": 131,
+      "title": "detail=low : impact sur usage.prompt_tokens",
+      "expect": "2xx",
+      "tags": [
+        "detail"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/detail_low",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=2855/16 content='The image features a red square, a blue circle, and a green triangle.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 751.6,
+          "total_ms": 752.0,
+          "bytes": 880,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.75
+    },
+    {
+      "case": "chat-image/detail_high",
+      "order": 132,
+      "title": "detail=high : impact sur usage.prompt_tokens",
+      "expect": "2xx",
+      "tags": [
+        "detail"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/detail_high",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8522/16 content='The image features a red square, a blue circle, and a green triangle.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 717.1,
+          "total_ms": 717.4,
+          "bytes": 880,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.72
+    },
+    {
+      "case": "chat-image/detail_auto",
+      "order": 133,
+      "title": "detail=auto : impact sur usage.prompt_tokens",
+      "expect": "2xx",
+      "tags": [
+        "detail"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/detail_auto",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8522/16 content='The image contains a red square, a blue circle, and a green triangle.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 927.0,
+          "total_ms": 929.6,
+          "bytes": 883,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.93
+    },
+    {
+      "case": "chat-image/detail_ultra",
+      "order": 134,
+      "title": "detail=ultra (valeur invalide) : impact sur usage.prompt_tokens",
+      "expect": "4xx",
+      "tags": [
+        "detail",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/detail_ultra",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error: Invalid chat format. Expected 'detail' field in image_url dict to be one of ['low', 'auto', 'high', 'original'] if specified.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1269.9,
+          "total_ms": 1270.2,
+          "bytes": 237,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.27
+    },
+    {
+      "case": "chat-image/multi_images",
+      "order": 135,
+      "title": "Deux images dans le même message + question comparative",
+      "expect": "2xx",
+      "tags": [
+        "compose"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/multi_images",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=17024/32 content='In the first image, the color is red and the shape is a square. In the second image, the color is blue and the shape is a circle.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 888.0,
+          "total_ms": 896.9,
+          "bytes": 942,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.9
+    },
+    {
+      "case": "chat-image/interleaved",
+      "order": 136,
+      "title": "text, image, text, image : l'ordre des parts est-il préservé ?",
+      "expect": "2xx",
+      "tags": [
+        "compose"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/interleaved",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=17024/12 content='Image B contains a circle. Image A contains a square.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1053.2,
+          "total_ms": 1058.7,
+          "bytes": 866,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.06
+    },
+    {
+      "case": "chat-image/image_only",
+      "order": 137,
+      "title": "Message avec une seule image et AUCUNE part text",
+      "expect": "any",
+      "tags": [
+        "compose"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/image_only",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=8507/39 content='The image features three distinct shapes:\\n\\n1. A red square\\n2. A blue circle\\n3. A green triangle\\n\\nThese shapes are arranged in a horizontal line against a light gray background.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 842.3,
+          "total_ms": 843.1,
+          "bytes": 993,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.84
+    },
+    {
+      "case": "chat-image/text_as_string_plus_image_msg",
+      "order": 138,
+      "title": "Historique mixte : message 1 en content string, message 2 en parts avec image",
+      "expect": "2xx",
+      "tags": [
+        "compose"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/text_as_string_plus_image_msg",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8544/16 content='The image contains a red square, a blue circle, and a green triangle.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1065.3,
+          "total_ms": 1065.5,
+          "bytes": 880,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.83
+    },
+    {
+      "case": "chat-image/history_image_then_text",
+      "order": 139,
+      "title": "Image dans un tour précédent, question de suivi en texte seul (l'image reste-t-elle dans le contexte ?)",
+      "expect": "2xx",
+      "tags": [
+        "compose"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/history_image_then_text",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8536/8 content='The shape in the picture is red.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 685.7,
+          "total_ms": 691.1,
+          "bytes": 842,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.69
+    },
+    {
+      "case": "chat-image/system_prompt_plus_image",
+      "order": 140,
+      "title": "Message system texte + user image",
+      "expect": "2xx",
+      "tags": [
+        "compose"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/system_prompt_plus_image",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8535/15 content=\"L'image montre un carré rouge, un cercle bleu et un triangle vert.\"",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 640.4,
+          "total_ms": 646.5,
+          "bytes": 878,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.65
+    },
+    {
+      "case": "chat-image/developer_role_plus_image",
+      "order": 141,
+      "title": "Rôle `developer` (nouveau) + user image",
+      "expect": "any",
+      "tags": [
+        "compose"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/developer_role_plus_image",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=8531/16 content='The image contains a red square, a blue circle, and a green triangle.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 651.6,
+          "total_ms": 658.9,
+          "bytes": 880,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.66
+    },
+    {
+      "case": "chat-image/ocr_text",
+      "order": 142,
+      "title": "OCR : image contenant « HELLO 42 »",
+      "expect": "2xx",
+      "tags": [
+        "quality"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/ocr_text",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8521/4 content='HELLO 42'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 657.1,
+          "total_ms": 664.7,
+          "bytes": 818,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.67
+    },
+    {
+      "case": "chat-image/image_in_system",
+      "order": 143,
+      "title": "Part image dans un message system (doc : texte seulement)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "placement"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/image_in_system",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0]: Invalid 'messages[0]'. Image URLs are only allowed for messages with role 'user', but this message with role 'system' contains an image URL.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 241.9,
+          "total_ms": 242.1,
+          "bytes": 272,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.24
+    },
+    {
+      "case": "chat-image/image_in_assistant",
+      "order": 144,
+      "title": "Part image dans un message assistant (doc : text/refusal seulement)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "placement"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/image_in_assistant",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[1]: Invalid 'messages[1]'. Image URLs are only allowed for messages with role 'user', but this message with role 'assistant' contains an image URL.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 245.1,
+          "total_ms": 245.3,
+          "bytes": 275,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.25
+    },
+    {
+      "case": "chat-image/image_in_tool_result",
+      "order": 145,
+      "title": "Part image dans un message role=tool (résultat de fonction)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "placement",
+        "tools"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/image_in_tool_result",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[2]: Invalid 'messages[2]'. Image URLs are only allowed for messages with role 'user', but this message with role 'tool' contains an image URL.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 276.3,
+          "total_ms": 276.5,
+          "bytes": 270,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.28
+    },
+    {
+      "case": "chat-image/model_without_vision",
+      "order": 146,
+      "title": "Image envoyée à un modèle texte-seul : erreur explicite ou image ignorée en silence ?",
+      "expect": "any",
+      "tags": [
+        "neg",
+        "model"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/model_without_vision",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR server_error: The server had an error processing your request. Sorry about that! You can retry your request, or contact us through our help center at help.openai.com if you keep seeing this error. (Please include th…",
+          "status": 500,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1129.4,
+          "total_ms": 1129.7,
+          "bytes": 369,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.13
+    },
+    {
+      "case": "chat-image/stream",
+      "order": 147,
+      "title": "stream=true + stream_options.include_usage avec image",
+      "expect": "2xx",
+      "tags": [
+        "stream"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/stream",
+          "expect": "2xx",
+          "match": true,
+          "summary": "SSE chunks=20 done=True finish=stop usage=8522/16 text='The image features a red square, a blue circle, and a green triangle.'",
+          "status": 200,
+          "kind": "sse",
+          "content_type": "text/event-stream",
+          "ttfb_ms": 608.4,
+          "total_ms": 783.3,
+          "bytes": 6457,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.79
+    },
+    {
+      "case": "chat-image/structured_output",
+      "order": 148,
+      "title": "response_format json_schema + image (extraction structurée)",
+      "expect": "2xx",
+      "tags": [
+        "compose"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/structured_output",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=8566/30 content='{\"shapes\":[{\"shape\":\"square\",\"color\":\"red\"},{\"shape\":\"circle\",\"color\":\"blue\"},{\"shape\":\"triangle\",\"color\":\"green\"}]}'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 796.1,
+          "total_ms": 805.7,
+          "bytes": 953,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.81
+    },
+    {
+      "case": "chat-image/tool_call_with_image",
+      "order": 149,
+      "title": "Function calling déclenché depuis une image",
+      "expect": "2xx",
+      "tags": [
+        "compose",
+        "tools"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/tool_call_with_image",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=tool_calls tok=8553/14 content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 693.6,
+          "total_ms": 701.7,
+          "bytes": 1083,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.7
+    },
+    {
+      "case": "chat-image/url_unreachable",
+      "order": 150,
+      "title": "URL qui ne résout pas (host .invalid)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "source",
+        "network"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/url_unreachable",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_image_url: Failed to download file.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 370.8,
+          "total_ms": 371.0,
+          "bytes": 151,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.37
+    },
+    {
+      "case": "chat-image/url_not_an_image",
+      "order": 151,
+      "title": "URL valide mais contenu text/html",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "source",
+        "network"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/url_not_an_image",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_image_format: You uploaded an unsupported image. Please make sure your image has of one the following formats: ['png', 'jpeg', 'gif', 'webp'].",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 284.2,
+          "total_ms": 284.4,
+          "bytes": 258,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.29
+    },
+    {
+      "case": "chat-image/url_http_plain",
+      "order": 152,
+      "title": "URL http:// non TLS",
+      "expect": "any",
+      "tags": [
+        "neg",
+        "source",
+        "network"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/url_http_plain",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=8522/27 content='The image features two stylized snake shapes, one in blue and one in yellow, alongside the word \"python\" in gray text.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1162.8,
+          "total_ms": 1167.5,
+          "bytes": 934,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.17
+    },
+    {
+      "case": "chat-image/url_empty",
+      "order": 155,
+      "title": "image_url.url = chaîne vide",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/url_empty",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_image_url: Failed to download file. File URL is invalid.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 340.6,
+          "total_ms": 340.8,
+          "bytes": 172,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.34
+    },
+    {
+      "case": "chat-image/base64_corrupt",
+      "order": 156,
+      "title": "Data URL avec base64 tronqué/corrompu",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/base64_corrupt",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/image_parse_error: You uploaded an unsupported image. Please make sure your image is valid.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 225.4,
+          "total_ms": 225.6,
+          "bytes": 199,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.23
+    },
+    {
+      "case": "chat-image/not_an_image_bytes",
+      "order": 157,
+      "title": "Data URL image/png dont le contenu est du HTML",
+      "expect": "4xx",
+      "tags": [
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/not_an_image_bytes",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_image_format: You uploaded an unsupported image. Please make sure your image has of one the following formats: ['png', 'jpeg', 'gif', 'webp'].",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 251.1,
+          "total_ms": 251.3,
+          "bytes": 258,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.25
+    },
+    {
+      "case": "chat-image/image_url_as_string",
+      "order": 158,
+      "title": "image_url donné comme chaîne au lieu d'un objet {url} (erreur client fréquente)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "schema"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/image_url_as_string",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_type/messages[0].content[1].image_url: Invalid type for 'messages[0].content[1].image_url': expected an object, but got a string instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 255.7,
+          "total_ms": 256.0,
+          "bytes": 250,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.26
+    },
+    {
+      "case": "chat-image/missing_image_url",
+      "order": 159,
+      "title": "Part {type: image_url} sans clé image_url",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "schema"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/missing_image_url",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/messages.[0].content.[1].type: Invalid content type. image_url is only supported by certain models.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 244.0,
+          "total_ms": 244.3,
+          "bytes": 207,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.25
+    },
+    {
+      "case": "chat-image/unknown_part_type",
+      "order": 160,
+      "title": "Part de type inconnu (`image`)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "schema"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/unknown_part_type",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0].content[1].type: Invalid value: 'image'. Supported values are: 'text', 'image_url', 'input_audio', 'refusal', 'audio', and 'file'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 250.9,
+          "total_ms": 251.1,
+          "bytes": 261,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.25
+    },
+    {
+      "case": "chat-image/tiny_1x1",
+      "order": 161,
+      "title": "Image 1×1 px",
+      "expect": "any",
+      "tags": [
+        "limits"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/tiny_1x1",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=8513/5 content='The image is red.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 599.3,
+          "total_ms": 601.6,
+          "bytes": 827,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.6
+    },
+    {
+      "case": "chat-image/large_6000x4000",
+      "order": 162,
+      "title": "Image 6000×4000 px (PNG uni, peu d'octets) : redimensionnement côté provider ?",
+      "expect": "any",
+      "tags": [
+        "limits"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/large_6000x4000",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=36848/5 content='The image is orange.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1260.4,
+          "total_ms": 1285.4,
+          "bytes": 832,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.29
+    },
+    {
+      "case": "chat-image/huge_8200x8200",
+      "order": 163,
+      "title": "Image 8200×8200 px (> 8000 px, limite de certains providers)",
+      "expect": "any",
+      "tags": [
+        "limits"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/huge_8200x8200",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=25514/10 content='The image appears to be a shade of blue.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1114.5,
+          "total_ms": 1124.6,
+          "bytes": 853,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.13
+    },
+    {
+      "case": "chat-image/too_large_22mb",
+      "order": 164,
+      "title": "Image ≈ 22 Mo (doc : max 20 Mo par image)",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "limits",
+        "heavy"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/too_large_22mb",
+          "expect": "4xx",
+          "match": false,
+          "summary": "finish=stop tok=36857/38 content='The image displays a textured pattern that predominantly features a range of small dots and speckles in vibrant colors including blue, purple, and hints of green and pink, creating a visually abstract effe…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 18446.4,
+          "total_ms": 18455.9,
+          "bytes": 1021,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 18.78
+    },
+    {
+      "case": "chat-image/many_images_12",
+      "order": 165,
+      "title": "12 images dans un seul message (pas de limite documentée à ce niveau côté OpenAI ; certains providers limitent à ~20)",
+      "expect": "any",
+      "tags": [
+        "limits"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/many_images_12",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=102020/1 content='10'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 2378.3,
+          "total_ms": 2381.8,
+          "bytes": 816,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 2.38
+    },
+    {
+      "case": "chat-image/auth_invalid",
+      "order": 166,
+      "title": "Clé API invalide",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "auth"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-image/auth_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_api_key: Incorrect API key provided: sk-inval******robe. You can find your API key at https://platform.openai.com/account/api-keys.",
+          "status": 401,
+          "kind": "json",
+          "content_type": "text/plain",
+          "ttfb_ms": 247.3,
+          "total_ms": 247.6,
+          "bytes": 264,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.25
+    },
+    {
+      "case": "chat-audio/in_wav_text_out",
+      "order": 167,
+      "title": "input_audio wav + consigne texte, modalities=[text]",
+      "expect": "2xx",
+      "tags": [
+        "audio-in"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_wav_text_out",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=94/28 audio_tok=63/0 content=\"I can answer the question from the audio. The answer is 4. However, I cannot identify the speaker's name from the voice.\"",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 881.7,
+          "total_ms": 890.1,
+          "bytes": 978,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.9
+    },
+    {
+      "case": "chat-audio/in_mp3_text_out",
+      "order": 168,
+      "title": "input_audio mp3",
+      "expect": "2xx",
+      "tags": [
+        "audio-in"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_mp3_text_out",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=102/68 audio_tok=71/0 content='I can answer the question in the audio. The question is: \"What is 2 plus 2?\" The answer is 4.\\n\\nHowever, I’m sorry, but I can\\'t identify the speaker\\'s name from the voice. I can only work w…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1071.3,
+          "total_ms": 1077.7,
+          "bytes": 1130,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.08
+    },
+    {
+      "case": "chat-audio/in_wav_no_modalities",
+      "order": 169,
+      "title": "input_audio sans `modalities` (défaut = [text])",
+      "expect": "2xx",
+      "tags": [
+        "audio-in"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_wav_no_modalities",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=94/22 audio_tok=63/0 content='The answer to the question is 4. However, I cannot identify the speaker’s name from the voice.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 903.7,
+          "total_ms": 909.5,
+          "bytes": 954,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.91
+    },
+    {
+      "case": "chat-audio/in_audio_only",
+      "order": 170,
+      "title": "input_audio sans aucune part text (le modèle répond à l'audio)",
+      "expect": "any",
+      "tags": [
+        "audio-in"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_audio_only",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=74/42 audio_tok=63/0 content='Hello, Laurent! It sounds like a lovely day in Paris. To answer your question: 2 plus 2 equals 4. If you have any other questions or need assistance, feel free to ask.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1178.2,
+          "total_ms": 1183.8,
+          "bytes": 1025,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.19
+    },
+    {
+      "case": "chat-audio/in_french",
+      "order": 171,
+      "title": "Audio français",
+      "expect": "2xx",
+      "tags": [
+        "audio-in"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_french",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=112/8 audio_tok=84/0 content='2 plus 2 font 4.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 821.7,
+          "total_ms": 828.1,
+          "bytes": 873,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 4.07
+    },
+    {
+      "case": "chat-audio/in_tone_no_speech",
+      "order": 172,
+      "title": "Audio sans parole (sinus)",
+      "expect": "any",
+      "tags": [
+        "audio-in"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_tone_no_speech",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=36/32 audio_tok=20/0 content=\"It sounds like there's a tone or a beep playing in the audio. If you need more detail or have another query about the sound, feel free to ask.\"",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 883.5,
+          "total_ms": 890.4,
+          "bytes": 999,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.89
+    },
+    {
+      "case": "chat-audio/in_two_audios",
+      "order": 173,
+      "title": "Deux input_audio dans le même message (wav + mp3)",
+      "expect": "any",
+      "tags": [
+        "audio-in",
+        "compose"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_two_audios",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=158/42 audio_tok=134/0 content='It sounds like the two audio clips are identical in content. They both have the same introduction, mention the same day and weather, and ask the same question. Based on what you provided, the…",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1311.1,
+          "total_ms": 1311.5,
+          "bytes": 1067,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.32
+    },
+    {
+      "case": "chat-audio/in_text_interleaved",
+      "order": 174,
+      "title": "text, audio, text",
+      "expect": "2xx",
+      "tags": [
+        "audio-in",
+        "compose"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_text_interleaved",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=84/22 audio_tok=63/0 content='The question you mentioned is \"What is 2 plus 2?\" The answer to that is 4.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1179.8,
+          "total_ms": 1194.4,
+          "bytes": 934,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.2
+    },
+    {
+      "case": "chat-audio/in_stream_text_out",
+      "order": 175,
+      "title": "input_audio + stream=true + include_usage (sortie texte)",
+      "expect": "2xx",
+      "tags": [
+        "audio-in",
+        "stream"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_stream_text_out",
+          "expect": "2xx",
+          "match": true,
+          "summary": "SSE chunks=56 done=True finish=stop usage=94/52 text='The question asked in the audio message is: What is 2 plus 2? The answer is 4.\\n\\nI’m sorry, but I can’t identify the speaker’s name just from th…",
+          "status": 200,
+          "kind": "sse",
+          "content_type": "text/event-stream",
+          "ttfb_ms": 707.4,
+          "total_ms": 1076.6,
+          "bytes": 17491,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.08
+    },
+    {
+      "case": "chat-audio/in_tool_call",
+      "order": 176,
+      "title": "input_audio + tools (tool_choice=required)",
+      "expect": "any",
+      "tags": [
+        "audio-in",
+        "tools"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_tool_call",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=126/25 audio_tok=63/0 content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 914.3,
+          "total_ms": 919.3,
+          "bytes": 1140,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.92
+    },
+    {
+      "case": "chat-audio/in_format_flac",
+      "order": 177,
+      "title": "input_audio.format=flac (enum doc : wav, mp3)",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_format_flac",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0].content[1].input_audio.format: Invalid value: 'flac'. Supported values are: 'wav' and 'mp3'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 380.4,
+          "total_ms": 380.6,
+          "bytes": 223,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.38
+    },
+    {
+      "case": "chat-audio/in_format_pcm16",
+      "order": 178,
+      "title": "input_audio.format=pcm16 avec PCM brut",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_format_pcm16",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0].content[1].input_audio.format: Invalid value: 'pcm16'. Supported values are: 'wav' and 'mp3'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 438.6,
+          "total_ms": 439.0,
+          "bytes": 224,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.45
+    },
+    {
+      "case": "chat-audio/in_format_uppercase",
+      "order": 179,
+      "title": "format=WAV (casse)",
+      "expect": "any",
+      "tags": [
+        "audio-in",
+        "neg",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_format_uppercase",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0].content[1].input_audio.format: Invalid value: 'WAV'. Supported values are: 'wav' and 'mp3'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 477.4,
+          "total_ms": 477.7,
+          "bytes": 222,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.48
+    },
+    {
+      "case": "chat-audio/in_format_mismatch",
+      "order": 180,
+      "title": "Contenu mp3 déclaré format=wav : le format déclaré prime-t-il ?",
+      "expect": "any",
+      "tags": [
+        "audio-in",
+        "neg",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_format_mismatch",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/unsupported_format/messages: This model does not support the format you provided.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 352.5,
+          "total_ms": 352.7,
+          "bytes": 186,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.36
+    },
+    {
+      "case": "chat-audio/in_format_missing",
+      "order": 181,
+      "title": "input_audio sans `format`",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg",
+        "schema"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_format_missing",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/missing_required_parameter/messages[0].content[1].input_audio.format: Missing required parameter: 'messages[0].content[1].input_audio.format'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 470.2,
+          "total_ms": 470.5,
+          "bytes": 247,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.48
+    },
+    {
+      "case": "chat-audio/in_data_as_data_url",
+      "order": 182,
+      "title": "input_audio.data = data URL (confusion fréquente avec image_url)",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg",
+        "schema"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_data_as_data_url",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0].content[1].input_audio.data: Invalid input audio data: 'messages[0].content[1].input_audio.data'. Expected base64-encoded data but got an invalid base64-encoded value.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 444.6,
+          "total_ms": 444.8,
+          "bytes": 298,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.45
+    },
+    {
+      "case": "chat-audio/in_data_corrupt_base64",
+      "order": 183,
+      "title": "input_audio.data = base64 invalide",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_data_corrupt_base64",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0].content[1].input_audio.data: Invalid input audio data: 'messages[0].content[1].input_audio.data'. Expected base64-encoded data but got an invalid base64-encoded value.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 297.0,
+          "total_ms": 297.2,
+          "bytes": 298,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.3
+    },
+    {
+      "case": "chat-audio/in_data_not_audio",
+      "order": 184,
+      "title": "input_audio.data = base64 d'un fichier texte",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_data_not_audio",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/unsupported_format/messages: This model does not support the format you provided.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 233.7,
+          "total_ms": 234.0,
+          "bytes": 186,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.23
+    },
+    {
+      "case": "chat-audio/in_data_empty",
+      "order": 185,
+      "title": "input_audio.data = chaîne vide",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_data_empty",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0].content[1].input_audio.data: Invalid input audio data: 'messages[0].content[1].input_audio.data'. Expected base64-encoded data but got empty base64-encoded bytes.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 248.8,
+          "total_ms": 249.0,
+          "bytes": 293,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.25
+    },
+    {
+      "case": "chat-audio/in_audio_as_string",
+      "order": 186,
+      "title": "input_audio donné comme chaîne au lieu d'un objet",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg",
+        "schema"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_audio_as_string",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_type/messages[0].content[1].input_audio: Invalid type for 'messages[0].content[1].input_audio': expected an object, but got a string instead.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 429.6,
+          "total_ms": 431.6,
+          "bytes": 254,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.44
+    },
+    {
+      "case": "chat-audio/in_audio_in_system",
+      "order": 187,
+      "title": "input_audio dans un message system",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg",
+        "placement"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_audio_in_system",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0]: Invalid 'messages[0]'. Audio URLs are only allowed for messages with role 'user', but this message with role 'system' contains an audio URL.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 525.1,
+          "total_ms": 525.3,
+          "bytes": 272,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.53
+    },
+    {
+      "case": "chat-audio/in_audio_in_assistant",
+      "order": 188,
+      "title": "input_audio dans un message assistant",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg",
+        "placement"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_audio_in_assistant",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[1]: Invalid 'messages[1]'. Audio URLs are only allowed for messages with role 'user', but this message with role 'assistant' contains an audio URL.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 432.5,
+          "total_ms": 434.5,
+          "bytes": 275,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.44
+    },
+    {
+      "case": "chat-audio/in_audio_on_text_model",
+      "order": 189,
+      "title": "input_audio envoyé à un modèle texte-seul",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg",
+        "model"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_audio_on_text_model",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0]: Invalid 'messages[0]'. Content blocks are expected to be either text or image_url type.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 438.5,
+          "total_ms": 438.8,
+          "bytes": 219,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.44
+    },
+    {
+      "case": "chat-audio/in_audio_on_vision_model",
+      "order": 190,
+      "title": "input_audio envoyé à un modèle vision (non audio)",
+      "expect": "4xx",
+      "tags": [
+        "audio-in",
+        "neg",
+        "model"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_audio_on_vision_model",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/messages[0]: Invalid 'messages[0]'. Content blocks are expected to be either text or image_url type.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 470.5,
+          "total_ms": 470.7,
+          "bytes": 219,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.47
+    },
+    {
+      "case": "chat-audio/out_text_prompt_wav",
+      "order": 191,
+      "title": "Prompt texte seul -> réponse texte + audio wav (chat comme TTS)",
+      "expect": "2xx",
+      "tags": [
+        "audio-out"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_text_prompt_wav",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=14/54 audio_tok=0/38 audio(id=audio_6adb1e42, 121660b64, transcript='Hello there, great to meet you!') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1032.9,
+          "total_ms": 1191.9,
+          "bytes": 122723,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 91244,
+            "audio_detected": "wav",
+            "audio_transcript": "Hello there, great to meet you!"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.19
+    },
+    {
+      "case": "chat-audio/out_format_mp3",
+      "order": 192,
+      "title": "audio.format=mp3 (non-stream) : conteneur réel de message.audio.data",
+      "expect": "2xx",
+      "tags": [
+        "audio-out",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_format_mp3",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=14/55 audio_tok=0/39 audio(id=audio_6adb1e43, 22684b64, transcript='Hello! Great to have you here.') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1106.3,
+          "total_ms": 1185.2,
+          "bytes": 23746,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 17013,
+            "audio_detected": "mp3",
+            "audio_transcript": "Hello! Great to have you here."
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.19
+    },
+    {
+      "case": "chat-audio/out_format_flac",
+      "order": 193,
+      "title": "audio.format=flac (non-stream) : conteneur réel de message.audio.data",
+      "expect": "2xx",
+      "tags": [
+        "audio-out",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_format_flac",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=14/81 audio_tok=0/63 audio(id=audio_6adb1e45, 94684b64, transcript=\"Hello, it's great to be talking with you!\") content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1273.7,
+          "total_ms": 1436.5,
+          "bytes": 95757,
+          "extracted": {
+            "audio_file": "response.audio.flac",
+            "audio_bytes": 71013,
+            "audio_detected": "flac",
+            "audio_transcript": "Hello, it's great to be talking with you!"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.44
+    },
+    {
+      "case": "chat-audio/out_format_opus",
+      "order": 194,
+      "title": "audio.format=opus (non-stream) : conteneur réel de message.audio.data",
+      "expect": "2xx",
+      "tags": [
+        "audio-out",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_format_opus",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=14/66 audio_tok=0/49 audio(id=audio_6adb1e46, 27124b64, transcript='Hello! Great to be here with you.') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1242.9,
+          "total_ms": 1246.1,
+          "bytes": 28189,
+          "extracted": {
+            "audio_file": "response.audio.opus",
+            "audio_bytes": 20341,
+            "audio_detected": "ogg",
+            "audio_transcript": "Hello! Great to be here with you."
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.25
+    },
+    {
+      "case": "chat-audio/out_format_pcm16",
+      "order": 195,
+      "title": "audio.format=pcm16 (non-stream) : conteneur réel de message.audio.data",
+      "expect": "2xx",
+      "tags": [
+        "audio-out",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_format_pcm16",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=14/71 audio_tok=0/54 audio(id=audio_6adb1e47, 172800b64, transcript='Ciao, che piacere sentirti!') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1096.6,
+          "total_ms": 1266.3,
+          "bytes": 173859,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 129600,
+            "audio_detected": "unknown/raw",
+            "audio_transcript": "Ciao, che piacere sentirti!"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.27
+    },
+    {
+      "case": "chat-audio/out_format_aac",
+      "order": 196,
+      "title": "audio.format=aac (non-stream) : conteneur réel de message.audio.data",
+      "expect": "any",
+      "tags": [
+        "audio-out",
+        "format"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_format_aac",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=14/66 audio_tok=0/50 audio(id=audio_6adb1e49, 29640b64, transcript='Hello there, great to meet you!') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1195.3,
+          "total_ms": 1202.0,
+          "bytes": 30703,
+          "extracted": {
+            "audio_file": "response.audio.aac",
+            "audio_bytes": 22230,
+            "audio_detected": "aac",
+            "audio_transcript": "Hello there, great to meet you!"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.2
+    },
+    {
+      "case": "chat-audio/out_voice_verse",
+      "order": 197,
+      "title": "audio.voice=verse",
+      "expect": "any",
+      "tags": [
+        "audio-out",
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_voice_verse",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=10/97 audio_tok=0/73 audio(id=audio_6adb1e4b, 233660b64, transcript='Hello! Great to meet you. How can I help you toda…') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1395.6,
+          "total_ms": 1637.2,
+          "bytes": 234744,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 175244,
+            "audio_detected": "wav",
+            "audio_transcript": "Hello! Great to meet you. How can I help you today?"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.64
+    },
+    {
+      "case": "chat-audio/out_voice_coral",
+      "order": 198,
+      "title": "audio.voice=coral",
+      "expect": "any",
+      "tags": [
+        "audio-out",
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_voice_coral",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=10/68 audio_tok=0/52 audio(id=audio_6adb1e4c, 166460b64, transcript='Hello! How are you doing today?') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 955.6,
+          "total_ms": 1067.2,
+          "bytes": 167523,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 124844,
+            "audio_detected": "wav",
+            "audio_transcript": "Hello! How are you doing today?"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.07
+    },
+    {
+      "case": "chat-audio/out_voice_marin",
+      "order": 199,
+      "title": "audio.voice=marin",
+      "expect": "any",
+      "tags": [
+        "audio-out",
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_voice_marin",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=10/106 audio_tok=0/80 audio(id=audio_6adb1e4e, 256060b64, transcript=\"Hello! It's great to connect with you. How can I …\") content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1452.3,
+          "total_ms": 1525.8,
+          "bytes": 257160,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 192044,
+            "audio_detected": "wav",
+            "audio_transcript": "Hello! It's great to connect with you. How can I assist you today?"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.53
+    },
+    {
+      "case": "chat-audio/out_voice_cedar",
+      "order": 200,
+      "title": "audio.voice=cedar",
+      "expect": "any",
+      "tags": [
+        "audio-out",
+        "voice"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_voice_cedar",
+          "expect": "any",
+          "match": null,
+          "summary": "finish=stop tok=10/89 audio_tok=0/65 audio(id=audio_6adb1e4f, 208060b64, transcript='Hello! Great to meet you. How can I help you toda…') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1299.8,
+          "total_ms": 1471.7,
+          "bytes": 209143,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 156044,
+            "audio_detected": "wav",
+            "audio_transcript": "Hello! Great to meet you. How can I help you today?"
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.47
+    },
+    {
+      "case": "chat-audio/in_wav_audio_out",
+      "order": 201,
+      "title": "input_audio + sortie audio : conversation vocale complète (usage audio_tokens in/out)",
+      "expect": "2xx",
+      "tags": [
+        "audio-in",
+        "audio-out"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_wav_audio_out",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=74/240 audio_tok=63/189 audio(id=audio_6adb1e52, 604860b64, transcript='Bonjour Laurent, ravi de parler avec toi. Aujourd…') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 2692.1,
+          "total_ms": 2952.3,
+          "bytes": 606057,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 453644,
+            "audio_detected": "wav",
+            "audio_transcript": "Bonjour Laurent, ravi de parler avec toi. Aujourd'hui, le temps est magnifique à Paris, et la réponse à ta question est simple : deux plus deux égale quatre."
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 2.96
+    },
+    {
+      "case": "chat-audio/in_mp3_audio_out_mp3",
+      "order": 202,
+      "title": "input_audio mp3 -> sortie audio mp3",
+      "expect": "2xx",
+      "tags": [
+        "audio-in",
+        "audio-out"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/in_mp3_audio_out_mp3",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=length tok=82/300 audio_tok=71/231 audio(id=audio_6adb1e56, 143228b64, transcript=\"Hello Laurent, it's nice to meet you! Today sound…\") content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 3320.7,
+          "total_ms": 3408.5,
+          "bytes": 144491,
+          "extracted": {
+            "audio_file": "response.audio.mp3",
+            "audio_bytes": 107421,
+            "audio_detected": "mp3",
+            "audio_transcript": "Hello Laurent, it's nice to meet you! Today sounds like a beautiful day in Paris. By the way, two plus two is four. That’s a simple and classic math fact. If there’s anything else you’re curious about, feel free to ask."
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.41
+    },
+    {
+      "case": "chat-audio/out_modalities_audio_only",
+      "order": 203,
+      "title": "modalities=[audio] seul (la doc le mentionne ; le modèle exige souvent [text, audio])",
+      "expect": "any",
+      "tags": [
+        "audio-out"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_modalities_audio_only",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/invalid_value/modalities: Invalid value for 'modalities'. Only ['text'] and ['text', 'audio'] are supported.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 253.8,
+          "total_ms": 254.1,
+          "bytes": 213,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.25
+    },
+    {
+      "case": "chat-audio/out_modalities_with_text_model",
+      "order": 204,
+      "title": "modalities=[text,audio] sur modèle texte-seul",
+      "expect": "4xx",
+      "tags": [
+        "audio-out",
+        "neg",
+        "model"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_modalities_with_text_model",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/modalities: The selected model does not support audio modality.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 240.0,
+          "total_ms": 240.2,
+          "bytes": 182,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.24
+    },
+    {
+      "case": "chat-audio/out_missing_audio_param",
+      "order": 205,
+      "title": "modalities contient audio mais pas de paramètre `audio`",
+      "expect": "4xx",
+      "tags": [
+        "audio-out",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_missing_audio_param",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/missing_audio/modalities[1]: `audio` modality requires an `audio` output configuration.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 249.3,
+          "total_ms": 249.5,
+          "bytes": 192,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.25
+    },
+    {
+      "case": "chat-audio/out_audio_param_without_modality",
+      "order": 206,
+      "title": "paramètre `audio` fourni mais modalities=[text]",
+      "expect": "any",
+      "tags": [
+        "audio-out",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_audio_param_without_modality",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR invalid_request_error/invalid_value/model: This model requires that either input content or output modality contain audio.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 229.8,
+          "total_ms": 230.1,
+          "bytes": 205,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.76
+    },
+    {
+      "case": "chat-audio/out_voice_invalid",
+      "order": 207,
+      "title": "audio.voice inconnue",
+      "expect": "4xx",
+      "tags": [
+        "audio-out",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_voice_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/audio.voice: Invalid value: 'bogus'. Supported values are: 'alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer', 'coral', 'verse', 'ballad', 'ash', 'sage', 'marin', and 'cedar'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 242.2,
+          "total_ms": 242.4,
+          "bytes": 295,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.24
+    },
+    {
+      "case": "chat-audio/out_format_invalid",
+      "order": 208,
+      "title": "audio.format=ogg",
+      "expect": "4xx",
+      "tags": [
+        "audio-out",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_format_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/audio.format: Invalid value: 'ogg'. Supported values are: 'mp3', 'opus', 'aac', 'flac', 'wav', and 'pcm16'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 262.0,
+          "total_ms": 262.3,
+          "bytes": 226,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.26
+    },
+    {
+      "case": "chat-audio/out_modalities_invalid",
+      "order": 209,
+      "title": "modalities=[video]",
+      "expect": "4xx",
+      "tags": [
+        "audio-out",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_modalities_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_value/modalities[0]: Invalid value: 'video'. Supported values are: 'text' and 'audio'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 229.6,
+          "total_ms": 229.9,
+          "bytes": 199,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.23
+    },
+    {
+      "case": "chat-audio/out_stream_pcm16",
+      "order": 210,
+      "title": "Streaming audio : delta.audio {id, data, transcript} en pcm16",
+      "expect": "2xx",
+      "tags": [
+        "audio-out",
+        "stream"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_stream_pcm16",
+          "expect": "2xx",
+          "match": true,
+          "summary": "SSE chunks=56 done=True finish=None usage=14/52 text=None",
+          "status": 200,
+          "kind": "sse",
+          "content_type": "text/event-stream",
+          "ttfb_ms": 509.3,
+          "total_ms": 932.8,
+          "bytes": 133109,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 88800,
+            "audio_transcript": "Hello! Great to meet you."
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.94
+    },
+    {
+      "case": "chat-audio/out_stream_wav",
+      "order": 211,
+      "title": "Streaming audio avec format=wav (doc : pcm16 requis en streaming)",
+      "expect": "4xx",
+      "tags": [
+        "audio-out",
+        "stream",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_stream_wav",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/unsupported_value/audio.format: Unsupported value: 'audio.format' does not support 'wav' when stream=true. Supported values are: 'pcm16'.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 269.2,
+          "total_ms": 269.5,
+          "bytes": 242,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.27
+    },
+    {
+      "case": "chat-audio/out_n2",
+      "order": 212,
+      "title": "n=2 avec sortie audio",
+      "expect": "any",
+      "tags": [
+        "audio-out",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/out_n2",
+          "expect": "any",
+          "match": null,
+          "summary": "ERR model_error: The model produced invalid content. Consider modifying your prompt if you are seeing this error persistently.",
+          "status": 500,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1472.1,
+          "total_ms": 1472.3,
+          "bytes": 211,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.47
+    },
+    {
+      "case": "chat-audio/multi_turn_audio_id",
+      "order": 213,
+      "title": "Tour 2 : on référence la réponse audio précédente par assistant.audio.id (pas de ré-upload)",
+      "expect": "2xx",
+      "tags": [
+        "multi-turn",
+        "audio-out"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": "turn1",
+          "dir": "chat-audio/multi_turn_audio_id/turn1",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=14/125 audio_tok=0/98 audio(id=audio_6adb1e5d, 313660b64, transcript='Paris est réputée pour sa magnifique tour Eiffel …') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1519.1,
+          "total_ms": 1775.4,
+          "bytes": 314772,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 235244,
+            "audio_detected": "wav",
+            "audio_transcript": "Paris est réputée pour sa magnifique tour Eiffel et son ambiance romantique."
+          },
+          "transport_error": null
+        },
+        {
+          "step": "turn2",
+          "dir": "chat-audio/multi_turn_audio_id/turn2",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=155/50 audio_tok=98/39 audio(id=audio_6adb1e5e, 124860b64, transcript='Incroyable.') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 932.1,
+          "total_ms": 1101.8,
+          "bytes": 125906,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 93644,
+            "audio_detected": "wav",
+            "audio_transcript": "Incroyable."
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 2.88
+    },
+    {
+      "case": "chat-audio/multi_turn_audio_id_text_fallback",
+      "order": 214,
+      "title": "Tour 2 : assistant référencé par son transcript texte (pas d'id audio)",
+      "expect": "2xx",
+      "tags": [
+        "multi-turn",
+        "audio-out"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": "turn1",
+          "dir": "chat-audio/multi_turn_audio_id_text_fallback/turn1",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=14/124 audio_tok=0/101 audio(id=audio_6adb1edd, 323260b64, transcript='Paris est célèbre pour sa tour Eiffel et son ambi…') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1589.8,
+          "total_ms": 1832.7,
+          "bytes": 324362,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 242444,
+            "audio_detected": "wav",
+            "audio_transcript": "Paris est célèbre pour sa tour Eiffel et son ambiance romantique."
+          },
+          "transport_error": null
+        },
+        {
+          "step": "turn2",
+          "dir": "chat-audio/multi_turn_audio_id_text_fallback/turn2",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=40/166 audio_tok=0/132 audio(id=audio_6adb1edf, 422460b64, transcript='Bien sûr. Voici la phrase en français : Paris est…') content=None",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 1760.6,
+          "total_ms": 2112.7,
+          "bytes": 423604,
+          "extracted": {
+            "audio_file": "response.audio.wav",
+            "audio_bytes": 316844,
+            "audio_detected": "wav",
+            "audio_transcript": "Bien sûr. Voici la phrase en français : Paris est célèbre pour sa tour Eiffel et son ambiance romantique."
+          },
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 3.95
+    },
+    {
+      "case": "chat-audio/multi_turn_audio_id_unknown",
+      "order": 215,
+      "title": "assistant.audio.id inexistant",
+      "expect": "4xx",
+      "tags": [
+        "multi-turn",
+        "neg"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/multi_turn_audio_id_unknown",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/audio_not_found/content.messages[1].audio.id: Assistant audio audio_does_not_exist not found.",
+          "status": 400,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 415.5,
+          "total_ms": 415.7,
+          "bytes": 198,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.42
+    },
+    {
+      "case": "chat-audio/multi_turn_input_audio_then_text",
+      "order": 216,
+      "title": "Tour 1 : audio utilisateur ; tour 2 : question texte de suivi (l'audio reste-t-il en contexte ?)",
+      "expect": "2xx",
+      "tags": [
+        "multi-turn",
+        "audio-in"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": "turn1",
+          "dir": "chat-audio/multi_turn_input_audio_then_text/turn1",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=94/39 audio_tok=63/0 content='I\\'m sorry, but I can\\'t identify the speaker\\'s name from the voice. However, I can answer the question. The answer to \"What is 2 plus 2?\" is 4.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 940.1,
+          "total_ms": 945.1,
+          "bytes": 1002,
+          "extracted": null,
+          "transport_error": null
+        },
+        {
+          "step": "turn2",
+          "dir": "chat-audio/multi_turn_input_audio_then_text/turn2",
+          "expect": "2xx",
+          "match": true,
+          "summary": "finish=stop tok=148/5 audio_tok=63/0 content='The speaker mentioned Paris.'",
+          "status": 200,
+          "kind": "json",
+          "content_type": "application/json",
+          "ttfb_ms": 791.0,
+          "total_ms": 791.4,
+          "bytes": 885,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 1.75
+    },
+    {
+      "case": "chat-audio/auth_invalid",
+      "order": 217,
+      "title": "Clé API invalide",
+      "expect": "4xx",
+      "tags": [
+        "neg",
+        "auth"
+      ],
+      "outcome": "done",
+      "steps": [
+        {
+          "step": null,
+          "dir": "chat-audio/auth_invalid",
+          "expect": "4xx",
+          "match": true,
+          "summary": "ERR invalid_request_error/invalid_api_key: Incorrect API key provided: sk-inval******robe. You can find your API key at https://platform.openai.com/account/api-keys.",
+          "status": 401,
+          "kind": "json",
+          "content_type": "text/plain",
+          "ttfb_ms": 224.0,
+          "total_ms": 224.2,
+          "bytes": 264,
+          "extracted": null,
+          "transport_error": null
+        }
+      ],
+      "elapsed_s": 0.23
+    }
+  ]
+}

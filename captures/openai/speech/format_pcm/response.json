@@ -1,0 +1,44 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:33:28 GMT",
+    "content-type": "audio/pcm",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "276",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-limit-tokens": "2000000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-remaining-tokens": "1999987",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-ratelimit-reset-tokens": "0s",
+    "x-request-id": "req_f9442f1a16a9443bb31e7d6d089ae6dc",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=j7RL72pvUP_uXrO_SP4Rm.SdeHDFFE5us3MrQqe_xTY-1792744407.6195934-1.0.1.1-T1pvj6OYpx.r0Lq3J1dxC9hlyee41N0L3luSNPKrlaSpI5lLN2oLNLPqLAGlZqn17kFUNpltnmVOfF9XmatcIIAZ3xwaRY29mXumPdVf8Kua3DQUeix6VdhjbgRs0zs6; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:03:28 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "cf-ray": "a4ef65a39e95018e-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 512.6,
+    "total_ms": 1102.8,
+    "chunks": 77,
+    "retries_429": 0
+  },
+  "bytes": 194400,
+  "kind": "binary",
+  "extracted": {
+    "audio_file": "response.audio.bin",
+    "audio_bytes": 194400,
+    "audio_detected": "unknown/raw"
+  }
+}

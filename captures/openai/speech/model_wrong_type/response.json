@@ -1,0 +1,41 @@
+{
+  "status": 431,
+  "reason": "Request Header Fields Too Large",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:02 GMT",
+    "content-type": "text/html",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "150",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "via": "envoy-router-77c58c8d97-h4nnd",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-limit-tokens": "2000000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-remaining-tokens": "1999987",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-ratelimit-reset-tokens": "0s",
+    "x-request-id": "req_36b360970c3449f99ab2740c1997b6da",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=vAblJ62aQjNOGGxXQVrUNHA.u.6aGBtKFCwlEMvO0QA-1792744861.8055077-1.0.1.1-IOr7kySFjUbpYYKtxFQ8awLFlEoeJ.ZKmDMdVAiMQAsZm7.y0r0xVVbkj5bm1yU3lWzkkQjvj.0U9atqcPN3KoFobIqpXZ7hZ31a2rqZD.G9oatt37N7yRNu6IdUK1ZU; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:02 GMT",
+    "x-content-type-options": "nosniff",
+    "cf-ray": "a4ef70ba4981cb5a-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 458.6,
+    "total_ms": 459.0,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 224,
+  "kind": "text",
+  "body": "<html>\n  <head>\n    <title>Request Header Fields Too Large</title>\n  </head>\n  <body>\n    <h1><p>Request Header Fields Too Large</p></h1>\n    Error parsing headers: &#x27;limit request headers fields&#x27;\n  </body>\n</html>\n"
+}

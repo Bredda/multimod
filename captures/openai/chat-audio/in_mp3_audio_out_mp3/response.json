@@ -1,0 +1,90 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:44:06 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef7528cfdfd136-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "3350",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199998",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "0s",
+    "x-request-id": "req_4f1b700240344c9195a7462e26c902af",
+    "set-cookie": "__cf_bm=_HZqBqZy00aj8qW_mUcxXO7ZQEXhkVqvQIuB6bU.k30-1792745043.3238506-1.0.1.1-u_fQcNBWfHgle99blKgeXFO8w.bXX1y2TuGyC5suPXYNXS8wbWrqKIQSHw2zddIPjRWeNdl_Tb2yauT1QiEYkCe3D1K7NT6UQetBjB97MBjIHZFncCLPcb05JgPpUJxj; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:14:06 GMT",
+    "content-encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 3320.7,
+    "total_ms": 3408.5,
+    "chunks": 55,
+    "retries_429": 0
+  },
+  "bytes": 144491,
+  "kind": "json",
+  "body": {
+    "id": "chatcmpl-Ec5AZqLpGtdIBG2PP9PQyB3Km7bWr",
+    "object": "chat.completion",
+    "created": 1792745043,
+    "model": "gpt-audio-2025-08-28",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "refusal": null,
+          "audio": {
+            "id": "audio_6adb1e568d3c81918f8f2dc349d64c1e",
+            "data": "<base64 143228 chars, sha256:5b0f1efd67db>",
+            "expires_at": 1792748646,
+            "transcript": "Hello Laurent, it's nice to meet you! Today sounds like a beautiful day in Paris. By the way, two plus two is four. That’s a simple and classic math fact. If there’s anything else you’re curious about, feel free to ask."
+          },
+          "annotations": []
+        },
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 82,
+      "completion_tokens": 300,
+      "total_tokens": 382,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 71,
+        "text_tokens": 11,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 231,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0,
+        "text_tokens": 69
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_5884f923de"
+  },
+  "extracted": {
+    "audio_file": "response.audio.mp3",
+    "audio_bytes": 107421,
+    "audio_detected": "mp3",
+    "audio_transcript": "Hello Laurent, it's nice to meet you! Today sounds like a beautiful day in Paris. By the way, two plus two is four. That’s a simple and classic math fact. If there’s anything else you’re curious about, feel free to ask."
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:53 GMT",
+    "content-type": "text/event-stream; charset=utf-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "cache-control": "no-store",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "326",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-request-id": "req_f16c801d565c483ca027d29fa18ab8c4",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=ocUA5iLbBW5Rw2MkPO.DAqgQpah3.0ApeSFgK6pbCUs-1792744913.417576-1.0.1.1-RvWNGTcE3iW3JmGYHg9Y3LC_0G14YNU6UdFsn3jAX71tivW3A0uYaOd8V955lmgjuOGXPfnYfCnVgobQxa0_uC_8Pyzp.ah23Hzm_B9RFwN_.RNt9WZe.pt48OmEYsnH; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:53 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "cf-ray": "a4ef71fcdd800179-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 552.9,
+    "total_ms": 710.8,
+    "chunks": 21,
+    "retries_429": 0
+  },
+  "bytes": 1483,
+  "kind": "sse",
+  "stream_summary": {
+    "events": 23,
+    "ends_with_done": true,
+    "event_types": {
+      "transcript.text.delta": 21,
+      "transcript.text.done": 1
+    },
+    "first_event_keys": [
+      "delta",
+      "type"
+    ],
+    "text": "Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two plus two?",
+    "finish_reason": null,
+    "usage": {
+      "type": "tokens",
+      "total_tokens": 94,
+      "input_tokens": 71,
+      "input_token_details": {
+        "text_tokens": 0,
+        "audio_tokens": 71
+      },
+      "output_tokens": 23
+    }
+  },
+  "events": [
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": "Hello"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": ","
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " my"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " name"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " is"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " Laurent"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": "."
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " Today"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " is"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " a"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " sunny"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " Friday"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " in"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " Paris"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": "."
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " What"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " is"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " two"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " plus"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": " two"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.delta",
+        "delta": "?"
+      }
+    },
+    {
+      "data": {
+        "type": "transcript.text.done",
+        "text": "Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two plus two?",
+        "usage": {
+          "type": "tokens",
+          "total_tokens": 94,
+          "input_tokens": 71,
+          "input_token_details": {
+            "text_tokens": 0,
+            "audio_tokens": 71
+          },
+          "output_tokens": 23
+        }
+      }
+    },
+    {
+      "data": "[DONE]"
+    }
+  ]
+}

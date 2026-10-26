@@ -1,0 +1,90 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:44:13 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef755e68773ef4-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "1392",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199989",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "3ms",
+    "x-request-id": "req_ff347075a2bf4e03ba6c3a7cb677a5bb",
+    "set-cookie": "__cf_bm=BEAJlO2BMBlbo7cIelNKhrQD77CjyK9u_XVtZ9jsHLo-1792745051.9069953-1.0.1.1-WD_iLbWS1iYT.6yLyUe5fmk5kBftAL.9UtAkUAZ07gjdMpGxxGSlPqIgB0oc.LUMlzuOfTYIIwuJqzxcOmr6U88b5ZmzJey06eL1Qrw7OHNJK5g0582aYBKujZRkHEFG; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:14:13 GMT",
+    "content-encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 1519.1,
+    "total_ms": 1775.4,
+    "chunks": 80,
+    "retries_429": 0
+  },
+  "bytes": 314772,
+  "kind": "json",
+  "body": {
+    "id": "chatcmpl-Ec5AidSDu810ZiirD92Meqxob2Xph",
+    "object": "chat.completion",
+    "created": 1792745052,
+    "model": "gpt-audio-2025-08-28",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "refusal": null,
+          "audio": {
+            "id": "audio_6adb1e5d5470819187720008e7abb742",
+            "data": "<base64 313660 chars, sha256:7ff582645f99>",
+            "expires_at": 1792748653,
+            "transcript": "Paris est réputée pour sa magnifique tour Eiffel et son ambiance romantique."
+          },
+          "annotations": []
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 14,
+      "completion_tokens": 125,
+      "total_tokens": 139,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0,
+        "text_tokens": 14,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 98,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0,
+        "text_tokens": 27
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_5884f923de"
+  },
+  "extracted": {
+    "audio_file": "response.audio.wav",
+    "audio_bytes": 235244,
+    "audio_detected": "wav",
+    "audio_transcript": "Paris est réputée pour sa magnifique tour Eiffel et son ambiance romantique."
+  }
+}

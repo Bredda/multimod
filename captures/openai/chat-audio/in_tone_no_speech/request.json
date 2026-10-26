@@ -1,0 +1,33 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/chat/completions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "gpt-audio",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "What do you hear?"
+          },
+          {
+            "type": "input_audio",
+            "input_audio": {
+              "data": "<base64 128060 chars, sha256:879a0752d77f>",
+              "format": "wav"
+            }
+          }
+        ]
+      }
+    ],
+    "max_completion_tokens": 300,
+    "modalities": [
+      "text"
+    ]
+  }
+}

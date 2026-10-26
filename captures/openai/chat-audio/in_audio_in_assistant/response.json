@@ -1,0 +1,47 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:43:44 GMT",
+    "content-type": "application/json",
+    "content-length": "275",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef74aeed30ebb2-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "28",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199994",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "1ms",
+    "x-request-id": "req_6895b0287ad34352a6b2738aa2886016",
+    "set-cookie": "__cf_bm=mNM27zscvo1eoJfJv6L978GAKewjksgGu9wlfNc7VVs-1792745023.8251863-1.0.1.1-GsqXO_WBDNILXb6_g9m3FrPg5aqDxdJeCu6RHDt.9zr01ll_jMvr47XEDQvBxctBE0ZXvveTkp5XHaT8.Tb4l_LVP_3heAi85rbdf3R8yJeKWrEUfch_KQ0TLUP4Fz6Z; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:13:44 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 432.5,
+    "total_ms": 434.5,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 275,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "Invalid 'messages[1]'. Audio URLs are only allowed for messages with role 'user', but this message with role 'assistant' contains an audio URL.",
+      "type": "invalid_request_error",
+      "param": "messages[1]",
+      "code": "invalid_value"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:43:31 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef745d198cebb2-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "863",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199998",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "0s",
+    "x-request-id": "req_a6601dfbdf784fdbbd5072b5e4e13eaf",
+    "set-cookie": "__cf_bm=d1xH3UEK2emZRUlhlyyB91arR0JOywz9qbxHfbaeCCY-1792745010.74089-1.0.1.1-jwn3I5A_Szh_33rsllTT3DY27R8LKj3uh40eFENI7CchbyPK6rVU2aqDPk32h6FJ7ofzO8gAoFB_d7hc5CdaxDhia_SuEThK81tJZ5EbLSmV0CzQSGZIWRC3744cAS36; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:13:31 GMT",
+    "content-encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 1178.2,
+    "total_ms": 1183.8,
+    "chunks": 1,
+    "retries_429": 0
+  },
+  "bytes": 1025,
+  "kind": "json",
+  "body": {
+    "id": "chatcmpl-Ec5A3QzFquCRrcmUw19omF34PpRyE",
+    "object": "chat.completion",
+    "created": 1792745011,
+    "model": "gpt-audio-2025-08-28",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Hello, Laurent! It sounds like a lovely day in Paris. To answer your question: 2 plus 2 equals 4. If you have any other questions or need assistance, feel free to ask.",
+          "refusal": null,
+          "annotations": []
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 74,
+      "completion_tokens": 42,
+      "total_tokens": 116,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 63,
+        "text_tokens": 11,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0,
+        "text_tokens": 42
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_10c132697f"
+  }
+}

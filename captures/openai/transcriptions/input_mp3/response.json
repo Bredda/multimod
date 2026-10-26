@@ -1,0 +1,50 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:14 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "549",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-request-id": "req_43535de96a2a4f87818c7a16f40cdf86",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=QUQ12UJIPp5V47gGWM2hinoGuxG28JI2vjes8q5mZpM-1792744874.0190694-1.0.1.1-fZbtmHcwJPdr0kr0C3SvLvIMoFeQ4d2lBW6Ce4oYyQ7le_rLx_Jy0GvdftQz_ExiOwf6LAnVbddW9Cyxxag3_daBCybMZQefuF9JdP8RqXkp9p3PDO2CtdOrf1APKI6c; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:14 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "content-encoding": "gzip",
+    "cf-ray": "a4ef71069a23b831-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 746.2,
+    "total_ms": 746.6,
+    "chunks": 1,
+    "retries_429": 0
+  },
+  "bytes": 232,
+  "kind": "json",
+  "body": {
+    "text": "Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two plus two?",
+    "usage": {
+      "type": "tokens",
+      "total_tokens": 94,
+      "input_tokens": 71,
+      "input_token_details": {
+        "text_tokens": 0,
+        "audio_tokens": 71
+      },
+      "output_tokens": 23
+    }
+  }
+}

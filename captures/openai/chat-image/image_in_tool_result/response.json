@@ -1,0 +1,50 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:42:25 GMT",
+    "content-type": "application/json",
+    "content-length": "270",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef72c4da14014f-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "30",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-input-images": "50000",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-limit-tokens": "2000000",
+    "x-ratelimit-remaining-input-images": "49999",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-remaining-tokens": "1999222",
+    "x-ratelimit-reset-input-images": "1ms",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-ratelimit-reset-tokens": "23ms",
+    "x-request-id": "req_947383b46ded4b37aa1b272a3b28c084",
+    "set-cookie": "__cf_bm=UooAlH8x9mFsWLhkX0MyEkvf2fTb2chNcjvJQyG5RXc-1792744945.4206505-1.0.1.1-xAn6LQVkyjg80CCQVcfyjoaOjaQykPJczJNQYzwOBL48l7w6_W77D5cQIrJ2hF85.4DofBIdsX4qWz9z45Vw_1YpDgadCRUCvYykOCpHpEGwy4xmgVyhQKuUCKY_CXDg; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:12:25 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 276.3,
+    "total_ms": 276.5,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 270,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "Invalid 'messages[2]'. Image URLs are only allowed for messages with role 'user', but this message with role 'tool' contains an image URL.",
+      "type": "invalid_request_error",
+      "param": "messages[2]",
+      "code": "invalid_value"
+    }
+  }
+}

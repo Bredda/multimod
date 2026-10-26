@@ -1,0 +1,260 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:49 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "496",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-request-id": "req_68d8208d41a24bfda50e30cc2884772e",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=B3yAUcDfZK3Q42n7rjwhXJtm6NTYhH8wDGM2d1OL4NM-1792744909.1835601-1.0.1.1-.9mpajxJiNwYeRtadt9jDDiQSqdIsW4g7NgAojTjuSmwDy_AFsPtYmRQ4mifXhtmxv1ar_.xch1Lzn_cm.gxUw6cKx5IPFbzYDTDbqBNJ96ufJEe8qkj4v7wLuEdd.kD; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:49 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "content-encoding": "gzip",
+    "cf-ray": "a4ef71e26f27d031-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 701.7,
+    "total_ms": 702.0,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 1743,
+  "kind": "json",
+  "body": {
+    "text": "Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two plus two?",
+    "logprobs": [
+      {
+        "token": "Hello",
+        "logprob": -0.000118255615234375,
+        "bytes": [
+          72,
+          101,
+          108,
+          108,
+          111
+        ]
+      },
+      {
+        "token": ",",
+        "logprob": -0.003814697265625,
+        "bytes": [
+          44
+        ]
+      },
+      {
+        "token": " my",
+        "logprob": -0.000408172607421875,
+        "bytes": [
+          32,
+          109,
+          121
+        ]
+      },
+      {
+        "token": " name",
+        "logprob": -7.2479248046875e-05,
+        "bytes": [
+          32,
+          110,
+          97,
+          109,
+          101
+        ]
+      },
+      {
+        "token": " is",
+        "logprob": -8.7738037109375e-05,
+        "bytes": [
+          32,
+          105,
+          115
+        ]
+      },
+      {
+        "token": " Laurent",
+        "logprob": -0.007083892822265625,
+        "bytes": [
+          32,
+          76,
+          97,
+          117,
+          114,
+          101,
+          110,
+          116
+        ]
+      },
+      {
+        "token": ".",
+        "logprob": -0.000522613525390625,
+        "bytes": [
+          46
+        ]
+      },
+      {
+        "token": " Today",
+        "logprob": 8.392333984375e-05,
+        "bytes": [
+          32,
+          84,
+          111,
+          100,
+          97,
+          121
+        ]
+      },
+      {
+        "token": " is",
+        "logprob": 7.62939453125e-06,
+        "bytes": [
+          32,
+          105,
+          115
+        ]
+      },
+      {
+        "token": " a",
+        "logprob": -2.288818359375e-05,
+        "bytes": [
+          32,
+          97
+        ]
+      },
+      {
+        "token": " sunny",
+        "logprob": 5.340576171875e-05,
+        "bytes": [
+          32,
+          115,
+          117,
+          110,
+          110,
+          121
+        ]
+      },
+      {
+        "token": " Friday",
+        "logprob": -0.002452850341796875,
+        "bytes": [
+          32,
+          70,
+          114,
+          105,
+          100,
+          97,
+          121
+        ]
+      },
+      {
+        "token": " in",
+        "logprob": -4.1961669921875e-05,
+        "bytes": [
+          32,
+          105,
+          110
+        ]
+      },
+      {
+        "token": " Paris",
+        "logprob": 0.0001068115234375,
+        "bytes": [
+          32,
+          80,
+          97,
+          114,
+          105,
+          115
+        ]
+      },
+      {
+        "token": ".",
+        "logprob": -0.000797271728515625,
+        "bytes": [
+          46
+        ]
+      },
+      {
+        "token": " What",
+        "logprob": -5.7220458984375e-05,
+        "bytes": [
+          32,
+          87,
+          104,
+          97,
+          116
+        ]
+      },
+      {
+        "token": " is",
+        "logprob": 1.52587890625e-05,
+        "bytes": [
+          32,
+          105,
+          115
+        ]
+      },
+      {
+        "token": " two",
+        "logprob": -0.07917022705078125,
+        "bytes": [
+          32,
+          116,
+          119,
+          111
+        ]
+      },
+      {
+        "token": " plus",
+        "logprob": -3.0517578125e-05,
+        "bytes": [
+          32,
+          112,
+          108,
+          117,
+          115
+        ]
+      },
+      {
+        "token": " two",
+        "logprob": -7.62939453125e-06,
+        "bytes": [
+          32,
+          116,
+          119,
+          111
+        ]
+      },
+      {
+        "token": "?",
+        "logprob": -0.003170013427734375,
+        "bytes": [
+          63
+        ]
+      }
+    ],
+    "usage": {
+      "type": "tokens",
+      "total_tokens": 94,
+      "input_tokens": 71,
+      "input_token_details": {
+        "text_tokens": 0,
+        "audio_tokens": 71
+      },
+      "output_tokens": 23
+    }
+  }
+}

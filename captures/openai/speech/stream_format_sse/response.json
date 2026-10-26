@@ -1,0 +1,709 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:34:14 GMT",
+    "content-type": "text/event-stream; charset=utf-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "cache-control": "no-store",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "728",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-limit-tokens": "2000000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-remaining-tokens": "1999987",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-ratelimit-reset-tokens": "0s",
+    "x-request-id": "req_5597f589975a495c889368a264881f6b",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=8zjMroccCnOeVM87TzfE6EDov1eMdSZ.GHIrprv.O38-1792744453.194956-1.0.1.1-vSEz5poReVIb4QlNabSRWdhs1OgXElhAsKvbdy6rMRxfT_yjOVJWudb.6i.RtONyqvNE_QEci81gIzlAqgJdGi4jHqOn95ePUCAS.80rOyO1q6qzYTEBw367zQFY_Xla; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:04:14 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "cf-ray": "a4ef66c07dfacf08-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 884.1,
+    "total_ms": 5235.0,
+    "chunks": 58,
+    "retries_429": 0
+  },
+  "bytes": 93947,
+  "kind": "sse",
+  "stream_summary": {
+    "events": 107,
+    "ends_with_done": true,
+    "event_types": {
+      "speech.audio.delta": 105,
+      "speech.audio.done": 1
+    },
+    "first_event_keys": [
+      "audio",
+      "type"
+    ],
+    "text": null,
+    "finish_reason": null,
+    "usage": {
+      "input_tokens": 13,
+      "output_tokens": 107,
+      "total_tokens": 120
+    }
+  },
+  "events": [
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:885cca022711>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 2560 chars, sha256:38a183dbcf6b>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:30f6e99bdf5c>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 3072 chars, sha256:d012db7e964a>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 2560 chars, sha256:085080f69a27>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:4a011088c7b3>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:703c1a900d60>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 2048 chars, sha256:3e691223b85b>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 2560 chars, sha256:47e9859fb1e9>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1536 chars, sha256:3ca5e5747f07>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:ff30a7dd2fb9>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 2048 chars, sha256:5d95254024cf>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 2048 chars, sha256:ce377100c71d>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1536 chars, sha256:9b455422e452>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 2048 chars, sha256:6a18bf1c14b0>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:047165b78856>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:38789b1fedbd>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:aad6dbf13eac>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:69d13d9e8d82>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:4cbe66004e71>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:5b5f1ed7a07e>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:f52881c66c3d>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:f78bdc5805cf>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:aabf07aaf5c3>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:1e9f8c6ab7c9>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:3990c8f193f5>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:6c2dce3fc170>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:c62b1fe6f924>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:709f4367ecf4>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:155ab132b4dc>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:40cdab8db19e>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:0154a1e6a2c3>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:be799884d6fc>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:e91519e512ef>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1536 chars, sha256:18817e1f3105>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1536 chars, sha256:fd46a25331e1>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:0cf13f24ff11>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:77588ad04cff>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:e50acf1e3e46>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:593924052fdf>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:ee67492839a4>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:a252a1b572ae>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:f1ca12f55879>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:67217031ba1a>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:30255e47d44b>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:f1864bfa3f2b>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:30882cf9b2b0>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:f6597ad73aa6>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:b7aab0d3044f>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:094a3f43dff3>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:1a4cbba5fba1>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:e348c91f6e60>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:6dbe174c89e7>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:9e02b8fffbfe>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:254d89a09027>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:80849d379da6>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:994e83634df9>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:e8c0f70d2386>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:e2e926cae8b9>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:36db42a186ea>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:fc9003206c00>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:fcd2c1566ef3>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:e75c773a2bec>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:49d75f704fb4>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:a272d8229e39>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:2aeb3c1df60c>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:fad82f172af8>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:5e91d5a440e8>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:25707950a491>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:96a27e5da1e9>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:4648bbf35c0b>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:98ab71eaed6b>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:b72da3d9d7ab>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:17e7cdb651e1>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:f8e1288d2f08>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:d4f83548a65e>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:1af115b8c470>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1536 chars, sha256:a81cea080aab>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:00361bbe1c40>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:d3550ece8258>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:8d2e0a662c6b>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:bf8b62a96145>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:8ef77300d3dc>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:2b40ecf217f5>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:0f2ea77c61d0>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:5e2793ceb8b1>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:27333d8aa555>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:43b5c95d88dd>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:dcdc30da82c2>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:9ff387b612c8>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:423536882005>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:7cbf485ddfdb>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:d8298154cff8>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:cdc82e2376f0>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:545b363fc712>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:3cde24203ba1>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:63d6504e6a21>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:2ca43683f7f5>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:19d9836b4f77>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1024 chars, sha256:d958301777e1>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:6d5f4d559aeb>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:3d7a5abbbb2e>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:a84e7fcb2279>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 512 chars, sha256:ff518c3b6e37>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.delta",
+        "audio": "<base64 1536 chars, sha256:3a10b6973562>"
+      }
+    },
+    {
+      "data": {
+        "type": "speech.audio.done",
+        "usage": {
+          "input_tokens": 13,
+          "output_tokens": 107,
+          "total_tokens": 120
+        }
+      }
+    },
+    {
+      "data": "[DONE]"
+    }
+  ],
+  "extracted": {
+    "audio_file": "response.audio.wav",
+    "audio_bytes": 66432,
+    "audio_transcript": null
+  }
+}

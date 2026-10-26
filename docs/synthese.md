@@ -6,10 +6,10 @@
 |---|---|
 | Sondes HTTP brutes (218 cas dont 4 opt-in `heavy`/`security`) | ✅ écrites ; 216 exécutés contre OpenAI |
 | Run de référence OpenAI | ✅ fait le 2026-10-23 → `captures/openai/` · détail : [observations-openai.md](observations-openai.md) |
-| Run contre LiteLLM (LLMaaS) | ⏳ à faire (même commande, autre `--env-file`) |
-| Run contre la gateway actuelle | ⏳ à faire (état des lieux de l'écart) |
+| Run contre LiteLLM (LLMaaS) | ⏳ à faire (mêmes sondes HTTP, autre `--env-file`) |
+| Sondes **Bedrock** (boto3, 97 cas) | ✅ écrites et validées hors-ligne · ⏳ **jamais exécutées sur AWS** (pas d'identifiants) |
+| Mapping OpenAI → Bedrock | 📝 hypothèses dans [bedrock-mapping.md](bedrock-mapping.md), chaque ligne reliée au cas qui la vérifiera |
 | Contrat documenté | ✅ [contrat-openai.md](contrat-openai.md) (spec OpenAPI) — complété par les observations |
-| Mapping Bedrock | ❌ hors périmètre de cette étape, non vérifié |
 
 Résultat du run : 214 échanges, 156 conformes à la doc, **5 écarts**, 53 cas à attente indéterminée désormais tranchés, 5 ignorés (fixtures `m4a/mp4/webm/mpga/mpeg` à fournir). Les cas `security` (SSRF) n'ont volontairement pas été lancés contre OpenAI.
 
@@ -46,19 +46,26 @@ Aujourd'hui la gateway ne manipule que du JSON-in/JSON-out (+ SSE de chat). Les 
 | Bornes réelles de taille (audio > 26 MiB, image > 22 Mo, nb d'images/message) | relancer `--heavy` avec des fichiers plus gros |
 | Formats STT `m4a`, `mp4`, `webm`, `mpga`, `mpeg` | déposer `fixtures/sample.<ext>` puis `run -k 'input_'` |
 | Comportement de **LiteLLM** sur chaque cas (formats, passthrough, SSE, erreurs) | `run --env-file .env.litellm --label litellm` puis `report --compare openai litellm` |
-| Comportement de la **gateway actuelle** (endpoints absents, erreurs, limites de taille) | idem avec `--label gateway` |
-| Refus SSRF de la gateway (`file://`, `169.254.169.254`) | `run --security -k security` **sur la gateway uniquement** |
-| Mapping vers Bedrock (Converse/Invoke) : modèles image/audio, formats, limites, URL vs octets | étape suivante, avec ces captures comme cible |
+| Refus SSRF de la future gateway (`file://`, `169.254.169.254`) | `run --security -k security` **sur la gateway uniquement**, une fois ses endpoints exposés (non sondable avant) |
+| **Bedrock** : limites réelles (3,75 Mo ? 8000 px ? 20 images ?), formats effectivement acceptés, comportement de Voxtral en transcription, erreurs `ValidationException` | `bedrock-models` puis `run --env-file .env.bedrock` (voir [bedrock-mapping.md](bedrock-mapping.md)) |
+| TTS / audio en sortie sur Bedrock : confirmer l'absence de chemin boto3 | `speech/nova_sonic_*`, `chat-audio/nova_sonic_converse` |
 | Variabilité entre modèles/versions (`gpt-audio-mini`, `gpt-audio-1.5`, `gpt-transcribe`, `gpt-live-transcribe` listés par `/v1/models`) | `MM_MODEL_*` puis relance partielle |
+
+### Ce que la doc AWS laisse déjà prévoir pour Bedrock (à confirmer par les sondes)
+
+- **Image** : Converse n'accepte pas d'URL (octets ou `s3Location`) → le worker télécharge (SSRF, §2.4) ; plafonds annoncés 3,75 Mo / 8000 px / 20 images par message, **bien en dessous de ce qu'OpenAI a accepté** (22 Mo, 8200 px, ≥ 12 images) → recompression/redimensionnement ou refus à décider.
+- **Audio en entrée** : seulement via les modèles à modalité SPEECH (Voxtral) ; pas d'endpoint de transcription ; `verbose_json`/`srt`/`vtt`/timestamps/diarisation sans équivalent.
+- **TTS et audio en sortie** : aucun chemin avec boto3 (Nova Sonic = flux bidirectionnel uniquement). Le périmètre faisable côté Bedrock se réduit donc à *image en entrée* et *audio en entrée*.
 
 ## 4. Protocole pour les cibles suivantes
 
 ```bash
 uv run python -m mmprobe --env-file .env.litellm --label litellm run
-uv run python -m mmprobe --env-file .env.gateway --label gateway run
-uv run python -m mmprobe report --compare openai litellm gateway   # captures/COMPARE_*.md
+uv run python -m mmprobe --env-file .env.bedrock bedrock-models      # ids de modèles disponibles → .env.bedrock
+uv run python -m mmprobe --env-file .env.bedrock run                  # sondes boto3, label bedrock-<région>
+uv run python -m mmprobe report --compare openai litellm bedrock-eu-west-3   # captures/COMPARE_*.md
 ```
-Les alias de modèles de chaque cible se règlent via `MM_MODEL_*` dans son `.env`. Lire en priorité les lignes `**DIFF**` du COMPARE : ce sont les endroits où la cible ne se comporte pas comme OpenAI sur la classe de statut.
+Les alias de modèles se règlent via `MM_MODEL_*` (HTTP) ou `MM_BEDROCK_MODEL_*` (Bedrock, aucun défaut) dans le `.env` de la cible. La gateway elle-même n'est pas sondée (ses endpoints sont ce qu'on cadre). Lire en priorité les lignes `**DIFF**` du COMPARE : ce sont les endroits où la cible ne se comporte pas comme OpenAI sur la classe de statut.
 
 ## 5. Hors périmètre de cette étape
 

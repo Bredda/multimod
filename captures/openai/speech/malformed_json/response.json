@@ -1,0 +1,38 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:40:44 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "443",
+    "connection": "keep-alive",
+    "vary": "Origin",
+    "x-request-id": "req_d00ccbb2b4a44910a3c94ff0c1f0a3bf",
+    "x-openai-proxy-wasm": "v0.1",
+    "server": "cloudflare",
+    "cf-cache-status": "DYNAMIC",
+    "access-control-expose-headers": "CF-Ray",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "set-cookie": "__cf_bm=p3TtXOrtq5W7OxQwWBtzR4x0ISmw.BZN6sQloWUF6Vc-1792744843.937606-1.0.1.1-DsA1k0bx3jlqIdTSj3ry8rUmbUCBUBTTgI.oICrGWlYPL2JufSADJp4Ix5rMaFI8WIJ00B.EsaLjmlBT7GJNnfmjSuE533Oy_zwkQymo84pMf.A0qKty4YHHvCemZzqX; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:10:44 GMT",
+    "cf-ray": "a4ef704a9dd3f148-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 210.1,
+    "total_ms": 210.3,
+    "chunks": 1,
+    "retries_429": 0
+  },
+  "bytes": 443,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "We could not parse the JSON body of your request. (HINT: This likely means you aren't using your HTTP library correctly. The OpenAI API expects a JSON payload, but what was sent was not valid JSON. If you have trouble figuring out how to fix this, please contact us through our help center at help.openai.com.)",
+      "type": "invalid_request_error",
+      "param": null,
+      "code": null
+    }
+  }
+}

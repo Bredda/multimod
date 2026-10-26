@@ -1,0 +1,1 @@
+{"model": "gpt-audio", "messages": [{"role": "user", "content": [{"type": "text", "text": "Say a short sentence about Paris."}]}], "max_completion_tokens": 200, "modalities": ["text", "audio"], "audio": {"voice": "alloy", "format": "wav"}}

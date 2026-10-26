@@ -1,0 +1,47 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:43:39 GMT",
+    "content-type": "application/json",
+    "content-length": "223",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef7490ab4e6cdf-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "36",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199975",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "7ms",
+    "x-request-id": "req_56515ed578af491ca36ad2776a1e5767",
+    "set-cookie": "__cf_bm=mFLUoti.W.qCO4F9m.2OaCrr2gs2kQeIwaAatyerScc-1792745018.9812808-1.0.1.1-RGiFtd6LxqWeNRBr9zUSWoajv_0oS2X5KNpyB6JNeoDf52NIKXLjrYNNZ1qqFwS57DBEabyqwM_EXjRQMaevWoNja04Bn3OgSfPVO2hMoHoupdBQSxZjbhdq2cz9tw3I; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:13:39 GMT",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 380.4,
+    "total_ms": 380.6,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 223,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "Invalid value: 'flac'. Supported values are: 'wav' and 'mp3'.",
+      "type": "invalid_request_error",
+      "param": "messages[0].content[1].input_audio.format",
+      "code": "invalid_value"
+    }
+  }
+}

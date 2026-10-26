@@ -1,0 +1,50 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:20 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "223",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-request-id": "req_7973bc797c584200b05f362d6873bbc9",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=6lcZkfZLSa5AX0otemFNi55dzHtgD2SF5VogA1sgLtY-1792744880.153878-1.0.1.1-bc2EWTrqm_8tu5VB10a60FLUf4Q3NvsHPZjkZSjMIl3ssB8Bg9ZomwlnKY44UBQK5gKcRxz8HnBibPtCzN9OZlcpsyHyVs4li0u4VbMAih1tm.gOp3dNNoyJDcLtyFQe; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:20 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "content-encoding": "gzip",
+    "cf-ray": "a4ef712cfd89783b-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 513.4,
+    "total_ms": 513.6,
+    "chunks": 1,
+    "retries_429": 0
+  },
+  "bytes": 161,
+  "kind": "json",
+  "body": {
+    "text": "هیچوقت",
+    "usage": {
+      "type": "tokens",
+      "total_tokens": 35,
+      "input_tokens": 30,
+      "input_token_details": {
+        "text_tokens": 0,
+        "audio_tokens": 30
+      },
+      "output_tokens": 5
+    }
+  }
+}

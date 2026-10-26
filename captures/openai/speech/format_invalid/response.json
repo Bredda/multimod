@@ -1,0 +1,47 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:40:41 GMT",
+    "content-type": "application/json",
+    "content-length": "227",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "6",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-limit-tokens": "2000000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-remaining-tokens": "1999987",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-ratelimit-reset-tokens": "0s",
+    "x-request-id": "req_0b5521a2a3c0469fbf1144d07acdab95",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=xPQ59PAB8npml.3jVFMhmEfdb3PRtbhVmfXjsra22jo-1792744841.6173704-1.0.1.1-3FSs47ZyeBqBrImChTV4ZTB2VajOb.gYaza9ZBvMN87t.2R1Wb1UmGiEiN6hQIuzCv4TGt8UhnKRe.GfM8Ke0yN_8IjOQK3PLM71ZXcws9q.KY2xlSx2HAAPYlm17OSA; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:10:41 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "cf-ray": "a4ef703c1ba1f52a-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 371.6,
+    "total_ms": 371.9,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 227,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "Invalid value: 'ogg'. Supported values are: 'mp3', 'aac', 'opus', 'flac', 'pcm', and 'wav'.",
+      "type": "invalid_request_error",
+      "param": "response_format",
+      "code": "invalid_value"
+    }
+  }
+}

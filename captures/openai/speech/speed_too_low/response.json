@@ -1,0 +1,47 @@
+{
+  "status": 400,
+  "reason": "Bad Request",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:34:09 GMT",
+    "content-type": "application/json",
+    "content-length": "228",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "10",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "x-ratelimit-limit-requests": "5000",
+    "x-ratelimit-limit-tokens": "2000000",
+    "x-ratelimit-remaining-requests": "4999",
+    "x-ratelimit-remaining-tokens": "1999987",
+    "x-ratelimit-reset-requests": "12ms",
+    "x-ratelimit-reset-tokens": "0s",
+    "x-request-id": "req_f9f692981f6440468d5882aba0356916",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=LqZiFsbaLhlGtCzz5PNYMpi7JZLdrvpsAeyRigUcVVo-1792744449.4538474-1.0.1.1-Tnmdmpnu0vTHheYRTgX7qnKCuUg4uEg5R1s8ij564m8YvYRIhelToyGw8eXR_EBKsYhaXgf4iHeZZU6asnLnGkmIivEMaFa.DJMflqWBsXy.dBiLrnWi0q1HBDtyiC4f; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:04:09 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "cf-ray": "a4ef66a91d8a2a77-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 237.0,
+    "total_ms": 237.5,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 228,
+  "kind": "json",
+  "body": {
+    "error": {
+      "message": "Invalid 'speed': decimal below minimum value. Expected a value >= 0.25, but got 0.1 instead.",
+      "type": "invalid_request_error",
+      "param": "speed",
+      "code": "decimal_below_min_value"
+    }
+  }
+}

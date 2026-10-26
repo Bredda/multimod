@@ -1,0 +1,46 @@
+data: {"type":"transcript.text.delta","delta":"Hello"}
+
+data: {"type":"transcript.text.delta","delta":","}
+
+data: {"type":"transcript.text.delta","delta":" my"}
+
+data: {"type":"transcript.text.delta","delta":" name"}
+
+data: {"type":"transcript.text.delta","delta":" is"}
+
+data: {"type":"transcript.text.delta","delta":" Laurent"}
+
+data: {"type":"transcript.text.delta","delta":"."}
+
+data: {"type":"transcript.text.delta","delta":" Today"}
+
+data: {"type":"transcript.text.delta","delta":" is"}
+
+data: {"type":"transcript.text.delta","delta":" a"}
+
+data: {"type":"transcript.text.delta","delta":" sunny"}
+
+data: {"type":"transcript.text.delta","delta":" Friday"}
+
+data: {"type":"transcript.text.delta","delta":" in"}
+
+data: {"type":"transcript.text.delta","delta":" Paris"}
+
+data: {"type":"transcript.text.delta","delta":"."}
+
+data: {"type":"transcript.text.delta","delta":" What"}
+
+data: {"type":"transcript.text.delta","delta":" is"}
+
+data: {"type":"transcript.text.delta","delta":" two"}
+
+data: {"type":"transcript.text.delta","delta":" plus"}
+
+data: {"type":"transcript.text.delta","delta":" two"}
+
+data: {"type":"transcript.text.delta","delta":"?"}
+
+data: {"type":"transcript.text.done","text":"Hello, my name is Laurent. Today is a sunny Friday in Paris. What is two plus two?","usage":{"type":"tokens","total_tokens":94,"input_tokens":71,"input_token_details":{"text_tokens":0,"audio_tokens":71},"output_tokens":23}}
+
+data: [DONE]
+

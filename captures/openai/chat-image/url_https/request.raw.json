@@ -1,0 +1,1 @@
+{"model": "gpt-4o-mini", "messages": [{"role": "user", "content": [{"type": "text", "text": "Describe this image in one short sentence, naming each shape and its color."}, {"type": "image_url", "image_url": {"url": "https://www.python.org/static/community_logos/python-logo.png"}}]}], "max_completion_tokens": 200}

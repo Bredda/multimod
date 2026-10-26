@@ -1,0 +1,35 @@
+{
+  "method": "POST",
+  "url": "https://api.openai.com/v1/chat/completions",
+  "headers": {
+    "Authorization": "Bearer sk-…<redacted>",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "model": "gpt-4o-mini",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "What is the color and shape in the first image, and in the second image?"
+          },
+          {
+            "type": "image_url",
+            "image_url": {
+              "url": "data:image/png;base64,<1048 chars, sha256:6fc44a484b55>"
+            }
+          },
+          {
+            "type": "image_url",
+            "image_url": {
+              "url": "data:image/png;base64,<1988 chars, sha256:c565842dd6bd>"
+            }
+          }
+        ]
+      }
+    ],
+    "max_completion_tokens": 200
+  }
+}

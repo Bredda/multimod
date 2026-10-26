@@ -1,0 +1,90 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:43:49 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cf-ray": "a4ef74c8bd57d622-CDG",
+    "cf-cache-status": "DYNAMIC",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "1181",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "x-openai-proxy-wasm": "v0.1",
+    "x-ratelimit-limit-requests": "400",
+    "x-ratelimit-limit-tokens": "200000",
+    "x-ratelimit-remaining-requests": "399",
+    "x-ratelimit-remaining-tokens": "199990",
+    "x-ratelimit-reset-requests": "150ms",
+    "x-ratelimit-reset-tokens": "3ms",
+    "x-request-id": "req_61c8b29785e545febb8a7c324d462082",
+    "set-cookie": "__cf_bm=Fac3UrCuBC4j1ENQDOX4X0myty7IZoDL4jxp3R9GG9c-1792745027.9596834-1.0.1.1-8uGjKHvFJ14RwZkQqDmU9HHytSALY9ZJUq5y9EWqPFF4joIgf2pchIufwJRo4Sw09PMQY.YPzY1kJ9U6jOs2WqXqtRnJi1iXGKbRddtBGlKSi1yW5QA7lGdoi67X2Pzg; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:13:49 GMT",
+    "content-encoding": "gzip",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 1273.7,
+    "total_ms": 1436.5,
+    "chunks": 43,
+    "retries_429": 0
+  },
+  "bytes": 95757,
+  "kind": "json",
+  "body": {
+    "id": "chatcmpl-Ec5AKxACC2vNMsVTkOPeG7R5Rw6uS",
+    "object": "chat.completion",
+    "created": 1792745028,
+    "model": "gpt-audio-2025-08-28",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "refusal": null,
+          "audio": {
+            "id": "audio_6adb1e45069c8191a056a399478b55b6",
+            "data": "<base64 94684 chars, sha256:37d0955b6a86>",
+            "expires_at": 1792748629,
+            "transcript": "Hello, it's great to be talking with you!"
+          },
+          "annotations": []
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 14,
+      "completion_tokens": 81,
+      "total_tokens": 95,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0,
+        "text_tokens": 14,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 63,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0,
+        "text_tokens": 18
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_5884f923de"
+  },
+  "extracted": {
+    "audio_file": "response.audio.flac",
+    "audio_bytes": 71013,
+    "audio_detected": "flac",
+    "audio_transcript": "Hello, it's great to be talking with you!"
+  }
+}

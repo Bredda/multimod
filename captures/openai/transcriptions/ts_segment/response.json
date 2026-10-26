@@ -1,0 +1,86 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "http_version": "HTTP/1.1",
+  "headers": {
+    "date": "Fri, 23 Oct 2026 08:41:35 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-expose-headers": "X-Request-ID, CF-Ray",
+    "openai-organization": "user-tzezkogtrcdaldcurb9h8ixg",
+    "openai-processing-ms": "1207",
+    "openai-project": "proj_ulvyxP6Zr4pS86GVJV6PcFNy",
+    "openai-version": "2020-10-01",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "via": "envoy-router-778cb67c7-lnwmb",
+    "x-ratelimit-limit-requests": "2500",
+    "x-ratelimit-remaining-requests": "2499",
+    "x-ratelimit-reset-requests": "24ms",
+    "x-request-id": "req_6be8339d7b7247ec875c88f17a4055c6",
+    "x-openai-proxy-wasm": "v0.1",
+    "cf-cache-status": "DYNAMIC",
+    "set-cookie": "__cf_bm=gmriwFIz_o1RvZnD4dKgrQgqDd6ndYsOPqD2dPPWQEw-1792744894.034828-1.0.1.1-Sc6AbGmbC2x1cXRPweWlxYu6HbkCwbs68y7e_qp22bbgTQ7p_VodeZd4TEQTQ.lNb5dLlKjF4TJhGBSyI1BKzQHSUludaR2N85nj2i7B0xh2Lr24O5UL5yRakLDibfnZ; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 23 Oct 2026 09:11:35 GMT",
+    "x-content-type-options": "nosniff",
+    "content-encoding": "gzip",
+    "cf-ray": "a4ef7183bf2ed8e6-CDG",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "timing": {
+    "ttfb_ms": 1384.9,
+    "total_ms": 1385.2,
+    "chunks": 2,
+    "retries_429": 0
+  },
+  "bytes": 598,
+  "kind": "json",
+  "body": {
+    "task": "transcribe",
+    "language": "english",
+    "duration": 7.099999904632568,
+    "text": "Hello, my name is Laurent. Today is a sunny Friday in Paris. What is 2 plus 2?",
+    "segments": [
+      {
+        "id": 0,
+        "seek": 0,
+        "start": 0.0,
+        "end": 6.960000038146973,
+        "text": " Hello, my name is Laurent. Today is a sunny Friday in Paris. What is 2 plus 2?",
+        "tokens": [
+          50364,
+          2425,
+          11,
+          452,
+          1315,
+          307,
+          49357,
+          13,
+          2692,
+          307,
+          257,
+          20412,
+          6984,
+          294,
+          8380,
+          13,
+          708,
+          307,
+          568,
+          1804,
+          568,
+          30,
+          50712
+        ],
+        "temperature": 0.0,
+        "avg_logprob": -0.29941895604133606,
+        "compression_ratio": 1.0129870176315308,
+        "no_speech_prob": 0.012502249330282211
+      }
+    ],
+    "usage": {
+      "type": "duration",
+      "seconds": 8
+    }
+  }
+}

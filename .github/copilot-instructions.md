@@ -1,0 +1,2 @@
+Ce dépôt est repris par un agent de code. **Lis d'abord `AGENTS.md`, puis `docs/HANDOFF.md`** : ils contiennent les décisions closes, les interdits (secrets, push, données réelles, SSRF/heavy), les runbooks Bedrock (boto3) et LiteLLM (HTTP brut sans SDK) et les livrables attendus.
+Règle d'or : un échec de sonde est un résultat à documenter, jamais à masquer ; ne modifie pas `captures/openai/` ; passe toujours `--env-file` ; réponds en français.
